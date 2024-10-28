@@ -3,23 +3,24 @@ import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class BoardGui  extends JFrame implements KeyListener {
 
-    int gridX, gridY;
+    int index;
+    BoardLogic boardLogic;
     JPanel main_panel = new JPanel();
     JButton [][]buttons;
-    char [][] board;
-    ArrayList<Stone> stones = new ArrayList<Stone>();
-    ArrayList<Goal> goals = new ArrayList<Goal>();
 
 
-    BoardGui(){
-        readGrid();
-        buttons = new JButton[gridX][gridY];
+    BoardGui(int index){
+        this.index = index;
+        boardLogic = new BoardLogic();
+        readGrid(index);
+        buttons = new JButton[boardLogic.gridX][boardLogic.gridY];
         main_panel.setLayout(new GridLayout(buttons.length,buttons[0].length));
         for(int i=0;i<buttons.length;i++){
             for(int j=0;j<buttons[i].length;j++){
@@ -43,130 +44,63 @@ public class BoardGui  extends JFrame implements KeyListener {
 
     }
 
-    public void readGrid(){
-        String filePath = "src/grid_1";
-        try  {
-            FileReader fr = new FileReader(filePath);
-            int character;
-            int i=0,j=0;
+    public void readGrid(int index){
+        String filePath = "src/grids/"+index+".txt";
 
-            character = fr.read(); // x size
-            gridX = Integer.parseInt(String.valueOf((char) character));
-            character = fr.read(); // space
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            // Read grid dimensions
+            String[] dimensions = br.readLine().split(" ");
+            boardLogic.gridX = Integer.parseInt(dimensions[0]);
+            boardLogic.gridY = Integer.parseInt(dimensions[1]);
 
-            character = fr.read(); // y size
-            gridY = Integer.parseInt(String.valueOf((char) character));
+            // Initialize the board
+            boardLogic.board = new char[boardLogic.gridX][boardLogic.gridY];
 
-            character = fr.read(); // next line
-            character = fr.read(); // next line
-            board= new char[gridX][gridY];
+            // Read the grid data line by line
+            for (int i = 0; i < boardLogic.gridX; i++) {
+                String line = br.readLine();
+                String[] cells = line.split(" ");
+                for (int j = 0; j < boardLogic.gridY; j++) {
+                    char cell = cells[j].charAt(0);
+                    boardLogic.board[i][j] = cell;
 
-
-            while ((character = fr.read()) != -1){
-                if((char)character == '#'){
-                    board[i][j]=(char)character;
-                    j++;
-                }
-                if((char)character == '\n'){
-                    i++;
-                    j=0;
-                }
-                if((char)character == '_'){
-                    board[i][j]=(char)character;
-                    j++;
-                }
-                if((char)character == 'r'){
-                    board[i][j]=(char)character;
-                    Stone stone =  Stone.builder()
-                            .color(Color.RED)
-                            .x(i)
-                            .y(j)
-                            .inGoal(false)
-                            .build();
-                    stones.add(stone);
-                    j++;
-                }
-                if((char)character == 'g'){
-                    board[i][j]=(char)character;
-                    Stone stone =  Stone.builder()
-                            .color(Color.GREEN)
-                            .x(i)
-                            .y(j)
-                            .inGoal(false)
-                            .build();
-                    stones.add(stone);
-                    j++;
-                }
-                if((char)character == 'b'){
-                    board[i][j]=(char)character;
-                    Stone stone =  Stone.builder()
-                            .color(Color.BLUE)
-                            .x(i)
-                            .y(j)
-                            .inGoal(false)
-                            .build();
-                    stones.add(stone);
-                    j++;
-                }
-                if((char)character == 'y'){
-                    board[i][j]=(char)character;
-                    Stone stone =  Stone.builder()
-                            .color(Color.YELLOW)
-                            .x(i)
-                            .y(j)
-                            .inGoal(false)
-                            .build();
-                    stones.add(stone);
-                    j++;
-                }
-                if((char)character == 'R'){
-                    board[i][j]=(char)character;
-                    Goal goal =  Goal.builder()
-                            .color(Color.RED)
-                            .x(i)
-                            .y(j)
-                            .build();
-                    goals.add(goal);
-                    j++;
-                }
-                if((char)character == 'G'){
-                    board[i][j]=(char)character;
-                    Goal goal =  Goal.builder()
-                            .color(Color.GREEN)
-                            .x(i)
-                            .y(j)
-                            .build();
-                    goals.add(goal);
-                    j++;
-                }
-                if((char)character == 'B'){
-                    board[i][j]=(char)character;
-                    Goal goal =  Goal.builder()
-                            .color(Color.BLUE)
-                            .x(i)
-                            .y(j)
-                            .build();
-                    goals.add(goal);
-                    j++;
-                }
-                if((char)character == 'Y'){
-                    board[i][j]=(char)character;
-                    Goal goal =  Goal.builder()
-                            .color(Color.YELLOW)
-                            .x(i)
-                            .y(j)
-                            .build();
-                    goals.add(goal);
-                    j++;
+                    // Handle stones and goals based on cell type
+                    switch (cell) {
+                        case 'r':
+                            boardLogic.stones.add(new Stone(Color.RED, i, j, false));
+                            break;
+                        case 'g':
+                            boardLogic.stones.add(new Stone(Color.GREEN, i, j, false));
+                            break;
+                        case 'b':
+                            boardLogic.stones.add(new Stone(Color.BLUE, i, j, false));
+                            break;
+                        case 'y':
+                            boardLogic.stones.add(new Stone(Color.YELLOW, i, j, false));
+                            break;
+                        case 'R':
+                            boardLogic.goals.add(new Goal(i, j,Color.RED));
+                            break;
+                        case 'G':
+                            boardLogic.goals.add(new Goal(i, j,Color.GREEN));
+                            break;
+                        case 'B':
+                            boardLogic.goals.add(new Goal(i, j,Color.BLUE));
+                            break;
+                        case 'Y':
+                            boardLogic.goals.add(new Goal(i, j,Color.YELLOW));
+                            break;
+                    }
                 }
             }
-            fr.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(int i=0;i<board.length;i++){
-            for(int j=0;j<board[i].length;j++){
-                System.out.print(board[i][j] + " ");
+
+        // Print the board for debugging
+        for (int i = 0; i < boardLogic.board.length; i++) {
+            for (int j = 0; j < boardLogic.board[i].length; j++) {
+                System.out.print(boardLogic.board[i][j] + " ");
             }
             System.out.println();
         }
@@ -175,39 +109,40 @@ public class BoardGui  extends JFrame implements KeyListener {
 
     public void updateFrame(){
 
-        for(int i=0;i<board.length;i++){
-            for (int j=0;j<board[i].length;j++){
-                if(board[i][j]=='#'){
+        for(int i=0;i<boardLogic.board.length;i++){
+            for (int j=0;j<boardLogic.board[i].length;j++){
+                if(boardLogic.board[i][j]=='#'){
                     buttons[i][j].setBackground(Color.BLACK);
                 }
-                else if (board[i][j]=='r'){
+                else if (boardLogic.board[i][j]=='r'){
                     buttons[i][j].setBackground(Color.RED);
                 }
-                else if (board[i][j]=='g'){
+                else if (boardLogic.board[i][j]=='g'){
                     buttons[i][j].setBackground(Color.GREEN);
                 }
-                else if (board[i][j]=='b'){
+                else if (boardLogic.board[i][j]=='b'){
                     buttons[i][j].setBackground(Color.BLUE);
                 }
-                else if (board[i][j]=='y'){
+                else if (boardLogic.board[i][j]=='y'){
                     buttons[i][j].setBackground(Color.YELLOW);
                 }
                 else {
                     buttons[i][j].setBackground(Color.WHITE);
                 }
-                if (board[i][j]=='R'){
+                if (boardLogic.board[i][j]=='R'){
                     buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.RED, 10));
                 }
-                else if (board[i][j]=='G'){
+                else if (boardLogic.board[i][j]=='G'){
                     buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.GREEN, 10));
                 }
-                else if (board[i][j]=='B'){
+                else if (boardLogic.board[i][j]=='B'){
                     buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.BLUE, 10));
-                }else if (board[i][j]=='Y'){
+                }else if (boardLogic.board[i][j]=='Y'){
                     buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.YELLOW, 10));
                 }
                 else{
-                    buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.GRAY, 3));
+//                    buttons[i][j].setBorder(null);
+                    buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
                 }
             }
         }
@@ -220,97 +155,35 @@ public class BoardGui  extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                move("UP");
+                boardLogic.move("UP",true);
                 break;
             case KeyEvent.VK_DOWN:
-                move("DOWN");
+                boardLogic.move("DOWN",true);
                 break;
             case KeyEvent.VK_LEFT:
-                move("LEFT");
+                boardLogic.move("LEFT",true);
                 break;
             case KeyEvent.VK_RIGHT:
-                move("RIGHT");
+                boardLogic.move("RIGHT",true);
                 break;
         }
-        repaint();
-        for(Stone stone: stones){
-            System.out.println(stone.toString());
-        }
-        for(int i=0;i<board.length;i++){
-            for(int j=0;j<board[i].length;j++){
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
 
-
-
-    public void move(String dir){
-        for(int i=0;i<stones.size();i++) {
-
-            Stone s = stones.get(i);
-            if(s.isInGoal()) continue;
-            char c = board[s.getX()][s.getY()];
-            System.out.println("char "+c);
-            board[s.getX()][s.getY()]='_';
-
-            if (dir == "UP") {
-                int temp = s.getX();
-                while(temp>=0 && board[temp][s.getY()]!='#'){
-                    if(board[temp][s.getY()]==Character.toUpperCase(c)) {
-                        s.setInGoal(true);
-                        board[temp][s.getY()]='_';
-                        break;
-                    }
-                    temp--;
-                }
-                stones.get(i).setX(temp+1);
-            } else if (dir == "DOWN") {
-                int temp = s.getX();
-                while(temp<gridX && board[temp][s.getY()]!='#'){
-                    if(board[temp][s.getY()]==Character.toUpperCase(c)) {
-                        board[temp][s.getY()]='_';
-                        s.setInGoal(true);
-                        break;
-                    }
-                    temp++;
-                }
-                stones.get(i).setX(temp-1);
-            } else if (dir == "LEFT") {
-                int temp = s.getY();
-                System.out.println("cell in board " + board[s.getX()][s.getY()]);
-                while(temp>=0 && board[s.getX()][temp]!='#'){
-                    if(board[s.getX()][temp]==Character.toUpperCase(c)){
-                        s.setInGoal(true);
-                        board[s.getX()][temp]='_';
-                        break;
-                    }
-                    temp--;
-                }
-                stones.get(i).setY(temp+1);
-            } else {
-                int temp = s.getY();
-                while(temp<gridY && board[s.getX()][temp]!='#'){
-                    if(board[s.getX()][temp]==Character.toUpperCase(c)){
-                        s.setInGoal(true);
-                        board[s.getX()][temp]='_';
-                        break;
-                    }
-                    temp++;
-                }
-                stones.get(i).setY(temp-1);
-            }
-            if(!s.isInGoal()){
-                board[s.getX()][s.getY()]=c;
-            }
-
-        }
         updateFrame();
+        repaint();
+        System.out.println("grid: ");
+        boardLogic.printGrid();
+        if (boardLogic.checkGameOver()) {
+            System.out.println("______________________________________");
+            System.out.println("next level");
+            this.dispose();
+            index++;
+            if(index<5)
+                new BoardGui(index);
+            return;
+        }
+        boardLogic.possibleBoards();
 
     }
-
-
 
     @Override
     public void keyReleased(KeyEvent e) {
@@ -321,4 +194,5 @@ public class BoardGui  extends JFrame implements KeyListener {
     public void keyTyped(KeyEvent e) {
         // Not used
     }
+
 }

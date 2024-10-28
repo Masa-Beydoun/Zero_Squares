@@ -14,4 +14,10 @@ public class Stone {
     private int x;
     private int y;
     private boolean inGoal;
+    Stone(int x, int y,Color color) {
+        this.color = color;
+        this.x = x;
+        this.y = y;
+        this.inGoal = false;
+    }
 }
