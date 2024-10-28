@@ -10,14 +10,11 @@ import java.awt.*;
 @NoArgsConstructor
 @Builder
 public class Stone {
+    private char c;
     private Color color;
     private int x;
     private int y;
     private boolean inGoal;
-    Stone(int x, int y,Color color) {
-        this.color = color;
-        this.x = x;
-        this.y = y;
-        this.inGoal = false;
-    }
+
+
 }
