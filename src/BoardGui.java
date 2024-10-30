@@ -153,9 +153,9 @@ public class BoardGui  extends JFrame implements KeyListener {
         for(Stone stone : boardLogic.stones) {
             System.out.println(stone);
         }
-        for (Goal goal : boardLogic.goals) {
-            System.out.println(goal);
-        }
+//        for (Goal goal : boardLogic.goals) {
+//            System.out.println(goal);
+//        }
         if (boardLogic.checkGameOver()) {
             System.out.println("______________________________________");
             System.out.println("next level");
