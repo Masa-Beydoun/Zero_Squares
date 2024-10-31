@@ -12,7 +12,8 @@ public class BoardLogic {
      ArrayList<Stone> stones = new ArrayList<Stone>();
      ArrayList<Goal> goals = new ArrayList<Goal>();
 
-     static boolean finished = false;
+     boolean finished = false;
+     boolean lost = false;
 
     BoardLogic(){}
     BoardLogic(int gridX, int gridY, char [][] board, ArrayList<Stone> stones, ArrayList<Goal> goals)
@@ -51,8 +52,8 @@ public class BoardLogic {
         }
 
 
-        int [][] canMove = new int [4][2];
-        boolean[] getInGoal = new boolean[4];
+        int [][] canMove = new int [stones.size()][2];
+        boolean[] getInGoal = new boolean[stones.size()];
         for(int i=0;i<stones.size();i++){
             Stone s = stones.get(i);
             canMove[i][0] = s.getX();
@@ -70,7 +71,7 @@ public class BoardLogic {
             if (dir == "UP") {
                 System.out.println("up");
                 int temp = s.getX() - 1;
-                while(temp>=0 && checkIfYouCanWalk(temp,s.getY())){
+                while(temp>=0 && checkIfYouCanWalk(temp,s.getY(),true)){
                     if(boardLogic.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
                         break;
@@ -82,7 +83,7 @@ public class BoardLogic {
             } else if (dir == "DOWN") {
                 System.out.println("down");
                 int temp = s.getX() + 1;
-                while(temp<boardLogic.gridX && checkIfYouCanWalk(temp,s.getY())){
+                while(temp<boardLogic.gridX && checkIfYouCanWalk(temp,s.getY(),true)){
                     if(boardLogic.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
                         break;
@@ -94,7 +95,7 @@ public class BoardLogic {
             } else if (dir == "LEFT") {
                 System.out.println("left");
                 int temp = s.getY() - 1;
-                while(temp>=0 && checkIfYouCanWalk(s.getX(),temp)){
+                while(temp>=0 && checkIfYouCanWalk(s.getX(),temp,true)){
                     if(boardLogic.board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
@@ -106,7 +107,7 @@ public class BoardLogic {
             } else {
                 System.out.println("right");
                 int temp = s.getY() + 1;
-                while(temp<boardLogic.gridY && checkIfYouCanWalk(s.getX(),temp)){
+                while(temp<boardLogic.gridY && checkIfYouCanWalk(s.getX(),temp,true)){
                     if(boardLogic.board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
@@ -139,9 +140,18 @@ public class BoardLogic {
     }
 
 
-    public boolean checkIfYouCanWalk(int i,int j){
+    public boolean checkIfYouCanWalk(int i,int j,boolean flag){
         if(board[i][j]=='#'){
             return false;
+        }
+        if(board[i][j]=='O'){
+            if(flag){
+                finished=true;
+                lost = true;
+            }
+            else{
+                //TODO
+            }
         }
         for(Stone s : stones){
             if(!s.isInGoal() && s.getX()==i && s.getY()==j ){

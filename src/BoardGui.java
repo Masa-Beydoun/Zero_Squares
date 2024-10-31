@@ -64,12 +64,14 @@ public class BoardGui  extends JFrame implements KeyListener {
                     boardLogic.board[i][j] = cell;
                     if (cell=='R')
                         boardLogic.goals.add(new Goal(cell,i, j,Color.RED));
-                    else if(cell== 'G')
+                    if(cell== 'G')
                         boardLogic.goals.add(new Goal(cell,i, j,Color.GREEN));
-                    else if(cell== 'B')
+                    if(cell== 'B')
                         boardLogic.goals.add(new Goal(cell,i, j,Color.BLUE));
-                    else if(cell== 'Y')
+                    if(cell== 'Y')
                         boardLogic.goals.add(new Goal(cell,i, j,Color.YELLOW));
+                    if(cell == 'P')
+                        boardLogic.goals.add(new Goal(cell,i,j,Color.PINK));
                 }
             }
             for (int i = 0; i < boardLogic.gridX; i++) {
@@ -85,6 +87,8 @@ public class BoardGui  extends JFrame implements KeyListener {
                         boardLogic.stones.add(new Stone(cell,Color.BLUE, i, j, false));
                     if (cell=='y')
                         boardLogic.stones.add(new Stone(cell,Color.YELLOW, i, j, false));
+                    if(cell == 'p')
+                        boardLogic.stones.add(new Stone(cell,Color.PINK, i, j, false));
                 }
             }
         } catch (IOException e) {
@@ -115,6 +119,10 @@ public class BoardGui  extends JFrame implements KeyListener {
                     buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.BLUE, 10));
                 } else if (boardLogic.board[i][j] == 'Y') {
                     buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.YELLOW, 10));
+                } else if (boardLogic.board[i][j] == 'P') {
+                    buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.PINK, 10));
+                }else if(boardLogic.board[i][j]=='O'){
+                    buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK, 10));
                 } else {
 //                    buttons[i][j].setBorder(null);
                     buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
@@ -156,14 +164,19 @@ public class BoardGui  extends JFrame implements KeyListener {
 //        for (Goal goal : boardLogic.goals) {
 //            System.out.println(goal);
 //        }
+
         if (boardLogic.checkGameOver()) {
             System.out.println("______________________________________");
             System.out.println("next level");
             this.dispose();
             index++;
-            if(index<6)index++;
             new BoardGui(index);
             return;
+        } else if ( boardLogic.lost) {
+            System.out.println("______________________________________");
+            System.out.println("lost , play again");
+            this.dispose();
+            new BoardGui(index);
         }
 //        boardLogic.possibleBoards();
 
