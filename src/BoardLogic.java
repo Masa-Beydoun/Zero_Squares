@@ -1,7 +1,4 @@
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class BoardLogic {
 
@@ -69,48 +66,65 @@ public class BoardLogic {
 
             //check movement
             if (dir == "UP") {
-                System.out.println("up");
+                System.out.println("UP");
                 int temp = s.getX() - 1;
                 while(temp>=0 && checkIfYouCanWalk(temp,s.getY(),true)){
                     if(boardLogic.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
                         break;
                     }
+                    if(boardLogic.board[temp][s.getY()] == '?'){
+                        boardLogic.board[temp][s.getY()] = Character.toUpperCase(c);
+                        goals.add(new Goal(Character.toUpperCase(c),temp,s.getY(),s.getColor()));
+                    }
                     temp--;
                 }
                 canMove[i][0] = temp+1;
                 canMove[i][1] = s.getY();
             } else if (dir == "DOWN") {
-                System.out.println("down");
+                System.out.println("DOWN");
                 int temp = s.getX() + 1;
                 while(temp<boardLogic.gridX && checkIfYouCanWalk(temp,s.getY(),true)){
+
                     if(boardLogic.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
                         break;
+                    }
+                    if(boardLogic.board[temp][s.getY()] == '?'){
+                        boardLogic.board[temp][s.getY()] = Character.toUpperCase(c);
+                        goals.add(new Goal(Character.toUpperCase(c),temp,s.getY(),s.getColor()));
                     }
                     temp++;
                 }
                 canMove[i][0] = temp-1;
                 canMove[i][1] = s.getY();
             } else if (dir == "LEFT") {
-                System.out.println("left");
+                System.out.println("LEFT");
                 int temp = s.getY() - 1;
                 while(temp>=0 && checkIfYouCanWalk(s.getX(),temp,true)){
                     if(boardLogic.board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
                     }
+                    if(boardLogic.board[s.getX()][temp] == '?'){
+                        boardLogic.board[s.getX()][temp] = Character.toUpperCase(c);
+                        goals.add(new Goal(Character.toUpperCase(c),s.getX(),temp,s.getColor()));
+                    }
                     temp--;
                 }
                 canMove[i][0] = s.getX();
                 canMove[i][1] = temp+1;
             } else {
-                System.out.println("right");
+                System.out.println("RIGHT");
                 int temp = s.getY() + 1;
-                while(temp<boardLogic.gridY && checkIfYouCanWalk(s.getX(),temp,true)){
-                    if(boardLogic.board[s.getX()][temp]==Character.toUpperCase(c)){
+                while(temp<gridY && checkIfYouCanWalk(s.getX(),temp,true)){
+                    if(board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
+                    }
+                    if(board[s.getX()][temp] == '?'){
+                        board[s.getX()][temp] = Character.toUpperCase(c);
+                        goals.add(new Goal(Character.toUpperCase(c),s.getX(),temp,s.getColor()));
                     }
                     temp++;
                 }
@@ -178,6 +192,10 @@ public class BoardLogic {
             }
             System.out.println();
         }
+        for(Stone s : stones){
+            System.out.println(s.toString());
+        }
+        System.out.println();
     }
 
     public boolean checkGameOver(){
@@ -195,19 +213,15 @@ public class BoardLogic {
         List<BoardLogic> boardLogics = new ArrayList<>();
 
         System.out.println("possible boards: ");
-        System.out.println("UP");
         boardLogics.add(move("UP",false));
         boardLogics.get(0).printGrid();
 
-        System.out.println("DOWN");
         boardLogics.add(move("DOWN",false));
         boardLogics.get(1).printGrid();
 
-        System.out.println("LEFT");
         boardLogics.add(move("LEFT",false));
         boardLogics.get(2).printGrid();
 
-        System.out.println("RIGHT");
         boardLogics.add(move("RIGHT",false));
         boardLogics.get(3).printGrid();
 
@@ -221,7 +235,10 @@ public class BoardLogic {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BoardLogic that = (BoardLogic) o;
+        return gridX == that.gridX && gridY == that.gridY && finished == that.finished && lost == that.lost && Objects.deepEquals(board, that.board) && Objects.equals(stones, that.stones) && Objects.equals(goals, that.goals);
     }
 }

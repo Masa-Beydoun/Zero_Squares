@@ -72,6 +72,8 @@ public class BoardGui  extends JFrame implements KeyListener {
                         boardLogic.goals.add(new Goal(cell,i, j,Color.YELLOW));
                     if(cell == 'P')
                         boardLogic.goals.add(new Goal(cell,i,j,Color.PINK));
+                    if(cell == '?')
+                        boardLogic.goals.add(new Goal(cell,i,j,Color.DARK_GRAY));
                 }
             }
             for (int i = 0; i < boardLogic.gridX; i++) {
@@ -107,7 +109,9 @@ public class BoardGui  extends JFrame implements KeyListener {
             for (int j = 0; j < boardLogic.board[i].length; j++) {
                 if (boardLogic.board[i][j] == '#') {
                     buttons[i][j].setBackground(Color.BLACK);
-                } else {
+                } else if(boardLogic.board[i][j] == '?') {
+                    buttons[i][j].setBackground(Color.LIGHT_GRAY);
+                }else{
                     buttons[i][j].setBackground(Color.WHITE);
                 }
 
@@ -169,16 +173,21 @@ public class BoardGui  extends JFrame implements KeyListener {
             System.out.println("______________________________________");
             System.out.println("next level");
             this.dispose();
+            if(index==30){
+                System.out.println("all levels cleared");
+                this.dispose();
+                return;
+            }
             index++;
             new BoardGui(index);
             return;
-        } else if ( boardLogic.lost) {
+        } else if (boardLogic.lost) {
             System.out.println("______________________________________");
             System.out.println("lost , play again");
             this.dispose();
             new BoardGui(index);
         }
-//        boardLogic.possibleBoards();
+        boardLogic.possibleBoards();
 
     }
 
