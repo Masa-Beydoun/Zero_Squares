@@ -8,6 +8,8 @@ public class BoardLogic {
      char [][] board;
      ArrayList<Stone> stones = new ArrayList<Stone>();
      ArrayList<Goal> goals = new ArrayList<Goal>();
+     ArrayList<BoardLogic> possibleBoards = new ArrayList<BoardLogic>();
+
 
      boolean finished = false;
      boolean lost = false;
@@ -22,31 +24,22 @@ public class BoardLogic {
         this.goals = goals;
     }
 
-
-
-
-
-
     public BoardLogic move(String dir,boolean flag){
         BoardLogic boardLogic;
-        if(flag){
-            boardLogic = this;
+
+        char[][] newBoard = new char[gridX][gridY];
+        for (int i = 0; i < gridX; i++) {
+            System.arraycopy(board[i], 0, newBoard[i], 0, gridY);
         }
-        else{
-            char[][] newBoard = new char[gridX][gridY];
-            for (int i = 0; i < gridX; i++) {
-                System.arraycopy(board[i], 0, newBoard[i], 0, gridY);
-            }
-            ArrayList<Stone> newStones = new ArrayList<>();
-            for (Stone s : stones) {
-                newStones.add(new Stone(s.getC(),s.getColor(), s.getX(), s.getY(), s.isInGoal()));
-            }
-            ArrayList<Goal> newGoals = new ArrayList<>();
-            for (Goal g : goals) {
-                newGoals.add(new Goal(g.getC(),g.getX(), g.getY(), g.getColor()));
-            }
-            boardLogic = new BoardLogic(gridX, gridY, newBoard, newStones, newGoals);
+        ArrayList<Stone> newStones = new ArrayList<>();
+        for (Stone s : stones) {
+            newStones.add(new Stone(s.getC(),s.getColor(), s.getX(), s.getY(), s.isInGoal()));
         }
+        ArrayList<Goal> newGoals = new ArrayList<>();
+        for (Goal g : goals) {
+            newGoals.add(new Goal(g.getC(),g.getX(), g.getY(), g.getColor()));
+        }
+        boardLogic = new BoardLogic(gridX, gridY, newBoard, newStones, newGoals);
 
 
         int [][] canMove = new int [stones.size()][2];
@@ -150,9 +143,8 @@ public class BoardLogic {
 
             }
         }
-        return new BoardLogic(boardLogic.gridX, boardLogic.gridY, boardLogic.board, boardLogic.stones, boardLogic.goals);
+        return boardLogic;
     }
-
 
     public boolean checkIfYouCanWalk(int i,int j,boolean flag){
         if(board[i][j]=='#'){
@@ -176,13 +168,6 @@ public class BoardLogic {
         return true;
 
     }
-
-
-
-
-
-
-
 
     public void printGrid(){
 
@@ -210,22 +195,21 @@ public class BoardLogic {
 
     public List<BoardLogic> possibleBoards(){
 
-        List<BoardLogic> boardLogics = new ArrayList<>();
 
         System.out.println("possible boards: ");
-        boardLogics.add(move("UP",false));
-        boardLogics.get(0).printGrid();
+        possibleBoards.add(move("UP",false));
+        possibleBoards.get(0).printGrid();
 
-        boardLogics.add(move("DOWN",false));
-        boardLogics.get(1).printGrid();
+        possibleBoards.add(move("DOWN",false));
+        possibleBoards.get(1).printGrid();
 
-        boardLogics.add(move("LEFT",false));
-        boardLogics.get(2).printGrid();
+        possibleBoards.add(move("LEFT",false));
+        possibleBoards.get(2).printGrid();
 
-        boardLogics.add(move("RIGHT",false));
-        boardLogics.get(3).printGrid();
+        possibleBoards.add(move("RIGHT",false));
+        possibleBoards.get(3).printGrid();
 
-        return boardLogics;
+        return possibleBoards;
     }
 
 

@@ -14,6 +14,7 @@ public class BoardGui  extends JFrame implements KeyListener {
     BoardLogic boardLogic;
     JPanel main_panel = new JPanel();
     JButton [][]buttons;
+    ArrayList<BoardLogic> stateTree= new ArrayList<>();
 
 
     BoardGui(int index){
@@ -145,16 +146,16 @@ public class BoardGui  extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                boardLogic.move("UP",true);
+                boardLogic = boardLogic.move("UP",true);
                 break;
             case KeyEvent.VK_DOWN:
-                boardLogic.move("DOWN",true);
+                boardLogic = boardLogic.move("DOWN",true);
                 break;
             case KeyEvent.VK_LEFT:
-                boardLogic.move("LEFT",true);
+                boardLogic = boardLogic.move("LEFT",true);
                 break;
             case KeyEvent.VK_RIGHT:
-                boardLogic.move("RIGHT",true);
+                boardLogic = boardLogic.move("RIGHT",true);
                 break;
         }
 
