@@ -6,9 +6,9 @@ public class BoardLogic {
 
      int gridX, gridY;
      char [][] board;
-     ArrayList<Stone> stones = new ArrayList<Stone>();
-     ArrayList<Goal> goals = new ArrayList<Goal>();
-     ArrayList<BoardLogic> possibleBoards = new ArrayList<BoardLogic>();
+     ArrayList<Stone> stones = new ArrayList<>();
+     ArrayList<Goal> goals = new ArrayList<>();
+     ArrayList<BoardLogic> possibleBoards = new ArrayList<>();
 
 
      boolean finished = false;
@@ -24,7 +24,7 @@ public class BoardLogic {
         this.goals = goals;
     }
 
-    public BoardLogic move(String dir,boolean flag){
+    public BoardLogic move(String dir){
         BoardLogic boardLogic;
 
         char[][] newBoard = new char[gridX][gridY];
@@ -186,10 +186,11 @@ public class BoardLogic {
     public boolean checkGameOver(){
         for(Stone stone: stones){
             if(!stone.isInGoal()) {
-                finished = true;
+
                 return false;
             }
         }
+        finished = true;
         return true;
     }
 
@@ -197,16 +198,16 @@ public class BoardLogic {
 
 
         System.out.println("possible boards: ");
-        possibleBoards.add(move("UP",false));
+        possibleBoards.add(move("UP"));
         possibleBoards.get(0).printGrid();
 
-        possibleBoards.add(move("DOWN",false));
+        possibleBoards.add(move("DOWN"));
         possibleBoards.get(1).printGrid();
 
-        possibleBoards.add(move("LEFT",false));
+        possibleBoards.add(move("LEFT"));
         possibleBoards.get(2).printGrid();
 
-        possibleBoards.add(move("RIGHT",false));
+        possibleBoards.add(move("RIGHT"));
         possibleBoards.get(3).printGrid();
 
         return possibleBoards;

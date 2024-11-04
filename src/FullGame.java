@@ -4,20 +4,26 @@ public class FullGame {
 
 
     BoardLogic boardLogic = new BoardLogic();
-    ArrayList <BoardLogic> visitedStates;
 
-
-    FullGame(){
-
-    }
+    ArrayList <BoardLogic> visitedStates = new ArrayList<>();
 
     public BoardLogic move(String dir,boolean flag){
-        boardLogic.move(dir,flag);
+//        System.out.println("full game");
+        BoardLogic myBoardLogic = boardLogic.move(dir);
+        boardLogic.possibleBoards();
+        boardLogic = myBoardLogic;
+
+        boolean found = false;
         for(BoardLogic visited : visitedStates){
             if(visited.equals(boardLogic)){
-                System.out.println("visited state");
+                System.out.println("this state has already been visited");
+                found = true;
             }
         }
+        if(!found){
+            visitedStates.add(boardLogic);
+        }
+//        System.out.println("visited states "+ visitedStates.toString());
         return boardLogic;
     }
 }
