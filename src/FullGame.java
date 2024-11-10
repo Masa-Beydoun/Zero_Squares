@@ -3,27 +3,27 @@ import java.util.ArrayList;
 public class FullGame {
 
 
-    BoardLogic boardLogic = new BoardLogic();
+    State state = new State();
 
-    ArrayList <BoardLogic> visitedStates = new ArrayList<>();
+    ArrayList <State> visitedStates = new ArrayList<>();
 
-    public BoardLogic move(String dir,boolean flag){
+    public State move(String dir, boolean flag){
 //        System.out.println("full game");
-        BoardLogic myBoardLogic = boardLogic.move(dir);
-        boardLogic.possibleBoards();
-        boardLogic = myBoardLogic;
+        State myState = state.move(dir);
+        state.possibleBoards();
+        state = myState;
 
         boolean found = false;
-        for(BoardLogic visited : visitedStates){
-            if(visited.equals(boardLogic)){
+        for(State visited : visitedStates){
+            if(visited.equals(state)){
                 System.out.println("this state has already been visited");
                 found = true;
             }
         }
         if(!found){
-            visitedStates.add(boardLogic);
+            visitedStates.add(state);
         }
 //        System.out.println("visited states "+ visitedStates.toString());
-        return boardLogic;
+        return state;
     }
 }
