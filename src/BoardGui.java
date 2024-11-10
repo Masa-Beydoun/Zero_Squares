@@ -64,7 +64,7 @@ public class BoardGui  extends JFrame implements KeyListener {
 
 
         updateFullFrame();
-        this.setSize(new Dimension(1400,700));
+        this.setSize(new Dimension(1600,800));
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
@@ -127,9 +127,8 @@ public class BoardGui  extends JFrame implements KeyListener {
             e.printStackTrace();
         }
 
-        System.out.println("initial grid: ");
-        fullGame.state.printGrid();
-        System.out.println(fullGame.state.stones.toString());
+//        System.out.println("initial grid: ");
+//        fullGame.state.printGrid();
 
     }
     public void createOnePanel(JPanel mainPanel,JPanel buttonPanel,JButton[][] buttons,JLabel jLabel,String str){
@@ -156,13 +155,13 @@ public class BoardGui  extends JFrame implements KeyListener {
     public void updateFullFrame(){
         updateFrame(firstButton,fullGame.state);
 
-        ArrayList<State> nextSt= fullGame.state.possibleBoards();
-        if(!nextSt.isEmpty()) {
-            System.out.println("full states");
-            updateFrame(secondButton, nextSt.get(0));
-            updateFrame(thirdButton, nextSt.get(1));
-            updateFrame(fourthButton,nextSt.get(2));
-            updateFrame(fifthButton, nextSt.get(3));
+        fullGame.state.possibleBoards();
+//        System.out.println("after states");
+        if(!fullGame.state.nextStates.isEmpty()) {
+            updateFrame(secondButton, fullGame.state.nextStates.get(0));
+            updateFrame(thirdButton, fullGame.state.nextStates.get(1));
+            updateFrame(fourthButton,fullGame.state.nextStates.get(2));
+            updateFrame(fifthButton, fullGame.state.nextStates.get(3));
         }
     }
 
@@ -224,14 +223,7 @@ public class BoardGui  extends JFrame implements KeyListener {
 
         updateFullFrame();
         repaint();
-        System.out.println("grid: ");
-        fullGame.state.printGrid();
-        for(Stone stone : fullGame.state.stones) {
-            System.out.println(stone);
-        }
-//        for (Goal goal : fullGame.boardLogic.goals) {
-//            System.out.println(goal);
-//        }
+
 
         if (fullGame.state.checkGameOver()) {
             System.out.println("______________________________________");

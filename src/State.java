@@ -1,3 +1,5 @@
+import lombok.Builder;
+
 import java.util.*;
 
 public class State {
@@ -6,6 +8,7 @@ public class State {
 
      int gridX, gridY;
      char [][] board;
+     State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
      ArrayList<Goal> goals = new ArrayList<>();
      ArrayList<State> nextStates = new ArrayList<>();
@@ -169,6 +172,33 @@ public class State {
 
     }
 
+    @Override
+    public String toString() {
+        StringBuilder b= new StringBuilder();
+        for(int i=0;i<gridX;i++){
+            for(int j=0;j<gridY;j++){
+                b.append(board[i][j]);
+            }
+            b.append("\n");
+        }
+        return "dimensions : " + gridX + " , " + gridY +
+                '\n'+
+                b+
+                '\n'+
+//                "parent=" + parent +
+//                '\n'+
+                "stones=" + stones +
+                '\n'+
+                "goals=" + goals +
+//                ", nextStates=" + nextStates +
+                '\n'+
+                "finished=" + finished +
+                '\n'+
+                "lost=" + lost +
+                "\n"+
+                '}';
+    }
+
     public void printGrid(){
 
         for(int i=0;i<board.length;i++){
@@ -194,23 +224,20 @@ public class State {
         return true;
     }
 
-    public ArrayList<State> possibleBoards(){
+    public void possibleBoards(){
 
 
-        System.out.println("possible boards: ");
         nextStates.add(move("UP"));
-        nextStates.get(0).printGrid();
+//        nextStates.get(0).printGrid();
 
         nextStates.add(move("DOWN"));
-        nextStates.get(1).printGrid();
+//        nextStates.get(1).printGrid();
 
         nextStates.add(move("LEFT"));
-        nextStates.get(2).printGrid();
+//        nextStates.get(2).printGrid();
 
         nextStates.add(move("RIGHT"));
-        nextStates.get(3).printGrid();
-
-        return nextStates;
+//        nextStates.get(3).printGrid();
     }
 
 

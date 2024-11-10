@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import java.awt.*;
 import java.util.Objects;
 
+import static java.awt.Color.RED;
+import static java.awt.Color.red;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,5 +31,53 @@ public class Stone {
     @Override
     public int hashCode() {
         return Objects.hash(c, color, x, y, inGoal);
+    }
+
+
+    @Override
+    public String toString() {
+        if(color == RED) {
+            return Algorithms.RED + "Stone{" +
+                    "c=" + c +
+                    ", color=red"+
+                    ", x=" + x +
+                    ", y=" + y +
+                    ", inGoal=" + inGoal +
+                    '}' + Algorithms.RESET;
+        }
+        if(color == Color.BLUE) {
+            return Algorithms.BLUE + "Stone{" +
+                    "c=" + c +
+                    ", color=blue" +
+                    ", x=" + x +
+                    ", y=" + y +
+                    ", inGoal=" + inGoal +
+                    '}' + Algorithms.RESET;
+        }
+        if(color == Color.GREEN) {
+            return Algorithms.GREEN + "Stone{" +
+                    "c=" + c +
+                    ", color=green" +
+                    ", x=" + x +
+                    ", y=" + y +
+                    ", inGoal=" + inGoal +
+                    '}' + Algorithms.RESET;
+        }
+        if(color == Color.YELLOW) {
+            return Algorithms.YELLOW + "Stone{" +
+                    "c=" + c +
+                    ", color=yellow" +
+                    ", x=" + x +
+                    ", y=" + y +
+                    ", inGoal=" + inGoal +
+                    '}' + Algorithms.RESET;
+        }
+         return Algorithms.PURPLE + "Stone{" +
+                "c=" + c +
+                ", color=pink" +
+                ", x=" + x +
+                ", y=" + y +
+                ", inGoal=" + inGoal +
+                '}' + Algorithms.RESET;
     }
 }

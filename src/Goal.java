@@ -28,6 +28,27 @@ public class Goal {
     }
 
     @Override
+    public String toString() {
+        String col="";
+        if(color == Color.RED)
+            col = "red";
+        if(color == Color.GREEN)
+            col = "green";
+        if (color == Color.BLUE)
+            col = "blue";
+        if (color == Color.YELLOW)
+            col = "yellow";
+        if (color == Color.PINK)
+            col = "pink";
+        return "Goal{" +
+                "C=" + C +
+                ", x=" + x +
+                ", y=" + y +
+                ", color=" + col +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(C, x, y, color);
     }
