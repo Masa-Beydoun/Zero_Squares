@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class BoardGui  extends JFrame implements KeyListener {
 
     int index;
-    FullGame fullGame=new FullGame();
+    State state=new State();
     JPanel firstMainPanel = new JPanel();
     JPanel secondMainPanel = new  JPanel();
     JPanel thirdMainPanel = new  JPanel();
@@ -36,11 +36,11 @@ public class BoardGui  extends JFrame implements KeyListener {
         this.setLayout(new GridLayout(1, 5));
 
 
-        firstButton = new JButton[fullGame.state.gridX][fullGame.state.gridY];
-        secondButton = new JButton[fullGame.state.gridX][fullGame.state.gridY];
-        thirdButton = new JButton[fullGame.state.gridX][fullGame.state.gridY];
-        fourthButton = new JButton[fullGame.state.gridX][fullGame.state.gridY];
-        fifthButton = new JButton[fullGame.state.gridX][fullGame.state.gridY];
+        firstButton = new JButton[state.gridX][state.gridY];
+        secondButton = new JButton[state.gridX][state.gridY];
+        thirdButton = new JButton[state.gridX][state.gridY];
+        fourthButton = new JButton[state.gridX][state.gridY];
+        fifthButton = new JButton[state.gridX][state.gridY];
 
 
         createOnePanel(firstMainPanel,firstPanel,firstButton,firstLabel,"current");
@@ -65,7 +65,6 @@ public class BoardGui  extends JFrame implements KeyListener {
 
         updateFullFrame();
         this.setSize(new Dimension(1600,800));
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setFocusable(true);
@@ -80,47 +79,47 @@ public class BoardGui  extends JFrame implements KeyListener {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             // Read grid dimensions
             String[] dimensions = br.readLine().split(" ");
-            fullGame.state.gridX = Integer.parseInt(dimensions[0]);
-            fullGame.state.gridY = Integer.parseInt(dimensions[1]);
+            state.gridX = Integer.parseInt(dimensions[0]);
+            state.gridY = Integer.parseInt(dimensions[1]);
 
             // Initialize the board
-            fullGame.state.board = new char[fullGame.state.gridX][fullGame.state.gridY];
+            state.board = new char[state.gridX][state.gridY];
 
-            for (int i = 0; i < fullGame.state.gridX; i++) {
+            for (int i = 0; i < state.gridX; i++) {
                 String line = br.readLine();
                 String[] cells = line.split(" ");
-                for (int j = 0; j < fullGame.state.gridY; j++) {
+                for (int j = 0; j < state.gridY; j++) {
                     char cell = cells[j].charAt(0);
-                    fullGame.state.board[i][j] = cell;
+                    state.board[i][j] = cell;
                     if (cell=='R')
-                        fullGame.state.goals.add(new Goal(cell,i, j,Color.RED));
+                        state.goals.add(new Goal(cell,i, j,Color.RED));
                     if(cell== 'G')
-                        fullGame.state.goals.add(new Goal(cell,i, j,Color.GREEN));
+                        state.goals.add(new Goal(cell,i, j,Color.GREEN));
                     if(cell== 'B')
-                        fullGame.state.goals.add(new Goal(cell,i, j,Color.BLUE));
+                        state.goals.add(new Goal(cell,i, j,Color.BLUE));
                     if(cell== 'Y')
-                        fullGame.state.goals.add(new Goal(cell,i, j,Color.YELLOW));
+                        state.goals.add(new Goal(cell,i, j,Color.YELLOW));
                     if(cell == 'P')
-                        fullGame.state.goals.add(new Goal(cell,i,j,Color.PINK));
+                        state.goals.add(new Goal(cell,i,j,Color.PINK));
                     if(cell == '?')
-                        fullGame.state.goals.add(new Goal(cell,i,j,Color.DARK_GRAY));
+                        state.goals.add(new Goal(cell,i,j,Color.DARK_GRAY));
                 }
             }
-            for (int i = 0; i < fullGame.state.gridX; i++) {
+            for (int i = 0; i < state.gridX; i++) {
                 String line = br.readLine();
                 String[] cells = line.split(" ");
-                for (int j = 0; j < fullGame.state.gridY; j++) {
+                for (int j = 0; j < state.gridY; j++) {
                     char cell = cells[j].charAt(0);
                     if (cell=='r')
-                            fullGame.state.stones.add(new Stone(cell,Color.RED, i, j, false));
+                            state.stones.add(new Stone(cell,Color.RED, i, j, false));
                     if (cell=='g')
-                        fullGame.state.stones.add(new Stone(cell,Color.GREEN, i, j, false));
+                        state.stones.add(new Stone(cell,Color.GREEN, i, j, false));
                     if (cell=='b')
-                        fullGame.state.stones.add(new Stone(cell,Color.BLUE, i, j, false));
+                        state.stones.add(new Stone(cell,Color.BLUE, i, j, false));
                     if (cell=='y')
-                        fullGame.state.stones.add(new Stone(cell,Color.YELLOW, i, j, false));
+                        state.stones.add(new Stone(cell,Color.YELLOW, i, j, false));
                     if(cell == 'p')
-                        fullGame.state.stones.add(new Stone(cell,Color.PINK, i, j, false));
+                        state.stones.add(new Stone(cell,Color.PINK, i, j, false));
                 }
             }
         } catch (IOException e) {
@@ -128,12 +127,12 @@ public class BoardGui  extends JFrame implements KeyListener {
         }
 
 //        System.out.println("initial grid: ");
-//        fullGame.state.printGrid();
+//        state.printGrid();
 
     }
     public void createOnePanel(JPanel mainPanel,JPanel buttonPanel,JButton[][] buttons,JLabel jLabel,String str){
         mainPanel.setLayout(new BorderLayout());
-        buttonPanel.setLayout(new GridLayout(fullGame.state.gridX,fullGame.state.gridY));
+        buttonPanel.setLayout(new GridLayout(state.gridX,state.gridY));
         jLabel.setText(str);
         jLabel.setHorizontalAlignment(JLabel.CENTER);  // Ensure text is centered
         mainPanel.add(jLabel, BorderLayout.NORTH);
@@ -153,15 +152,15 @@ public class BoardGui  extends JFrame implements KeyListener {
     }
 
     public void updateFullFrame(){
-        updateFrame(firstButton,fullGame.state);
+        updateFrame(firstButton,state);
 
-        fullGame.state.possibleBoards();
+        state.possibleBoards();
 //        System.out.println("after states");
-        if(!fullGame.state.nextStates.isEmpty()) {
-            updateFrame(secondButton, fullGame.state.nextStates.get(0));
-            updateFrame(thirdButton, fullGame.state.nextStates.get(1));
-            updateFrame(fourthButton,fullGame.state.nextStates.get(2));
-            updateFrame(fifthButton, fullGame.state.nextStates.get(3));
+        if(!state.nextStates.isEmpty()) {
+            updateFrame(secondButton, state.nextStates.get(0));
+            updateFrame(thirdButton, state.nextStates.get(1));
+            updateFrame(fourthButton,state.nextStates.get(2));
+            updateFrame(fifthButton, state.nextStates.get(3));
         }
     }
 
@@ -208,16 +207,16 @@ public class BoardGui  extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                 fullGame.move("UP",true);
+                 state.move("UP");
                 break;
             case KeyEvent.VK_DOWN:
-                fullGame.move("DOWN",true);
+                state.move("DOWN");
                 break;
             case KeyEvent.VK_LEFT:
-                fullGame.move("LEFT",true);
+                state.move("LEFT");
                 break;
             case KeyEvent.VK_RIGHT:
-                fullGame.move("RIGHT",true);
+                state.move("RIGHT");
                 break;
         }
 
@@ -225,7 +224,7 @@ public class BoardGui  extends JFrame implements KeyListener {
         repaint();
 
 
-        if (fullGame.state.checkGameOver()) {
+        if (state.checkGameOver()) {
             System.out.println("______________________________________");
             System.out.println("next level");
             this.dispose();
@@ -238,7 +237,7 @@ public class BoardGui  extends JFrame implements KeyListener {
             new BoardGui(index);
             return;
         }
-        if (fullGame.state.lost) {
+        if (state.lost) {
             System.out.println("______________________________________");
             System.out.println("lost , play again");
             this.dispose();
