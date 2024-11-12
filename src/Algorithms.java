@@ -46,6 +46,15 @@ public class Algorithms {
                             currentState = currentState.parent;
                         }
                         reverse(path);
+                        System.out.println("DFS");
+                        System.out.println(Algorithms.PURPLE + "number of visited states: " + visitedStates.size() + Algorithms.RESET);
+                        System.out.println(Algorithms.PURPLE + "number of states in the path: " + path  .size() + Algorithms.RESET);
+                        System.out.println(Algorithms.CYAN + "Path :" +Algorithms.RESET);
+                        for(State state : path) {
+                            System.out.println(state.toString());
+                            System.out.println(Algorithms.CYAN + "next move :" + Algorithms.RESET);
+                        }
+                        System.out.println(Algorithms.RED + "End of path :" + Algorithms.RESET);
                         return path;
                     }
                 }
@@ -82,6 +91,15 @@ public class Algorithms {
                             currentState = currentState.parent;
                         }
                         reverse(path);
+                        System.out.println("BFS");
+                        System.out.println(Algorithms.PURPLE + "number of visited states: " + visitedStates.size() + Algorithms.RESET);
+                        System.out.println(Algorithms.PURPLE + "number of states in the path: " + path  .size() + Algorithms.RESET);
+                        System.out.println(Algorithms.CYAN + "Path :" +Algorithms.RESET);
+                        for(State state : path) {
+                            System.out.println(state.toString());
+                            System.out.println(Algorithms.CYAN + "next move :" + Algorithms.RESET);
+                        }
+                        System.out.println(Algorithms.RED + "End of path :" + Algorithms.RESET);
                         return path;
                     }
                 }
@@ -98,4 +116,7 @@ public class Algorithms {
         }
         return true;
     }
+
+
+
 }
