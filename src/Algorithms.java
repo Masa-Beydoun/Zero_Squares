@@ -54,7 +54,7 @@ public class Algorithms {
                             System.out.println(state.toString());
                             System.out.println(Algorithms.CYAN + "next move :" + Algorithms.RESET);
                         }
-                        System.out.println(Algorithms.RED + "End of path :" + Algorithms.RESET);
+                        System.out.println(Algorithms.RED + "End of path ." + Algorithms.RESET);
                         return path;
                     }
                 }
@@ -99,7 +99,7 @@ public class Algorithms {
                             System.out.println(state.toString());
                             System.out.println(Algorithms.CYAN + "next move :" + Algorithms.RESET);
                         }
-                        System.out.println(Algorithms.RED + "End of path :" + Algorithms.RESET);
+                        System.out.println(Algorithms.RED + "End of path ." + Algorithms.RESET);
                         return path;
                     }
                 }

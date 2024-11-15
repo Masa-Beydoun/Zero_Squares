@@ -27,7 +27,7 @@ public class State {
         this.goals = goals;
     }
 
-    public State move(String dir){
+    public State move(String dir,boolean flag){
         State state;
 
         char[][] newBoard = new char[gridX][gridY];
@@ -62,9 +62,9 @@ public class State {
 
             //check movement
             if (dir == "UP") {
-                System.out.println("UP");
+//                System.out.println("UP");
                 int temp = s.getX() - 1;
-                while(temp>=0 && checkIfYouCanWalk(temp,s.getY(),true)){
+                while(temp>=0 && checkIfYouCanWalk(temp,s.getY(),flag)){
                     if(state.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
                         break;
@@ -78,9 +78,9 @@ public class State {
                 canMove[i][0] = temp+1;
                 canMove[i][1] = s.getY();
             } else if (dir == "DOWN") {
-                System.out.println("DOWN");
+//                System.out.println("DOWN");
                 int temp = s.getX() + 1;
-                while(temp< state.gridX && checkIfYouCanWalk(temp,s.getY(),true)){
+                while(temp< state.gridX && checkIfYouCanWalk(temp,s.getY(),flag)){
 
                     if(state.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
@@ -95,9 +95,9 @@ public class State {
                 canMove[i][0] = temp-1;
                 canMove[i][1] = s.getY();
             } else if (dir == "LEFT") {
-                System.out.println("LEFT");
+//                System.out.println("LEFT");
                 int temp = s.getY() - 1;
-                while(temp>=0 && checkIfYouCanWalk(s.getX(),temp,true)){
+                while(temp>=0 && checkIfYouCanWalk(s.getX(),temp,flag)){
                     if(state.board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
@@ -111,9 +111,9 @@ public class State {
                 canMove[i][0] = s.getX();
                 canMove[i][1] = temp+1;
             } else {
-                System.out.println("RIGHT");
+//                System.out.println("RIGHT");
                 int temp = s.getY() + 1;
-                while(temp<gridY && checkIfYouCanWalk(s.getX(),temp,true)){
+                while(temp<gridY && checkIfYouCanWalk(s.getX(),temp,flag)){
                     if(board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
@@ -159,7 +159,8 @@ public class State {
                 lost = true;
             }
             else{
-                //TODO
+                lost = true;
+                finished=true;
             }
         }
         for(Stone s : stones){
@@ -227,16 +228,16 @@ public class State {
     public void possibleBoards(){
 
 
-        nextStates.add(move("UP"));
+        nextStates.add(move("UP",false));
 //        nextStates.get(0).printGrid();
 
-        nextStates.add(move("DOWN"));
+        nextStates.add(move("DOWN",false));
 //        nextStates.get(1).printGrid();
 
-        nextStates.add(move("LEFT"));
+        nextStates.add(move("LEFT",false));
 //        nextStates.get(2).printGrid();
 
-        nextStates.add(move("RIGHT"));
+        nextStates.add(move("RIGHT",false));
 //        nextStates.get(3).printGrid();
     }
 
