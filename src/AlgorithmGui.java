@@ -16,16 +16,13 @@ public class AlgorithmGui extends JFrame {
         this.index = index;
         state = InputStates.readGrid(index);
 
-        // Setup frame layout and properties
         this.setLayout(new BorderLayout());
         this.setSize(new Dimension(400, 400));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Initialize the main panel and grid panel
         mainPanel.setLayout(new BorderLayout());
         panel.setLayout(new GridLayout(state.gridX, state.gridY));
 
-        // Initialize buttons and add them to the grid panel
         buttons = new JButton[state.gridX][state.gridY];
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
@@ -36,51 +33,49 @@ public class AlgorithmGui extends JFrame {
             }
         }
 
-        // Add the grid panel to the main panel and set borders
         mainPanel.add(panel, BorderLayout.CENTER);
         mainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 8));
 
-        // Add the main panel to the frame
         this.add(mainPanel, BorderLayout.CENTER);
 
-        // Make the frame visible after components are added
         this.setVisible(true);
         this.setFocusable(true);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // Call the method to update the frame
-        updateFullFrame(alg);
+        SwingUtilities.invokeLater(() -> {
+            updateFullFrame(alg);
+        });
     }
 
     public void updateFullFrame(String alg) {
         ArrayList<State> path = new ArrayList<>();
         Algorithms algorithms = new Algorithms();
 
-        // Get the path using the algorithm (BFS or DFS)
         if (alg.equals("BFS")) {
+            System.out.println("in bfs");
             path = algorithms.BFS(state);
         } else if (alg.equals("DFS")) {
             path = algorithms.DFS(state);
         }
 
-        // Ensure the path is not empty
-        if (path.isEmpty()) {
+        if (path != null && path.isEmpty()) {
             System.out.println("No path found.");
             return;
         }
 
         ArrayList<State> finalPath = path;
-        Timer timer = new Timer(500, new ActionListener() {
+        Timer timer = new Timer(250, new ActionListener() {
             int step = 0;
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (step < finalPath.size()) {
+                if (finalPath != null && step < finalPath.size()) {
                     State currentState = finalPath.get(step);
-                    updateFrame(buttons, currentState);  // Update frame with the current state
-                    repaint();  // Refresh the frame to show the new state
+                    updateFrame(buttons, currentState);
+                    repaint();
                     step++;
                 } else {
-                    ((Timer) e.getSource()).stop();  // Stop the timer when the path is completed
+                    ((Timer) e.getSource()).stop();
                     System.out.println("Path animation completed.");
                     System.out.println("Next level");
                     dispose();
@@ -94,11 +89,19 @@ public class AlgorithmGui extends JFrame {
             }
         });
 
-        timer.setInitialDelay(0);  // Start immediately
-        timer.start();  // Start the timer
+        timer.setInitialDelay(0);
+        timer.start();
     }
 
     public static void updateFrame(JButton[][] buttons, State state) {
+        if(state.lost) {
+            for (int i = 0; i < buttons.length; i++) {
+                for (int j = 0; j < buttons[i].length; j++) {
+                    buttons[i][j].setBackground(Color.GRAY);
+                }
+            }
+            return;
+        }
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
                 if (state.board[i][j] == '#') {

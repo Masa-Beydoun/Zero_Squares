@@ -29,6 +29,7 @@ public class Goal {
 
     @Override
     public String toString() {
+
         String col="";
         if(color == Color.RED)
             col = "red";

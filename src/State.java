@@ -6,11 +6,10 @@ public class State {
 
 
 
-     int gridX, gridY;
+     short gridX, gridY;
      char [][] board;
      State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
-     ArrayList<Goal> goals = new ArrayList<>();
      ArrayList<State> nextStates = new ArrayList<>();
 
 
@@ -18,17 +17,18 @@ public class State {
      boolean lost = false;
 
     State(){}
-    State(int gridX, int gridY, char [][] board, ArrayList<Stone> stones, ArrayList<Goal> goals)
+    State(short gridX, short gridY, char [][] board, ArrayList<Stone> stones)
     {
         this.gridX = gridX;
         this.gridY = gridY;
         this.board = board;
         this.stones = stones;
-        this.goals = goals;
     }
 
-    public State move(String dir,boolean flag){
-        State state;
+    public State move(String dir){
+
+
+        State state = new State();
 
         char[][] newBoard = new char[gridX][gridY];
         for (int i = 0; i < gridX; i++) {
@@ -39,10 +39,11 @@ public class State {
             newStones.add(new Stone(s.getC(),s.getColor(), s.getX(), s.getY(), s.isInGoal()));
         }
         ArrayList<Goal> newGoals = new ArrayList<>();
-        for (Goal g : goals) {
-            newGoals.add(new Goal(g.getC(),g.getX(), g.getY(), g.getColor()));
-        }
-        state = new State(gridX, gridY, newBoard, newStones, newGoals);
+
+        state.gridX = gridX;
+        state.gridY = gridY;
+        state.board = newBoard;
+        state.stones = newStones;
 
 
         int [][] canMove = new int [stones.size()][2];
@@ -64,14 +65,13 @@ public class State {
             if (dir == "UP") {
 //                System.out.println("UP");
                 int temp = s.getX() - 1;
-                while(temp>=0 && checkIfYouCanWalk(temp,s.getY(),flag)){
+                while(temp>=0 && checkIfYouCanWalk(temp,s.getY(),state)){
                     if(state.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
                         break;
                     }
                     if(state.board[temp][s.getY()] == '?'){
                         state.board[temp][s.getY()] = Character.toUpperCase(c);
-                        goals.add(new Goal(Character.toUpperCase(c),temp,s.getY(),s.getColor()));
                     }
                     temp--;
                 }
@@ -80,7 +80,7 @@ public class State {
             } else if (dir == "DOWN") {
 //                System.out.println("DOWN");
                 int temp = s.getX() + 1;
-                while(temp< state.gridX && checkIfYouCanWalk(temp,s.getY(),flag)){
+                while(temp< state.gridX && checkIfYouCanWalk(temp,s.getY(),state)){
 
                     if(state.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
@@ -88,7 +88,6 @@ public class State {
                     }
                     if(state.board[temp][s.getY()] == '?'){
                         state.board[temp][s.getY()] = Character.toUpperCase(c);
-                        goals.add(new Goal(Character.toUpperCase(c),temp,s.getY(),s.getColor()));
                     }
                     temp++;
                 }
@@ -97,14 +96,13 @@ public class State {
             } else if (dir == "LEFT") {
 //                System.out.println("LEFT");
                 int temp = s.getY() - 1;
-                while(temp>=0 && checkIfYouCanWalk(s.getX(),temp,flag)){
+                while(temp>=0 && checkIfYouCanWalk(s.getX(),temp,state)){
                     if(state.board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
                     }
                     if(state.board[s.getX()][temp] == '?'){
                         state.board[s.getX()][temp] = Character.toUpperCase(c);
-                        goals.add(new Goal(Character.toUpperCase(c),s.getX(),temp,s.getColor()));
                     }
                     temp--;
                 }
@@ -113,14 +111,13 @@ public class State {
             } else {
 //                System.out.println("RIGHT");
                 int temp = s.getY() + 1;
-                while(temp<gridY && checkIfYouCanWalk(s.getX(),temp,flag)){
+                while(temp<gridY && checkIfYouCanWalk(s.getX(),temp,state)){
                     if(board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
                     }
                     if(board[s.getX()][temp] == '?'){
                         board[s.getX()][temp] = Character.toUpperCase(c);
-                        goals.add(new Goal(Character.toUpperCase(c),s.getX(),temp,s.getColor()));
                     }
                     temp++;
                 }
@@ -138,39 +135,32 @@ public class State {
             s.setY(canMove[i][1]);
             if(getInGoal[i]){
                 s.setInGoal(true);
-                for(Goal g : goals){
-                    if(g.getC() == Character.toUpperCase(s.getC())) {
-                        state.board[g.getX()][g.getY()]='_';
+                for(int k =0 ;k <board.length;k++){
+                    for(int j =0 ;j <board[i].length;j++){
+                        if(Character.toUpperCase(s.getC()) == board[k][j]){
+                            state.board[k][j]='_';
+                        }
                     }
                 }
-
             }
         }
         return state;
     }
 
-    public boolean checkIfYouCanWalk(int i,int j,boolean flag){
+    public boolean checkIfYouCanWalk(int i,int j,State state){
         if(board[i][j]=='#'){
             return false;
         }
         if(board[i][j]=='O'){
-            if(flag){
-                finished=true;
-                lost = true;
-            }
-            else{
-                lost = true;
-                finished=true;
-            }
+            state.finished=true;
+            state.lost = true;
         }
         for(Stone s : stones){
             if(!s.isInGoal() && s.getX()==i && s.getY()==j ){
                 return false;
             }
         }
-
         return true;
-
     }
 
     @Override
@@ -182,17 +172,14 @@ public class State {
             }
             b.append("\n");
         }
+        for(Stone s : stones){
+            b.append(s);
+            b.append("\n");
+        }
         return "dimensions : " + gridX + " , " + gridY +
-                '\n'+
-                b+
-                '\n'+
-//                "parent=" + parent +
+                '\n'+ b + '\n'+
+//                "goals=" + goals +
 //                '\n'+
-                "stones=" + stones +
-                '\n'+
-                "goals=" + goals +
-//                ", nextStates=" + nextStates +
-                '\n'+
                 "finished=" + finished +
                 '\n'+
                 "lost=" + lost +
@@ -227,17 +214,34 @@ public class State {
 
     public void possibleBoards(){
 
-
-        nextStates.add(move("UP",false));
+        State state = new State();
+        state = move("UP");
+        if(!state.lost)
+            nextStates.add(state);
+        else
+            nextStates.add(null);
 //        nextStates.get(0).printGrid();
 
-        nextStates.add(move("DOWN",false));
+        state = move("DOWN");
+//        System.out.println("DOWN");
+        if(!state.lost)
+            nextStates.add(state);
+        else
+            nextStates.add(null);
 //        nextStates.get(1).printGrid();
 
-        nextStates.add(move("LEFT",false));
+        state = move("LEFT");
+//        System.out.println("LEFT");
+        if(!state.lost)
+            nextStates.add(state);
 //        nextStates.get(2).printGrid();
 
-        nextStates.add(move("RIGHT",false));
+        state = move("RIGHT");
+//        System.out.println("RIGHT");
+        if(!state.lost)
+            nextStates.add(state);
+        else
+            nextStates.add(null);
 //        nextStates.get(3).printGrid();
     }
 
@@ -252,6 +256,6 @@ public class State {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         State that = (State) o;
-        return gridX == that.gridX && gridY == that.gridY && finished == that.finished && lost == that.lost && Objects.deepEquals(board, that.board) && Objects.equals(stones, that.stones) && Objects.equals(goals, that.goals);
+        return gridX == that.gridX && gridY == that.gridY && finished == that.finished && lost == that.lost && Objects.deepEquals(board, that.board) && Objects.equals(stones, that.stones) ;
     }
 }

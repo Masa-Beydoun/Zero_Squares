@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class BoardGui  extends JFrame implements KeyListener {
 
@@ -62,7 +63,7 @@ public class BoardGui  extends JFrame implements KeyListener {
         updateFullFrame();
         this.setSize(new Dimension(1600,800));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
+//        this.setVisible(true);
         this.setFocusable(true);
         this.addKeyListener(this);
 
@@ -95,12 +96,23 @@ public class BoardGui  extends JFrame implements KeyListener {
         updateFrame(firstButton,state);
 
         state.possibleBoards();
-//        System.out.println("after states");
+
         if(!state.nextStates.isEmpty()) {
-            updateFrame(secondButton, state.nextStates.get(0));
-            updateFrame(thirdButton, state.nextStates.get(1));
-            updateFrame(fourthButton,state.nextStates.get(2));
-            updateFrame(fifthButton, state.nextStates.get(3));
+
+
+            if(state.nextStates.get(0)!= null)
+                updateFrame(secondButton, state.nextStates.get(0));
+
+            if(state.nextStates.get(1)!= null)
+                updateFrame(thirdButton, state.nextStates.get(2));
+
+            if(state.nextStates.get(2)!= null)
+                updateFrame(fourthButton, state.nextStates.get(2));
+
+            if(state.nextStates.get(3)!= null)
+                updateFrame(fifthButton, state.nextStates.get(3));
+
+
         }
     }
 
@@ -115,16 +127,16 @@ public class BoardGui  extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                 state = state.move("UP",true);
+                 state = state.move("UP");
                 break;
             case KeyEvent.VK_DOWN:
-                state = state.move("DOWN",true);
+                state = state.move("DOWN");
                 break;
             case KeyEvent.VK_LEFT:
-                state =state.move("LEFT",true);
+                state = state.move("LEFT");
                 break;
             case KeyEvent.VK_RIGHT:
-                state = state.move("RIGHT",true);
+                state = state.move("RIGHT");
                 break;
         }
 

@@ -23,11 +23,15 @@ public class Algorithms {
         Stack<State> stack = new Stack<>();
         root.parent = null;
         stack.add(root);
+
         while(!stack.isEmpty()){
             State currentState = stack.pop();
+            if(currentState == null) continue;
+//            System.out.println(currentState);
             visitedStates.add(currentState);
             currentState.possibleBoards();
             for(State nextState : currentState.nextStates){
+                if(nextState == null) continue;
                 boolean found = false;
                 for(State visited : visitedStates) {
                     if (visited.equals(nextState)) {
@@ -47,15 +51,7 @@ public class Algorithms {
                         }
                         reverse(path);
                         System.out.println("DFS");
-                        System.out.println(Algorithms.PURPLE + "number of visited states: " + visitedStates.size() + Algorithms.RESET);
-                        System.out.println(Algorithms.PURPLE + "number of states in the path: " + path  .size() + Algorithms.RESET);
-                        System.out.println(Algorithms.CYAN + "Path :" +Algorithms.RESET);
-                        for(State state : path) {
-                            System.out.println(state.toString());
-                            System.out.println(Algorithms.CYAN + "next move :" + Algorithms.RESET);
-                        }
-                        System.out.println(Algorithms.RED + "End of path ." + Algorithms.RESET);
-                        return path;
+                        return printPath(visitedStates, path);
                     }
                 }
 
@@ -63,16 +59,21 @@ public class Algorithms {
         }
         return null;
     }
+
+
+
     public ArrayList<State> BFS(State root){
         ArrayList<State> visitedStates = new ArrayList<>();
         Queue<State> queue = new ArrayDeque<>();
         root.parent = null;
         queue.add(root);
         while(!queue.isEmpty()){
+            System.out.println("number of visits: " + visitedStates.size());
             State currentState = queue.remove();
             visitedStates.add(currentState);
             currentState.possibleBoards();
             for(State nextState : currentState.nextStates){
+                if(nextState == null) continue;
                 boolean found = false;
                 for(State visited : visitedStates) {
                     if (visited.equals(nextState)) {
@@ -92,15 +93,7 @@ public class Algorithms {
                         }
                         reverse(path);
                         System.out.println("BFS");
-                        System.out.println(Algorithms.PURPLE + "number of visited states: " + visitedStates.size() + Algorithms.RESET);
-                        System.out.println(Algorithms.PURPLE + "number of states in the path: " + path  .size() + Algorithms.RESET);
-                        System.out.println(Algorithms.CYAN + "Path :" +Algorithms.RESET);
-                        for(State state : path) {
-                            System.out.println(state.toString());
-                            System.out.println(Algorithms.CYAN + "next move :" + Algorithms.RESET);
-                        }
-                        System.out.println(Algorithms.RED + "End of path ." + Algorithms.RESET);
-                        return path;
+                        return printPath(visitedStates, path);
                     }
                 }
 
@@ -116,6 +109,21 @@ public class Algorithms {
         }
         return true;
     }
+
+    public ArrayList<State> printPath(ArrayList<State> visitedStates, ArrayList<State> path) {
+        System.out.println(Algorithms.PURPLE + "number of visited states: " + visitedStates.size() + Algorithms.RESET);
+        System.out.println(Algorithms.PURPLE + "number of states in the path: " + path  .size() + Algorithms.RESET);
+        System.out.println(Algorithms.CYAN + "Path :" +Algorithms.RESET);
+        int i=1;
+        for(State state : path) {
+            System.out.println(state.toString());
+            System.out.println(Algorithms.CYAN + "next move number " + i +"  " + Algorithms.RESET);
+            i++;
+        }
+        System.out.println(Algorithms.RED + "End of path ." + Algorithms.RESET);
+        return path;
+    }
+
 
 
 

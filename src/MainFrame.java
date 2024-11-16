@@ -17,9 +17,13 @@ public class MainFrame extends JFrame {
         });
         DFS.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"BFS");
+            new AlgorithmGui(index,"DFS");
         });
 
+        user.setFocusable(false);
+        BFS.setFocusable(false);
+        DFS.setFocusable(false);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setBackground(Color.GRAY);
         this.add(user);
         this.add(BFS);
