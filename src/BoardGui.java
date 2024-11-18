@@ -61,9 +61,10 @@ public class BoardGui  extends JFrame implements KeyListener {
 
 
         updateFullFrame();
+
         this.setSize(new Dimension(1600,800));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.setVisible(true);
+        this.setVisible(true);
         this.setFocusable(true);
         this.addKeyListener(this);
 
@@ -99,7 +100,6 @@ public class BoardGui  extends JFrame implements KeyListener {
 
         if(!state.nextStates.isEmpty()) {
 
-
             if(state.nextStates.get(0)!= null)
                 updateFrame(secondButton, state.nextStates.get(0));
 
@@ -127,6 +127,7 @@ public class BoardGui  extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
+                System.out.println("UP");
                  state = state.move("UP");
                 break;
             case KeyEvent.VK_DOWN:
