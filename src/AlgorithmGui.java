@@ -57,7 +57,11 @@ public class AlgorithmGui extends JFrame {
         } else if (alg.equals("DFS")) {
             path = algorithms.DFS(state);
         }
-
+        else if(alg.equals("UCS")){
+            path = algorithms.UCS(state);
+        } else if (alg.equals("DFS_RECURSIVE")) {
+            path = algorithms.initiate_DfS(state);
+        }
         if (path != null && path.isEmpty()) {
             System.out.println("No path found.");
             return;
