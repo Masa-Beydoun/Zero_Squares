@@ -2,7 +2,7 @@ import lombok.Builder;
 
 import java.util.*;
 
-public class State {
+public class State implements Comparable{
 
 
 
@@ -11,6 +11,7 @@ public class State {
      State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
      ArrayList<State> nextStates = new ArrayList<>();
+     int cost;
 
 
      boolean finished = false;
@@ -257,5 +258,12 @@ public class State {
         if (o == null || getClass() != o.getClass()) return false;
         State that = (State) o;
         return gridX == that.gridX && gridY == that.gridY && finished == that.finished && lost == that.lost && Objects.deepEquals(board, that.board) && Objects.equals(stones, that.stones) ;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(this.cost>((State)o).cost)
+            return 1;
+        return 0;
     }
 }

@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
-public class BoardGui  extends JFrame implements KeyListener {
+public class BoardGui  extends JFrame implements KeyListener{
 
     int index;
     State state=new State();
