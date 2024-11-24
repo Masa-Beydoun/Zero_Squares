@@ -7,7 +7,7 @@ public class Main {
 //        Algorithms algorithms = new Algorithms();
 //        algorithms.UCS(boardGui.state);
 //
-        new MainFrame(1);
+        new MainFrame(2);
 
 
 
