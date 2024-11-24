@@ -1,5 +1,3 @@
-import lombok.Builder;
-
 import java.util.*;
 
 public class State implements Comparable{
@@ -39,7 +37,6 @@ public class State implements Comparable{
         for (Stone s : stones) {
             newStones.add(new Stone(s.getC(),s.getColor(), s.getX(), s.getY(), s.isInGoal()));
         }
-        ArrayList<Goal> newGoals = new ArrayList<>();
 
         state.gridX = gridX;
         state.gridY = gridY;
@@ -63,7 +60,7 @@ public class State implements Comparable{
             char c = s.getC();
 
             //check movement
-            if (dir == "UP") {
+            if (dir.equals("UP")) {
 //                System.out.println("UP");
                 int temp = s.getX() - 1;
                 while(temp>=0 && checkIfYouCanWalk(temp,s.getY(),state)){
@@ -78,7 +75,7 @@ public class State implements Comparable{
                 }
                 canMove[i][0] = temp+1;
                 canMove[i][1] = s.getY();
-            } else if (dir == "DOWN") {
+            } else if (dir.equals("DOWN")) {
 //                System.out.println("DOWN");
                 int temp = s.getX() + 1;
                 while(temp< state.gridX && checkIfYouCanWalk(temp,s.getY(),state)){
@@ -94,7 +91,7 @@ public class State implements Comparable{
                 }
                 canMove[i][0] = temp-1;
                 canMove[i][1] = s.getY();
-            } else if (dir == "LEFT") {
+            } else if (dir.equals("LEFT")) {
 //                System.out.println("LEFT");
                 int temp = s.getY() - 1;
                 while(temp>=0 && checkIfYouCanWalk(s.getX(),temp,state)){
@@ -215,7 +212,7 @@ public class State implements Comparable{
 
     public void possibleBoards(){
 
-        State state = new State();
+        State state;
         state = move("UP");
         if(!state.lost)
             nextStates.add(state);

@@ -11,8 +11,8 @@ public class Algorithms {
     public static final String BLUE = "\u001B[34m";
     public static final String PURPLE = "\u001B[35m";
     public static final String CYAN = "\u001B[36m";
-    public static final String WHITE = "\u001B[37m";
-    public static final String BLACK = "\u001B[40m";
+//    public static final String WHITE = "\u001B[37m";
+//    public static final String BLACK = "\u001B[40m";
 
 
 
@@ -58,41 +58,38 @@ public class Algorithms {
         return null;
     }
 
-    public ArrayList<State> initiate_DfS(State root){
+    public void initiate_DfS(State root){
         ArrayList<State> visitedStates = new ArrayList<>();
-        State finalState = DFS_Recursive(root,visitedStates);
-
-        ArrayList<State> path = new ArrayList<>();
-        path.add(finalState);
-        while(finalState.parent!=null){
-            path.add(finalState.parent);
-        }
-        reverse(path);
-        return printPath(visitedStates, path);
+        DFS_Recursive(root,visitedStates);
     }
 
-    public State DFS_Recursive(State root,ArrayList<State> visitedStates){
-
+    ArrayList <State> globalPath = new ArrayList<>();
+    public boolean DFS_Recursive(State root,ArrayList<State> visitedStates){
+        if(checkGoal(root)) {
+            globalPath.add(root);
+            while(root.parent!=null){
+                root = root.parent;
+                globalPath.add(root);
+            }
+            reverse(globalPath);
+            printPath(visitedStates, globalPath);
+            return true;
+        }
+        for(State s : visitedStates){
+            if(s.equals(root))
+                return false;
+        }
+        visitedStates.add(root);
         root.possibleBoards();
         for(State nextState : root.nextStates){
-            if(nextState == null) continue;
-            boolean found = false;
-            if(checkGoal(nextState)) {
-                return root;
-            }
-            for(State visited : visitedStates) {
-                if (visited.equals(nextState)) {
-                    found = true;
-                }
-            }
-            if(!found) {
-                visitedStates.add(nextState);
-                nextState.parent = root;
-                return DFS_Recursive(nextState,visitedStates);
-            }
+            if(nextState == null)
+                continue;
+            nextState.parent = root;
+            boolean flag = DFS_Recursive(nextState,visitedStates);
+            if(flag) return true;
 
         }
-        return null;
+        return false;
 
     }
 

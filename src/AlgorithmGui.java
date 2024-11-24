@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class AlgorithmGui extends JFrame {
 
     int index;
-    State state = new State();
+    State state;
     JPanel mainPanel = new JPanel();
     JPanel panel = new JPanel();
     JButton[][] buttons;
@@ -42,9 +42,7 @@ public class AlgorithmGui extends JFrame {
         this.setFocusable(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        SwingUtilities.invokeLater(() -> {
-            updateFullFrame(alg);
-        });
+        SwingUtilities.invokeLater(() -> updateFullFrame(alg));
     }
 
     public void updateFullFrame(String alg) {
@@ -60,7 +58,8 @@ public class AlgorithmGui extends JFrame {
         else if(alg.equals("UCS")){
             path = algorithms.UCS(state);
         } else if (alg.equals("DFS_RECURSIVE")) {
-            path = algorithms.initiate_DfS(state);
+             algorithms.initiate_DfS(state);
+             path=algorithms.globalPath;
         }
         if (path != null && path.isEmpty()) {
             System.out.println("No path found.");
