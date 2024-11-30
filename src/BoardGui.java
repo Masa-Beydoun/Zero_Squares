@@ -33,11 +33,11 @@ public class BoardGui  extends JFrame implements KeyListener{
         this.setLayout(new GridLayout(1, 5));
 
 
-        firstButton = new JButton[state.gridX][state.gridY];
-        secondButton = new JButton[state.gridX][state.gridY];
-        thirdButton = new JButton[state.gridX][state.gridY];
-        fourthButton = new JButton[state.gridX][state.gridY];
-        fifthButton = new JButton[state.gridX][state.gridY];
+        firstButton = new JButton[state.board.length][state.board[0].length];
+        secondButton = new JButton[state.board.length][state.board[0].length];
+        thirdButton = new JButton[state.board.length][state.board[0].length];
+        fourthButton = new JButton[state.board.length][state.board[0].length];
+        fifthButton = new JButton[state.board.length][state.board[0].length];
 
 
         createOnePanel(firstMainPanel,firstPanel,firstButton,firstLabel,"current");
@@ -74,7 +74,7 @@ public class BoardGui  extends JFrame implements KeyListener{
 
     public void createOnePanel(JPanel mainPanel,JPanel buttonPanel,JButton[][] buttons,JLabel jLabel,String str){
         mainPanel.setLayout(new BorderLayout());
-        buttonPanel.setLayout(new GridLayout(state.gridX,state.gridY));
+        buttonPanel.setLayout(new GridLayout(state.board.length,state.board[0].length));
         jLabel.setText(str);
         jLabel.setHorizontalAlignment(JLabel.CENTER);  // Ensure text is centered
         mainPanel.add(jLabel, BorderLayout.NORTH);
@@ -96,21 +96,22 @@ public class BoardGui  extends JFrame implements KeyListener{
     public void updateFullFrame(){
         updateFrame(firstButton,state);
 
-        state.possibleBoards();
+        ArrayList<State> nextStates =  state.possibleBoards();
 
-        if(!state.nextStates.isEmpty()) {
 
-            if(state.nextStates.get(0)!= null)
-                updateFrame(secondButton, state.nextStates.get(0));
+        if(!nextStates.isEmpty()) {
 
-            if(state.nextStates.get(1)!= null)
-                updateFrame(thirdButton, state.nextStates.get(2));
+            if(nextStates.get(0)!= null)
+                updateFrame(secondButton, nextStates.get(0));
 
-            if(state.nextStates.get(2)!= null)
-                updateFrame(fourthButton, state.nextStates.get(2));
+            if(nextStates.get(1)!= null)
+                updateFrame(thirdButton, nextStates.get(2));
 
-            if(state.nextStates.get(3)!= null)
-                updateFrame(fifthButton, state.nextStates.get(3));
+            if(nextStates.get(2)!= null)
+                updateFrame(fourthButton, nextStates.get(2));
+
+            if(nextStates.get(3)!= null)
+                updateFrame(fifthButton, nextStates.get(3));
 
 
         }

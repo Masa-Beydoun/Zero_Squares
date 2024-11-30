@@ -4,11 +4,9 @@ public class State implements Comparable{
 
 
 
-     short gridX, gridY;
      char [][] board;
      State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
-     ArrayList<State> nextStates = new ArrayList<>();
      int cost=0;
 
 
@@ -16,10 +14,8 @@ public class State implements Comparable{
      boolean lost = false;
 
     State(){}
-    State(short gridX, short gridY, char [][] board, ArrayList<Stone> stones)
+    State(char [][] board, ArrayList<Stone> stones)
     {
-        this.gridX = gridX;
-        this.gridY = gridY;
         this.board = board;
         this.stones = stones;
     }
@@ -29,17 +25,15 @@ public class State implements Comparable{
 
         State state = new State();
 
-        char[][] newBoard = new char[gridX][gridY];
-        for (int i = 0; i < gridX; i++) {
-            System.arraycopy(board[i], 0, newBoard[i], 0, gridY);
+        char[][] newBoard = new char[this.board.length][this.board[0].length];
+        for (int i = 0; i < this.board.length; i++) {
+            System.arraycopy(board[i], 0, newBoard[i], 0, this.board[0].length);
         }
         ArrayList<Stone> newStones = new ArrayList<>();
         for (Stone s : stones) {
             newStones.add(new Stone(s.getC(), s.getX(), s.getY(), s.isInGoal()));
         }
 
-        state.gridX = gridX;
-        state.gridY = gridY;
         state.board = newBoard;
         state.stones = newStones;
 
@@ -78,7 +72,7 @@ public class State implements Comparable{
             } else if (dir.equals("DOWN")) {
 //                System.out.println("DOWN");
                 int temp = s.getX() + 1;
-                while(temp< state.gridX && checkIfYouCanWalk(temp,s.getY(),state)){
+                while(temp< this.board.length && checkIfYouCanWalk(temp,s.getY(),state)){
 
                     if(state.board[temp][s.getY()]==Character.toUpperCase(c)) {
                         getInGoal[i]=true;
@@ -109,7 +103,7 @@ public class State implements Comparable{
             } else {
 //                System.out.println("RIGHT");
                 int temp = s.getY() + 1;
-                while(temp<gridY && checkIfYouCanWalk(s.getX(),temp,state)){
+                while(temp<this.board[0].length && checkIfYouCanWalk(s.getX(),temp,state)){
                     if(board[s.getX()][temp]==Character.toUpperCase(c)){
                         getInGoal[i]=true;
                         break;
@@ -162,10 +156,11 @@ public class State implements Comparable{
     }
 
     @Override
-    public String toString() {
+    public String
+    toString() {
         StringBuilder b= new StringBuilder();
-        for(int i=0;i<gridX;i++){
-            for(int j=0;j<gridY;j++){
+        for(int i=0;i<this.board.length;i++){
+            for(int j=0;j<this.board[0].length;j++){
                 b.append(board[i][j]);
             }
             b.append("\n");
@@ -174,15 +169,11 @@ public class State implements Comparable{
             b.append(s);
             b.append("\n");
         }
-        return "dimensions : " + gridX + " , " + gridY +
-                '\n'+ b + '\n'+
-//                "goals=" + goals +
-//                '\n'+
-                "finished=" + finished +
-                '\n'+
-                "lost=" + lost +
-                "\n"+
-                '}';
+        return "dimensions : " + this.board.length + " , " + this.board[0].length +'\n'+
+                "cost= " + cost + '\n'+
+                "finished=" + finished + '\n'+
+                "lost=" + lost + '\n'+
+                b + '}';
     }
 
     public void printGrid(){
@@ -210,37 +201,26 @@ public class State implements Comparable{
         return true;
     }
 
-    public void possibleBoards(){
+    public ArrayList<State> possibleBoards(){
 
+        ArrayList<State> nextStates= new ArrayList<>();
         State state;
         state = move("UP");
         if(!state.lost)
             nextStates.add(state);
-        else
-            nextStates.add(null);
-//        nextStates.get(0).printGrid();
 
         state = move("DOWN");
-//        System.out.println("DOWN");
         if(!state.lost)
             nextStates.add(state);
-        else
-            nextStates.add(null);
-//        nextStates.get(1).printGrid();
 
         state = move("LEFT");
-//        System.out.println("LEFT");
         if(!state.lost)
             nextStates.add(state);
-//        nextStates.get(2).printGrid();
 
         state = move("RIGHT");
-//        System.out.println("RIGHT");
         if(!state.lost)
             nextStates.add(state);
-        else
-            nextStates.add(null);
-//        nextStates.get(3).printGrid();
+        return nextStates;
     }
 
     @Override
@@ -254,7 +234,7 @@ public class State implements Comparable{
         if (o == null || getClass() != o.getClass()) return false;
 
         State state = (State) o;
-        return gridX == state.gridX && gridY == state.gridY && cost == state.cost && finished == state.finished && lost == state.lost && Arrays.deepEquals(board, state.board) && Objects.equals(parent, state.parent) && stones.equals(state.stones) && Objects.equals(nextStates, state.nextStates);
+        return this.board.length == this.board.length && this.board[0].length == this.board[0].length && cost == state.cost && finished == state.finished && lost == state.lost && Arrays.deepEquals(board, state.board) && stones.equals(state.stones);
     }
 
 

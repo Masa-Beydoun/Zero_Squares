@@ -12,38 +12,26 @@ public class InputStates {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             // Read grid dimensions
             String[] dimensions = br.readLine().split(" ");
-            state.gridX = Short.parseShort(dimensions[0]);
-            state.gridY = Short.parseShort(dimensions[1]);
+            int gridX = Short.parseShort(dimensions[0]);
+            int gridY = Short.parseShort(dimensions[1]);
 
             // Initialize the board
-            state.board = new char[state.gridX][state.gridY];
+            state.board = new char[gridX][gridY];
 
-            for (int i = 0; i < state.gridX; i++) {
+            for (int i = 0; i < state.board.length; i++) {
                 String line = br.readLine();
                 String[] cells = line.split(" ");
-                for (int j = 0; j < state.gridY; j++) {
+                for (int j = 0; j < state.board[0].length; j++) {
                     char cell = cells[j].charAt(0);
                     state.board[i][j] = cell;
-//                    if (cell=='R')
-//                        state.goals.add(new Goal(cell,i, j, Color.RED));
-//                    if(cell== 'G')
-//                        state.goals.add(new Goal(cell,i, j,Color.GREEN));
-//                    if(cell== 'B')
-//                        state.goals.add(new Goal(cell,i, j,Color.BLUE));
-//                    if(cell== 'Y')
-//                        state.goals.add(new Goal(cell,i, j,Color.YELLOW));
-//                    if(cell == 'P')
-//                        state.goals.add(new Goal(cell,i,j,Color.PINK));
-//                    if(cell == '?')
-//                        state.goals.add(new Goal(cell,i,j,Color.DARK_GRAY));
-                }
+                   }
             }
-            for (int i = 0; i < state.gridX; i++) {
+            for (int i = 0; i < state.board.length; i++) {
                 String line = br.readLine();
                 String[] cells = line.split(" ");
-                for (int j = 0; j < state.gridY; j++) {
+                for (int j = 0; j < state.board[0].length; j++) {
                     char cell = cells[j].charAt(0);
-                    if(cell != '#' && cell != '_' && cell != 'O')
+                    if(cell != '#' && cell != '_' && cell != 'O' && cell != 'B' && cell != 'Y'&& cell != 'G'&& cell != 'R'&& cell != 'P')
                         state.stones.add(new Stone(cell, i, j, false));
 
                 }

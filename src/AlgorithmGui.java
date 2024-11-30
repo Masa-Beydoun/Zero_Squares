@@ -21,9 +21,9 @@ public class AlgorithmGui extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         mainPanel.setLayout(new BorderLayout());
-        panel.setLayout(new GridLayout(state.gridX, state.gridY));
+        panel.setLayout(new GridLayout(state.board.length, state.board[0].length));
 
-        buttons = new JButton[state.gridX][state.gridY];
+        buttons = new JButton[state.board.length][state.board[0].length];
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
                 buttons[i][j] = new JButton();
