@@ -43,16 +43,9 @@ public class InputStates {
                 String[] cells = line.split(" ");
                 for (int j = 0; j < state.gridY; j++) {
                     char cell = cells[j].charAt(0);
-                    if (cell=='r')
-                        state.stones.add(new Stone(cell,Color.RED, i, j, false));
-                    if (cell=='g')
-                        state.stones.add(new Stone(cell,Color.GREEN, i, j, false));
-                    if (cell=='b')
-                        state.stones.add(new Stone(cell,Color.BLUE, i, j, false));
-                    if (cell=='y')
-                        state.stones.add(new Stone(cell,Color.YELLOW, i, j, false));
-                    if(cell == 'p')
-                        state.stones.add(new Stone(cell,Color.PINK, i, j, false));
+                    if(cell != '#' && cell != '_' && cell != 'O')
+                        state.stones.add(new Stone(cell, i, j, false));
+
                 }
             }
         } catch (IOException e) {

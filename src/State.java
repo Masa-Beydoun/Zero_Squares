@@ -9,7 +9,7 @@ public class State implements Comparable{
      State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
      ArrayList<State> nextStates = new ArrayList<>();
-     int cost;
+     int cost=0;
 
 
      boolean finished = false;
@@ -35,7 +35,7 @@ public class State implements Comparable{
         }
         ArrayList<Stone> newStones = new ArrayList<>();
         for (Stone s : stones) {
-            newStones.add(new Stone(s.getC(),s.getColor(), s.getX(), s.getY(), s.isInGoal()));
+            newStones.add(new Stone(s.getC(), s.getX(), s.getY(), s.isInGoal()));
         }
 
         state.gridX = gridX;
@@ -243,7 +243,6 @@ public class State implements Comparable{
 //        nextStates.get(3).printGrid();
     }
 
-
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -253,14 +252,14 @@ public class State implements Comparable{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        State that = (State) o;
-        return gridX == that.gridX && gridY == that.gridY && finished == that.finished && lost == that.lost && Objects.deepEquals(board, that.board) && Objects.equals(stones, that.stones) ;
+
+        State state = (State) o;
+        return gridX == state.gridX && gridY == state.gridY && cost == state.cost && finished == state.finished && lost == state.lost && Arrays.deepEquals(board, state.board) && Objects.equals(parent, state.parent) && stones.equals(state.stones) && Objects.equals(nextStates, state.nextStates);
     }
+
 
     @Override
     public int compareTo(Object o) {
-        if(this.cost>((State)o).cost)
-            return 1;
-        return 0;
+        return Integer.compare(this.cost, ((State)o).cost);
     }
 }

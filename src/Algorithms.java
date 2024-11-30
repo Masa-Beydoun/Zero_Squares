@@ -17,73 +17,44 @@ public class Algorithms {
 
 
     public ArrayList<State> DFS(State root){
-        ArrayList<State> visitedStates = new ArrayList<>();
+        Set<State> visitedStates = new HashSet<>();
         Stack<State> stack = new Stack<>();
         root.parent = null;
         stack.add(root);
-
         while(!stack.isEmpty()){
+            System.out.println("number of visits: " + visitedStates.size());
             State currentState = stack.pop();
-            if(currentState == null) continue;
-//            System.out.println(currentState);
+            if (checkGoal(currentState)) {
+                System.out.println("DFS");
+                return getPath(currentState,visitedStates);
+            }
             visitedStates.add(currentState);
             currentState.possibleBoards();
             for(State nextState : currentState.nextStates){
-                if(nextState == null) continue;
-                boolean found = false;
-                for(State visited : visitedStates) {
-                    if (visited.equals(nextState)) {
-                        found = true;
-                        break;
-                    }
-                }
-                if(!found) {
-                    stack.add(nextState);
-                    nextState.parent = currentState;
-                    if (checkGoal(nextState)) {
-                        ArrayList<State> path = new ArrayList<>();
-                        path.add(currentState);
-                        while (currentState.parent != null) {
-                            path.add(currentState.parent);
-                            currentState = currentState.parent;
-                        }
-                        reverse(path);
-                        System.out.println("DFS");
-                        return printPath(visitedStates, path);
-                    }
-                }
-
+                if (nextState == null || visitedStates.contains(nextState)) continue;
+                stack.add(nextState);
+                nextState.parent = currentState;
             }
         }
         return null;
     }
 
     public void initiate_DfS(State root){
-        ArrayList<State> visitedStates = new ArrayList<>();
+        Set<State> visitedStates = new HashSet<>();
         DFS_Recursive(root,visitedStates);
     }
 
-    ArrayList <State> globalPath = new ArrayList<>();
-    public boolean DFS_Recursive(State root,ArrayList<State> visitedStates){
+    ArrayList<State> globalPath = new ArrayList<>();
+    public boolean DFS_Recursive(State root,Set<State> visitedStates){
         if(checkGoal(root)) {
-            globalPath.add(root);
-            while(root.parent!=null){
-                root = root.parent;
-                globalPath.add(root);
-            }
-            reverse(globalPath);
-            printPath(visitedStates, globalPath);
+            System.out.println("DFS Recursive");
+            globalPath = getPath(root,visitedStates);
             return true;
-        }
-        for(State s : visitedStates){
-            if(s.equals(root))
-                return false;
         }
         visitedStates.add(root);
         root.possibleBoards();
         for(State nextState : root.nextStates){
-            if(nextState == null)
-                continue;
+            if (nextState == null || visitedStates.contains(nextState)) continue;
             nextState.parent = root;
             boolean flag = DFS_Recursive(nextState,visitedStates);
             if(flag) return true;
@@ -94,49 +65,34 @@ public class Algorithms {
     }
 
 
-    public ArrayList<State> UCS(State root){
-        ArrayList<State> visitedStates = new ArrayList<>();
+    public ArrayList<State> UCS(State root) {
+        HashSet<State> visitedStates = new HashSet<>();
         PriorityQueue<State> queue = new PriorityQueue<>();
         root.parent = null;
-        root.cost=0;
+        root.cost = 0;
         queue.add(root);
-        while(!queue.isEmpty()) {
-            System.out.println("number of visits: " + visitedStates.size());
-            State currentState = queue.remove();
+
+        while (!queue.isEmpty()) {
+            System.out.println("number of visited states: " + visitedStates.size());
+            State currentState = queue.poll();
+            if (checkGoal(currentState)) {
+                System.out.println("UCS");
+                return getPath(currentState,visitedStates);
+            }
             visitedStates.add(currentState);
             currentState.possibleBoards();
             for (State nextState : currentState.nextStates) {
-                if (nextState == null) continue;
-                boolean found = false;
-                for (State visited : visitedStates) {
-                    if (visited.equals(nextState)) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    queue.add(nextState);
-                    nextState.cost=currentState.cost+1;
-                    nextState.parent = currentState;
-                    if (checkGoal(nextState)) {
-                        ArrayList<State> path = new ArrayList<>();
-                        path.add(currentState);
-                        while (currentState.parent != null) {
-                            path.add(currentState.parent);
-                            currentState = currentState.parent;
-                        }
-                        reverse(path);
-                        return printPath(visitedStates, path);
-                    }
-                }
-
+                if (nextState == null || visitedStates.contains(nextState)) continue;
+                nextState.cost = currentState.cost + 1;
+                nextState.parent = currentState;
+                queue.add(nextState);
             }
         }
         return null;
     }
 
     public ArrayList<State> BFS(State root){
-        ArrayList<State> visitedStates = new ArrayList<>();
+        Set<State> visitedStates = new HashSet<>();
         Queue<State> queue = new ArrayDeque<>();
         root.parent = null;
         queue.add(root);
@@ -144,35 +100,29 @@ public class Algorithms {
             System.out.println("number of visits: " + visitedStates.size());
             State currentState = queue.remove();
             visitedStates.add(currentState);
+            if (checkGoal(currentState)) {
+                System.out.println("BFS");
+                return getPath(currentState,visitedStates);
+            }
             currentState.possibleBoards();
             for(State nextState : currentState.nextStates){
-                if(nextState == null) continue;
-                boolean found = false;
-                for(State visited : visitedStates) {
-                    if (visited.equals(nextState)) {
-                        found = true;
-                        break;
-                    }
-                }
-                if(!found) {
-                    queue.add(nextState);
-                    nextState.parent = currentState;
-                    if (checkGoal(nextState)) {
-                        ArrayList<State> path = new ArrayList<>();
-                        path.add(currentState);
-                        while (currentState.parent != null) {
-                            path.add(currentState.parent);
-                            currentState = currentState.parent;
-                        }
-                        reverse(path);
-                        System.out.println("BFS");
-                        return printPath(visitedStates, path);
-                    }
-                }
-
+                if (nextState == null || visitedStates.contains(nextState)) continue;
+                queue.add(nextState);
+                nextState.parent = currentState;
             }
         }
         return null;
+    }
+
+    public ArrayList<State> getPath(State root,Set<State> visitedStates){
+        ArrayList<State> path = new ArrayList<>();
+        path.add(root);
+        while (root.parent != null) {
+            path.add(root.parent);
+            root = root.parent;
+        }
+        reverse(path);
+        return printPath(visitedStates, path);
     }
 
     public boolean checkGoal(State root){
@@ -183,7 +133,7 @@ public class Algorithms {
         return true;
     }
 
-    public ArrayList<State> printPath(ArrayList<State> visitedStates, ArrayList<State> path) {
+    public ArrayList<State> printPath(Set<State> visitedStates, ArrayList<State> path) {
         System.out.println(Algorithms.PURPLE + "number of visited states: " + visitedStates.size() + Algorithms.RESET);
         System.out.println(Algorithms.PURPLE + "number of states in the path: " + path  .size() + Algorithms.RESET);
         System.out.println(Algorithms.CYAN + "Path :" +Algorithms.RESET);

@@ -135,7 +135,16 @@ public class AlgorithmGui extends JFrame {
 
         for (Stone stone : state.stones) {
             if (!stone.isInGoal()) {
-                buttons[stone.getX()][stone.getY()].setBackground(stone.getColor());
+                if(stone.getC()=='r')
+                    buttons[stone.getX()][stone.getY()].setBackground(Color.RED);
+                if(stone.getC()=='y')
+                    buttons[stone.getX()][stone.getY()].setBackground(Color.YELLOW);
+                if(stone.getC()=='g')
+                    buttons[stone.getX()][stone.getY()].setBackground(Color.GREEN);
+                if(stone.getC()=='p')
+                    buttons[stone.getX()][stone.getY()].setBackground(Color.PINK);
+                if(stone.getC()=='b')
+                    buttons[stone.getX()][stone.getY()].setBackground(Color.blue);
             }
         }
     }

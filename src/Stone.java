@@ -15,7 +15,6 @@ import static java.awt.Color.red;
 @Builder
 public class Stone {
     private char c;
-    private Color color;
     private int x;
     private int y;
     private boolean inGoal;
@@ -25,18 +24,18 @@ public class Stone {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Stone stone = (Stone) o;
-        return c == stone.c && x == stone.x && y == stone.y && inGoal == stone.inGoal && Objects.equals(color, stone.color);
+        return c == stone.c && x == stone.x && y == stone.y && inGoal == stone.inGoal ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(c, color, x, y, inGoal);
+        return Objects.hash(c, x, y, inGoal);
     }
 
 
     @Override
     public String toString() {
-        if(color == RED) {
+        if(c == 'r') {
             return Algorithms.RED + "Stone{" +
                     "c=" + c +
                     ", color=red"+
@@ -45,7 +44,7 @@ public class Stone {
                     ", inGoal=" + inGoal +
                     '}' + Algorithms.RESET;
         }
-        if(color == Color.BLUE) {
+        if(c=='b') {
             return Algorithms.BLUE + "Stone{" +
                     "c=" + c +
                     ", color=blue" +
@@ -54,7 +53,7 @@ public class Stone {
                     ", inGoal=" + inGoal +
                     '}' + Algorithms.RESET;
         }
-        if(color == Color.GREEN) {
+        if(c=='g') {
             return Algorithms.GREEN + "Stone{" +
                     "c=" + c +
                     ", color=green" +
@@ -63,7 +62,7 @@ public class Stone {
                     ", inGoal=" + inGoal +
                     '}' + Algorithms.RESET;
         }
-        if(color == Color.YELLOW) {
+        if(c=='y') {
             return Algorithms.YELLOW + "Stone{" +
                     "c=" + c +
                     ", color=yellow" +
