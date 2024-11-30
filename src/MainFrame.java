@@ -7,6 +7,7 @@ public class MainFrame extends JFrame {
     JButton DFS = new JButton("DFS");
     JButton DFS_RESURSIVE = new JButton("DFS_RECURSIVE");
     JButton UCS = new JButton("UCS");
+    JButton AStar = new JButton("A star");
     public MainFrame(int index) {
         this.setLayout(new GridLayout(1,3));
         user.addActionListener(e -> {
@@ -29,10 +30,16 @@ public class MainFrame extends JFrame {
             this.dispose();
             new AlgorithmGui(index,"DFS_RECURSIVE");
         });
+        AStar.addActionListener(e -> {
+            this.dispose();
+            new AlgorithmGui(index,"AStar");
+        });
 
         user.setFocusable(false);
         BFS.setFocusable(false);
         DFS.setFocusable(false);
+        DFS_RESURSIVE.setFocusable(false);
+        AStar.setFocusable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setBackground(Color.GRAY);
         this.add(user);
@@ -40,6 +47,7 @@ public class MainFrame extends JFrame {
         this.add(DFS);
         this.add(UCS);
         this.add(DFS_RESURSIVE);
+        this.add(AStar);
         this.setSize(new Dimension(700,300));
         this.setVisible(true);
     }

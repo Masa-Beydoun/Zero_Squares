@@ -52,14 +52,19 @@ public class AlgorithmGui extends JFrame {
         if (alg.equals("BFS")) {
             System.out.println("in bfs");
             path = algorithms.BFS(state);
-        } else if (alg.equals("DFS")) {
+        }
+        if (alg.equals("DFS")) {
             path = algorithms.DFS(state);
         }
-        else if(alg.equals("UCS")){
+        if(alg.equals("UCS")) {
             path = algorithms.UCS(state);
-        } else if (alg.equals("DFS_RECURSIVE")) {
+        }
+        if (alg.equals("DFS_RECURSIVE")) {
              algorithms.initiate_DfS(state);
              path=algorithms.globalPath;
+        }
+        if (alg.equals("AStar")) {
+            path=algorithms.AStarSearch(state);
         }
         if (path != null && path.isEmpty()) {
             System.out.println("No path found.");

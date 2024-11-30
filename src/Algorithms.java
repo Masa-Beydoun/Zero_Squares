@@ -32,11 +32,11 @@ public class Algorithms {
                 }
             }
             if(flag) continue;
+            visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("DFS");
                 return getPath(currentState,visitedStates);
             }
-            visitedStates.add(currentState);
             ArrayList<State>nextStates =  currentState.possibleBoards();
             for(State nextState : nextStates){
                 stack.add(nextState);
@@ -82,7 +82,7 @@ public class Algorithms {
 
     public ArrayList<State> UCS(State root) {
         HashSet<State> visitedStates = new HashSet<>();
-        PriorityQueue<State> queue = new PriorityQueue<>();
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s->s.cost));
         root.parent = null;
         root.cost = 0;
         queue.add(root);
@@ -90,10 +90,6 @@ public class Algorithms {
             State currentState = queue.poll();
 //            System.out.println("number of visited states: " + visitedStates.size() +"  "+ currentState.cost);
 //            System.out.println(currentState);
-            if (checkGoal(currentState)) {
-                System.out.println("UCS");
-                return getPath(currentState,visitedStates);
-            }
             boolean flag = false;
             for(State visitedState : visitedStates){
                 if(visitedState.equals(currentState)) {
@@ -103,6 +99,10 @@ public class Algorithms {
             }
             if(flag) continue;
             visitedStates.add(currentState);
+            if (checkGoal(currentState)) {
+                System.out.println("UCS");
+                return getPath(currentState,visitedStates);
+            }
             currentState.possibleBoards();
             ArrayList<State> nextStates =  currentState.possibleBoards();
             for (State nextState : nextStates) {
@@ -146,6 +146,90 @@ public class Algorithms {
         return null;
     }
 
+
+//    public ArrayList<State> hillClimbing(State root) {
+//        HashSet<State> visitedStates = new HashSet<>();
+//        State current = root;
+//        int maxIterations = 1000; // Limit iterations to avoid infinite loops
+//
+//        for (int i = 0; i < maxIterations; i++) {
+//            visitedStates.add(current);
+//            ArrayList<State> neighbors = current.possibleBoards();
+//            State bestNeighbor = null;
+//            int bestScore = Integer.MIN_VALUE; // Assuming higher score is better
+//
+//            // Find neighbor with best evaluation score
+//            for (State neighbor : neighbors) {
+//                if (visitedStates.contains(neighbor)) {
+//                    continue; // Skip already visited states
+//                }
+//                int neighborScore = evaluateState(neighbor); // Replace with your evaluation function
+//                if (neighborScore > bestScore) {
+//                    bestScore = neighborScore;
+//                    bestNeighbor = neighbor;
+//                }
+//            }
+//
+//            // If no improvement found, terminate
+//            if (bestNeighbor == null) {
+//                System.out.println("Hill Climbing - Local Optimum Reached");
+//                break;
+//            }
+//
+//            current = bestNeighbor;
+//        }
+//
+//        // Check if goal is reached and return path
+//        if (checkGoal(current)) {
+//            return getPath(current, visitedStates);
+//        }
+//
+//        return null;
+//    }
+
+
+
+    public ArrayList<State> AStarSearch(State root) {
+        HashSet<State> visitedStates = new HashSet<>();
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.expectedMoves()));
+
+        root.parent = null;
+        root.cost = 0;
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            System.out.println("number of visits: " + visitedStates.size());
+            State currentState = queue.poll();
+            boolean flag = false;
+            for(State visitedState : visitedStates){
+                if(visitedState.equals(currentState)) {
+                    flag= true;
+                    break;
+                }
+            }
+            if(flag) continue;
+            visitedStates.add(currentState);
+            if (checkGoal(currentState)) {
+                System.out.println("A* Search");
+                return getPath(currentState, visitedStates);
+            }
+            ArrayList<State> nextStates = currentState.possibleBoards();
+            for (State nextState : nextStates) {
+                for(State visitedState : visitedStates){
+                    if(visitedState.equals(nextState)) {
+                        flag= true;
+                        break;
+                    }
+                }
+                if(flag) continue;
+                nextState.cost = currentState.cost + 1;
+                nextState.parent = currentState;
+                queue.add(nextState);
+            }
+        }
+        return null;
+    }
+
     public ArrayList<State> getPath(State root,Set<State> visitedStates){
         ArrayList<State> path = new ArrayList<>();
         path.add(root);
@@ -178,8 +262,6 @@ public class Algorithms {
         System.out.println(Algorithms.RED + "End of path ." + Algorithms.RESET);
         return path;
     }
-
-
 
 
 }

@@ -1,6 +1,8 @@
 import java.util.*;
 
-public class State implements Comparable{
+import static java.lang.Math.abs;
+
+public class State{
 
 
 
@@ -171,8 +173,9 @@ public class State implements Comparable{
         }
         return "dimensions : " + this.board.length + " , " + this.board[0].length +'\n'+
                 "cost= " + cost + '\n'+
-                "finished=" + finished + '\n'+
-                "lost=" + lost + '\n'+
+                "finished= " + finished + '\n'+
+                "lost= " + lost + '\n'+
+                "expectedMoves= " + expectedMoves() + '\n'+
                 b + '}';
     }
 
@@ -223,6 +226,57 @@ public class State implements Comparable{
         return nextStates;
     }
 
+
+    public int expectedMoves(){
+        int rGoalX = -1, rGoalY = -1, gGoalX = -1, gGoalY = -1,
+                bGoalX = -1, bGoalY = -1, yGoalX = -1, yGoalY = -1,
+                    pGoalX = -1, pGoalY = -1;
+        for(int i=0;i<board.length;i++){
+            for(int j=0;j<board[0].length;j++){
+                if(board[i][j]=='R'){
+                    rGoalX=i;
+                    rGoalY=j;
+                }
+                if(board[i][j]=='G'){
+                    gGoalX=i;
+                    gGoalY=j;
+                }
+                if(board[i][j]=='B'){
+                    bGoalX=i;
+                    bGoalY=j;
+                }
+                if(board[i][j]=='P'){
+                    pGoalX=i;
+                    pGoalY=j;
+                }
+                if(board[i][j]=='Y'){
+                    yGoalX=i;
+                    yGoalY=j;
+                }
+            }
+        }
+        int sum = 0;
+        for(Stone s : stones){
+            if(s.getC() == 'r'){
+                sum+=abs(s.getX()-rGoalX)+abs(s.getY()-rGoalY);
+            }
+            if(s.getC() == 'g'){
+                sum+=abs(s.getX()-gGoalX)+abs(s.getY()-gGoalY);
+            }
+            if(s.getC() == 'b'){
+                sum += abs(s.getX()-bGoalX)+abs(s.getY()-bGoalY);
+            }
+            if(s.getC() == 'p'){
+                sum+=abs(s.getX()-pGoalX)+abs(s.getY()-pGoalY);
+            }
+            if(s.getC() == 'y'){
+                sum += abs(s.getX()-yGoalX)+abs(s.getY()-yGoalY);
+            }
+        }
+        return sum;
+    }
+
+
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -238,8 +292,5 @@ public class State implements Comparable{
     }
 
 
-    @Override
-    public int compareTo(Object o) {
-        return Integer.compare(this.cost, ((State)o).cost);
-    }
+
 }
