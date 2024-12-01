@@ -146,7 +146,7 @@ public class Algorithms {
         return null;
     }
 
-    public ArrayList<State> hillClimbing(State root){
+    public ArrayList<State> StepsHillClimbing(State root){
         HashSet<State> visitedStates = new HashSet<>();
         PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.heuristic()));
 
@@ -169,7 +169,7 @@ public class Algorithms {
             if(flag) continue;
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
-                System.out.println("A* Search");
+                System.out.println("simple hill climbing");
                 return getPath(currentState, visitedStates);
             }
             int minCost = currentState.cost+currentState.heuristic();
@@ -185,6 +185,55 @@ public class Algorithms {
                 }
                 if(flag) continue;
                 if(nextState.cost+nextState.heuristic()<minCost)f = true;
+                nextState.cost = currentState.cost + 1;
+                nextState.parent = currentState;
+                if(!f) return null;
+                queue.add(nextState);
+            }
+        }
+        return null;
+    }
+
+
+    public ArrayList<State> simpleHillClimbing(State root){
+        HashSet<State> visitedStates = new HashSet<>();
+        Queue<State> queue = new ArrayDeque<>();
+
+        root.parent = null;
+        root.cost = 0;
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            System.out.println("number of visits: " + visitedStates.size());
+            State currentState = queue.poll();
+
+
+            boolean flag = false;
+            for(State visitedState : visitedStates){
+                if(visitedState.equals(currentState)) {
+                    flag= true;
+                    break;
+                }
+            }
+            if(flag) continue;
+            visitedStates.add(currentState);
+            if (checkGoal(currentState)) {
+                System.out.println("simple");
+                return getPath(currentState, visitedStates);
+            }
+            int minCost = currentState.cost+currentState.heuristic();
+
+            ArrayList<State> nextStates = currentState.possibleBoards();
+            boolean f=false;
+            for (State nextState : nextStates) {
+                for(State visitedState : visitedStates){
+                    if(visitedState.equals(nextState)) {
+                        flag= true;
+                        break;
+                    }
+                }
+                if(flag) continue;
+                if(nextState.cost+nextState.heuristic()<minCost) queue.add(nextState);
                 nextState.cost = currentState.cost + 1;
                 nextState.parent = currentState;
                 if(!f) return null;
