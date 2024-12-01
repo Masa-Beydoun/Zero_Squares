@@ -15,6 +15,7 @@ public class AlgorithmGui extends JFrame {
     AlgorithmGui(int index, String alg) {
         this.index = index;
         state = InputStates.readGrid(index);
+        state.heuristic=state.heuristic();
 
         this.setLayout(new BorderLayout());
         this.setSize(new Dimension(400, 400));

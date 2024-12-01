@@ -9,13 +9,15 @@ public class State{
      char [][] board;
      State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
-     int cost=0;
+     int cost=0,heuristic=0;
 
 
      boolean finished = false;
      boolean lost = false;
 
-    State(){}
+    State(){
+
+    }
     State(char [][] board, ArrayList<Stone> stones)
     {
         this.board = board;
@@ -161,12 +163,12 @@ public class State{
     public String
     toString() {
         StringBuilder b= new StringBuilder();
-        for(int i=0;i<this.board.length;i++){
-            for(int j=0;j<this.board[0].length;j++){
-                b.append(board[i][j]);
-            }
-            b.append("\n");
-        }
+//        for(int i=0;i<this.board.length;i++){
+//            for(int j=0;j<this.board[0].length;j++){
+//                b.append(board[i][j]);
+//            }
+//            b.append("\n");
+//        }
         for(Stone s : stones){
             b.append(s);
             b.append("\n");
@@ -296,7 +298,7 @@ public class State{
         if (o == null || getClass() != o.getClass()) return false;
 
         State state = (State) o;
-        return this.board.length == this.board.length && this.board[0].length == this.board[0].length && cost == state.cost && finished == state.finished && lost == state.lost && Arrays.deepEquals(board, state.board) && stones.equals(state.stones);
+        return  finished == state.finished && lost == state.lost && Arrays.deepEquals(board, state.board) && stones.equals(state.stones);
     }
 
 

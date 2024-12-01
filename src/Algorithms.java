@@ -17,7 +17,7 @@ public class Algorithms {
 
 
     public ArrayList<State> DFS(State root){
-        Set<State> visitedStates = new HashSet<>();
+        ArrayList<State> visitedStates = new ArrayList<>();
         Stack<State> stack = new Stack<>();
         root.parent = null;
         stack.add(root);
@@ -47,12 +47,12 @@ public class Algorithms {
     }
 
     public void initiate_DfS(State root){
-        Set<State> visitedStates = new HashSet<>();
+        ArrayList<State> visitedStates = new ArrayList<>();
         DFS_Recursive(root,visitedStates);
     }
 
     ArrayList<State> globalPath = new ArrayList<>();
-    public boolean DFS_Recursive(State root,Set<State> visitedStates){
+    public boolean DFS_Recursive(State root,ArrayList<State> visitedStates){
         if(checkGoal(root)) {
             System.out.println("DFS Recursive");
             globalPath = getPath(root,visitedStates);
@@ -81,7 +81,7 @@ public class Algorithms {
 
 
     public ArrayList<State> UCS(State root) {
-        HashSet<State> visitedStates = new HashSet<>();
+        ArrayList<State> visitedStates = new ArrayList<>();
         PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s->s.cost));
         root.parent = null;
         root.cost = 0;
@@ -116,7 +116,7 @@ public class Algorithms {
     }
 
     public ArrayList<State> BFS(State root){
-        Set<State> visitedStates = new HashSet<>();
+        ArrayList<State> visitedStates = new ArrayList<>();
         Queue<State> queue = new ArrayDeque<>();
         root.parent = null;
         queue.add(root);
@@ -130,6 +130,7 @@ public class Algorithms {
                     break;
                 }
             }
+            System.out.println("state is not visited");
             if(flag) continue;
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
@@ -146,36 +147,36 @@ public class Algorithms {
         return null;
     }
 
-    public ArrayList<State> StepsHillClimbing(State root){
-        HashSet<State> visitedStates = new HashSet<>();
-        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.heuristic()));
-
+    public ArrayList<State> StepsHillClimbing(State root) {
+        ArrayList<State> visitedStates = new ArrayList<>();
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(State::heuristic));
         root.parent = null;
         root.cost = 0;
         queue.add(root);
-
         while (!queue.isEmpty()) {
-            System.out.println("number of visits: " + visitedStates.size());
-            State currentState = queue.poll();
-            System.out.println("curent heu "+ currentState.heuristic());
-
+            System.out.println("queus size"+queue.size());
+//            System.out.println("number of visited "+visitedStates.size());
+            State currentState = queue.remove();
+            System.out.println("curent heu"+ currentState.heuristic());
+//            System.out.println(currentState);
             boolean flag = false;
             for(State visitedState : visitedStates){
                 if(visitedState.equals(currentState)) {
-                    flag= true;
+                    flag = true;
                     break;
                 }
             }
             if(flag) continue;
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
-                System.out.println("steps hill climbing");
-                return getPath(currentState, visitedStates);
+                System.out.println("UCS");
+                return getPath(currentState,visitedStates);
             }
-            int minCost = currentState.heuristic();
-            ArrayList<State> nextStates = currentState.possibleBoards();
-            boolean f=false;
+            boolean foundLess = false;
+            ArrayList<State> nextStates =  currentState.possibleBoards();
+
             for (State nextState : nextStates) {
+                flag=false;
                 for(State visitedState : visitedStates){
                     if(visitedState.equals(nextState)) {
                         flag= true;
@@ -183,23 +184,23 @@ public class Algorithms {
                     }
                 }
                 if(flag) continue;
-                System.out.println("next heu "+ nextState.heuristic());
+                System.out.println("next heu"+ nextState.heuristic());
+                if(nextState.heuristic()<=currentState.heuristic()) {
+                    foundLess=true;
+                }
+                else continue;
 
-                if(nextState.heuristic()<=minCost)
-                    f = true;
-                nextState.cost = currentState.cost + 1;
                 nextState.parent = currentState;
-
                 queue.add(nextState);
             }
-            if(!f) return null;
+            if(!foundLess) return null;
         }
         return null;
     }
 
 
     public ArrayList<State> simpleHillClimbing(State root){
-        HashSet<State> visitedStates = new HashSet<>();
+        ArrayList<State> visitedStates = new ArrayList<>();
         Queue<State> queue = new ArrayDeque<>();
         root.parent = null;
         root.cost = 0;
@@ -249,41 +250,39 @@ public class Algorithms {
     }
 
 
-
-
     public ArrayList<State> AStarSearch(State root) {
-        HashSet<State> visitedStates = new HashSet<>();
-        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.heuristic()));
+//        System.out.println("A star starting");
+        ArrayList<State> visitedStates = new ArrayList<>();
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.heuristic));
 
         root.parent = null;
         root.cost = 0;
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            System.out.println("number of visits: " + visitedStates.size());
-            State currentState = queue.poll();
-            boolean flag = false;
-            for(State visitedState : visitedStates){
-                if(visitedState.equals(currentState)) {
-                    flag= true;
-                    break;
-                }
-            }
-            if(flag) continue;
+//            System.out.println("number of visits: " + visitedStates.size());
+//            System.out.println("number of queue: " + queue.size());
+            State currentState = queue.remove();
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("A* Search");
                 return getPath(currentState, visitedStates);
             }
+//            System.out.println("current state " + currentState);
             ArrayList<State> nextStates = currentState.possibleBoards();
             for (State nextState : nextStates) {
+                boolean flag = false;
+                System.out.println("checking next state");
                 for(State visitedState : visitedStates){
                     if(visitedState.equals(nextState)) {
                         flag= true;
                         break;
                     }
                 }
+//                System.out.println(flag);
                 if(flag) continue;
+//                System.out.println(nextState);
+                nextState.heuristic=nextState.heuristic();
                 nextState.cost = currentState.cost + 1;
                 nextState.parent = currentState;
                 queue.add(nextState);
@@ -292,7 +291,7 @@ public class Algorithms {
         return null;
     }
 
-    public ArrayList<State> getPath(State root,Set<State> visitedStates){
+    public ArrayList<State> getPath(State root,ArrayList<State> visitedStates){
         ArrayList<State> path = new ArrayList<>();
         path.add(root);
         while (root.parent != null) {
@@ -311,7 +310,7 @@ public class Algorithms {
         return true;
     }
 
-    public ArrayList<State> printPath(Set<State> visitedStates, ArrayList<State> path) {
+    public ArrayList<State> printPath(ArrayList<State> visitedStates, ArrayList<State> path) {
         System.out.println(Algorithms.PURPLE + "number of visited states: " + visitedStates.size() + Algorithms.RESET);
         System.out.println(Algorithms.PURPLE + "number of states in the path: " + path  .size() + Algorithms.RESET);
         System.out.println(Algorithms.CYAN + "Path :" +Algorithms.RESET);
