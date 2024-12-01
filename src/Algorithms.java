@@ -157,7 +157,7 @@ public class Algorithms {
         while (!queue.isEmpty()) {
             System.out.println("number of visits: " + visitedStates.size());
             State currentState = queue.poll();
-            System.out.println("cuurent heu "+ currentState.heuristic());
+            System.out.println("curent heu "+ currentState.heuristic());
 
             boolean flag = false;
             for(State visitedState : visitedStates){
