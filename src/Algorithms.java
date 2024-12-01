@@ -146,46 +146,54 @@ public class Algorithms {
         return null;
     }
 
+    public ArrayList<State> hillClimbing(State root){
+        HashSet<State> visitedStates = new HashSet<>();
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.expectedMoves()));
 
-//    public ArrayList<State> hillClimbing(State root) {
-//        HashSet<State> visitedStates = new HashSet<>();
-//        State current = root;
-//        int maxIterations = 1000; // Limit iterations to avoid infinite loops
-//
-//        for (int i = 0; i < maxIterations; i++) {
-//            visitedStates.add(current);
-//            ArrayList<State> neighbors = current.possibleBoards();
-//            State bestNeighbor = null;
-//            int bestScore = Integer.MIN_VALUE; // Assuming higher score is better
-//
-//            // Find neighbor with best evaluation score
-//            for (State neighbor : neighbors) {
-//                if (visitedStates.contains(neighbor)) {
-//                    continue; // Skip already visited states
-//                }
-//                int neighborScore = evaluateState(neighbor); // Replace with your evaluation function
-//                if (neighborScore > bestScore) {
-//                    bestScore = neighborScore;
-//                    bestNeighbor = neighbor;
-//                }
-//            }
-//
-//            // If no improvement found, terminate
-//            if (bestNeighbor == null) {
-//                System.out.println("Hill Climbing - Local Optimum Reached");
-//                break;
-//            }
-//
-//            current = bestNeighbor;
-//        }
-//
-//        // Check if goal is reached and return path
-//        if (checkGoal(current)) {
-//            return getPath(current, visitedStates);
-//        }
-//
-//        return null;
-//    }
+        root.parent = null;
+        root.cost = 0;
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            System.out.println("number of visits: " + visitedStates.size());
+            State currentState = queue.poll();
+
+
+            boolean flag = false;
+            for(State visitedState : visitedStates){
+                if(visitedState.equals(currentState)) {
+                    flag= true;
+                    break;
+                }
+            }
+            if(flag) continue;
+            visitedStates.add(currentState);
+            if (checkGoal(currentState)) {
+                System.out.println("A* Search");
+                return getPath(currentState, visitedStates);
+            }
+            int minCost = currentState.cost+currentState.expectedMoves();
+
+            ArrayList<State> nextStates = currentState.possibleBoards();
+            boolean f=false;
+            for (State nextState : nextStates) {
+                for(State visitedState : visitedStates){
+                    if(visitedState.equals(nextState)) {
+                        flag= true;
+                        break;
+                    }
+                }
+                if(flag) continue;
+                if(nextState.cost+nextState.expectedMoves()<minCost)f = true;
+                nextState.cost = currentState.cost + 1;
+                nextState.parent = currentState;
+                if(!f) return null;
+                queue.add(nextState);
+            }
+        }
+        return null;
+    }
+
 
 
 

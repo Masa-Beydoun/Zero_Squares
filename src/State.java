@@ -257,6 +257,8 @@ public class State{
         }
         int sum = 0;
         for(Stone s : stones){
+            if(s.isInGoal()) continue;
+            sum++;
             if(s.getC() == 'r'){
                 sum+=abs(s.getX()-rGoalX)+abs(s.getY()-rGoalY);
             }
@@ -273,6 +275,7 @@ public class State{
                 sum += abs(s.getX()-yGoalX)+abs(s.getY()-yGoalY);
             }
         }
+
         return sum;
     }
 
