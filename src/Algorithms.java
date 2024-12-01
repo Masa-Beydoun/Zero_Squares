@@ -148,7 +148,7 @@ public class Algorithms {
 
     public ArrayList<State> hillClimbing(State root){
         HashSet<State> visitedStates = new HashSet<>();
-        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.expectedMoves()));
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.heuristic()));
 
         root.parent = null;
         root.cost = 0;
@@ -172,7 +172,7 @@ public class Algorithms {
                 System.out.println("A* Search");
                 return getPath(currentState, visitedStates);
             }
-            int minCost = currentState.cost+currentState.expectedMoves();
+            int minCost = currentState.cost+currentState.heuristic();
 
             ArrayList<State> nextStates = currentState.possibleBoards();
             boolean f=false;
@@ -184,7 +184,7 @@ public class Algorithms {
                     }
                 }
                 if(flag) continue;
-                if(nextState.cost+nextState.expectedMoves()<minCost)f = true;
+                if(nextState.cost+nextState.heuristic()<minCost)f = true;
                 nextState.cost = currentState.cost + 1;
                 nextState.parent = currentState;
                 if(!f) return null;
@@ -199,7 +199,7 @@ public class Algorithms {
 
     public ArrayList<State> AStarSearch(State root) {
         HashSet<State> visitedStates = new HashSet<>();
-        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.expectedMoves()));
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.heuristic()));
 
         root.parent = null;
         root.cost = 0;

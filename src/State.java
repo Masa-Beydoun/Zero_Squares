@@ -175,7 +175,7 @@ public class State{
                 "cost= " + cost + '\n'+
                 "finished= " + finished + '\n'+
                 "lost= " + lost + '\n'+
-                "expectedMoves= " + expectedMoves() + '\n'+
+                "expectedMoves= " + heuristic() + '\n'+
                 b + '}';
     }
 
@@ -227,7 +227,7 @@ public class State{
     }
 
 
-    public int expectedMoves(){
+    public int heuristic(){
         int rGoalX = -1, rGoalY = -1, gGoalX = -1, gGoalY = -1,
                 bGoalX = -1, bGoalY = -1, yGoalX = -1, yGoalY = -1,
                     pGoalX = -1, pGoalY = -1;
