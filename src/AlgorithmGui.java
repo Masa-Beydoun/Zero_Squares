@@ -92,7 +92,12 @@ public class AlgorithmGui extends JFrame {
                 } else {
                     ((Timer) e.getSource()).stop();
                     System.out.println("Path animation completed.");
+                    System.out.println();
+                    System.out.println();
                     System.out.println("Next level");
+                    System.out.println();
+                    System.out.println();
+
                     dispose();
                     if (index == 30) {
                         System.out.println("All levels cleared");
