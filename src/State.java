@@ -260,18 +260,23 @@ public class State{
             if(s.isInGoal()) continue;
             sum++;
             if(s.getC() == 'r'){
+                if(rGoalX == -1) continue;
                 sum+=abs(s.getX()-rGoalX)+abs(s.getY()-rGoalY);
             }
             if(s.getC() == 'g'){
+                if(gGoalX == -1) continue;
                 sum+=abs(s.getX()-gGoalX)+abs(s.getY()-gGoalY);
             }
             if(s.getC() == 'b'){
+                if(bGoalX == -1) continue;
                 sum += abs(s.getX()-bGoalX)+abs(s.getY()-bGoalY);
             }
             if(s.getC() == 'p'){
+                if(pGoalX == -1) continue;
                 sum+=abs(s.getX()-pGoalX)+abs(s.getY()-pGoalY);
             }
             if(s.getC() == 'y'){
+                if(yGoalX == -1) continue;
                 sum += abs(s.getX()-yGoalX)+abs(s.getY()-yGoalY);
             }
         }

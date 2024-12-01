@@ -148,7 +148,7 @@ public class Algorithms {
 
     public ArrayList<State> StepsHillClimbing(State root){
         HashSet<State> visitedStates = new HashSet<>();
-        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost + s.heuristic()));
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.heuristic()));
 
         root.parent = null;
         root.cost = 0;
@@ -157,7 +157,7 @@ public class Algorithms {
         while (!queue.isEmpty()) {
             System.out.println("number of visits: " + visitedStates.size());
             State currentState = queue.poll();
-
+            System.out.println("cuurent heu "+ currentState.heuristic());
 
             boolean flag = false;
             for(State visitedState : visitedStates){
@@ -169,11 +169,10 @@ public class Algorithms {
             if(flag) continue;
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
-                System.out.println("simple hill climbing");
+                System.out.println("steps hill climbing");
                 return getPath(currentState, visitedStates);
             }
-            int minCost = currentState.cost+currentState.heuristic();
-
+            int minCost = currentState.heuristic();
             ArrayList<State> nextStates = currentState.possibleBoards();
             boolean f=false;
             for (State nextState : nextStates) {
@@ -184,12 +183,16 @@ public class Algorithms {
                     }
                 }
                 if(flag) continue;
-                if(nextState.cost+nextState.heuristic()<minCost)f = true;
+                System.out.println("next heu "+ nextState.heuristic());
+
+                if(nextState.heuristic()<=minCost)
+                    f = true;
                 nextState.cost = currentState.cost + 1;
                 nextState.parent = currentState;
-                if(!f) return null;
+
                 queue.add(nextState);
             }
+            if(!f) return null;
         }
         return null;
     }
@@ -198,7 +201,6 @@ public class Algorithms {
     public ArrayList<State> simpleHillClimbing(State root){
         HashSet<State> visitedStates = new HashSet<>();
         Queue<State> queue = new ArrayDeque<>();
-
         root.parent = null;
         root.cost = 0;
         queue.add(root);
@@ -206,7 +208,6 @@ public class Algorithms {
         while (!queue.isEmpty()) {
             System.out.println("number of visits: " + visitedStates.size());
             State currentState = queue.poll();
-
 
             boolean flag = false;
             for(State visitedState : visitedStates){
@@ -233,12 +234,16 @@ public class Algorithms {
                     }
                 }
                 if(flag) continue;
-                if(nextState.cost+nextState.heuristic()<minCost) queue.add(nextState);
+                if(nextState.heuristic()<=minCost) {
+                    queue.add(nextState);
+                    f=true;
+                    continue;
+                }
+                if(!f) return null;
                 nextState.cost = currentState.cost + 1;
                 nextState.parent = currentState;
-                if(!f) return null;
-                queue.add(nextState);
             }
+
         }
         return null;
     }
