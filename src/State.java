@@ -9,7 +9,7 @@ public class State{
      char [][] board;
      State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
-     int cost=0,heuristic=0;
+     int cost=0;
 
 
      boolean finished = false;
@@ -231,30 +231,37 @@ public class State{
 
     public int heuristic(){
         if(lost) return Integer.MAX_VALUE;
-        int [][] goals = new int[5][2];
+        int [][] goals = new int[6][2];
+        int index=0;
         for(int i=0;i<board.length;i++){
             for(int j=0;j<board[0].length;j++){
                 if(board[i][j]=='R'){
-                    goals[i][0]=i;
-                    goals[i][1]=j;
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
                 }
                 if(board[i][j]=='G'){
-                    goals[i][0]=i;
-                    goals[i][1]=j;
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
                 }
                 if(board[i][j]=='B'){
-                    goals[i][0]=i;
-                    goals[i][1]=j;
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
                 }
                 if(board[i][j]=='P'){
-                    goals[i][0]=i;
-                    goals[i][1]=j;
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
                 }
                 if(board[i][j]=='Y'){
-                    goals[i][0]=i;
-                    goals[i][1]=j;
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
                 }
             }
+
         }
         int sum = 0;
         for(Stone s : stones){

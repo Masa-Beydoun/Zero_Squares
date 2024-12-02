@@ -15,7 +15,6 @@ public class AlgorithmGui extends JFrame {
     AlgorithmGui(int index, String alg) {
         this.index = index;
         state = InputStates.readGrid(index);
-        state.heuristic=state.heuristic();
 
         this.setLayout(new BorderLayout());
         this.setSize(new Dimension(400, 400));
@@ -70,7 +69,7 @@ public class AlgorithmGui extends JFrame {
         if (alg.equals("simpleHillClimbing")) {
             path=algorithms.simpleHillClimbing(state);
         }
-        if (alg.equals("stepsHillClimbing")) {
+        if (alg.equals("steepestHillClimbing")) {
             path=algorithms.steepestHillClimbing(state);
         }
         if (path != null && path.isEmpty()) {

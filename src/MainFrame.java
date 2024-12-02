@@ -8,8 +8,8 @@ public class MainFrame extends JFrame {
     JButton DFS_RESURSIVE = new JButton("DFS_RECURSIVE");
     JButton UCS = new JButton("UCS");
     JButton AStar = new JButton("A star");
-    JButton Simplehillclimbing = new JButton("Simple hill climbing");
-    JButton stepshillclimbin = new JButton("steps hill climbing");
+    JButton simpleHillClimbing = new JButton("Simple hill climbing");
+    JButton steepestHillClimbing = new JButton("steepest hill climbing");
     public MainFrame(int index) {
         this.setLayout(new GridLayout(1,3));
         user.addActionListener(e -> {
@@ -36,13 +36,13 @@ public class MainFrame extends JFrame {
             this.dispose();
             new AlgorithmGui(index,"AStar");
         });
-        Simplehillclimbing.addActionListener(e -> {
+        simpleHillClimbing.addActionListener(e -> {
             this.dispose();
             new AlgorithmGui(index,"simpleHillClimbing");
         });
-        stepshillclimbin.addActionListener(e -> {
+        steepestHillClimbing.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"stepsHillClimbing");
+            new AlgorithmGui(index,"steepestHillClimbing");
         });
 
         user.setFocusable(false);
@@ -58,8 +58,8 @@ public class MainFrame extends JFrame {
         this.add(UCS);
         this.add(DFS_RESURSIVE);
         this.add(AStar);
-        this.add(Simplehillclimbing);
-        this.add(stepshillclimbin);
+        this.add(simpleHillClimbing);
+        this.add(steepestHillClimbing);
         this.add(AStar);
         this.setSize(new Dimension(700,300));
         this.setVisible(true);
