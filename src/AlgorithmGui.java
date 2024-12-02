@@ -71,7 +71,7 @@ public class AlgorithmGui extends JFrame {
             path=algorithms.simpleHillClimbing(state);
         }
         if (alg.equals("stepsHillClimbing")) {
-            path=algorithms.StepsHillClimbing(state);
+            path=algorithms.steepestHillClimbing(state);
         }
         if (path != null && path.isEmpty()) {
             System.out.println("No path found.");

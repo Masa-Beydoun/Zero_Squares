@@ -230,30 +230,29 @@ public class State{
 
 
     public int heuristic(){
-        int rGoalX = -1, rGoalY = -1, gGoalX = -1, gGoalY = -1,
-                bGoalX = -1, bGoalY = -1, yGoalX = -1, yGoalY = -1,
-                    pGoalX = -1, pGoalY = -1;
+        if(lost) return Integer.MAX_VALUE;
+        int [][] goals = new int[5][2];
         for(int i=0;i<board.length;i++){
             for(int j=0;j<board[0].length;j++){
                 if(board[i][j]=='R'){
-                    rGoalX=i;
-                    rGoalY=j;
+                    goals[i][0]=i;
+                    goals[i][1]=j;
                 }
                 if(board[i][j]=='G'){
-                    gGoalX=i;
-                    gGoalY=j;
+                    goals[i][0]=i;
+                    goals[i][1]=j;
                 }
                 if(board[i][j]=='B'){
-                    bGoalX=i;
-                    bGoalY=j;
+                    goals[i][0]=i;
+                    goals[i][1]=j;
                 }
                 if(board[i][j]=='P'){
-                    pGoalX=i;
-                    pGoalY=j;
+                    goals[i][0]=i;
+                    goals[i][1]=j;
                 }
                 if(board[i][j]=='Y'){
-                    yGoalX=i;
-                    yGoalY=j;
+                    goals[i][0]=i;
+                    goals[i][1]=j;
                 }
             }
         }
@@ -262,24 +261,24 @@ public class State{
             if(s.isInGoal()) continue;
             sum++;
             if(s.getC() == 'r'){
-                if(rGoalX == -1) continue;
-                sum+=abs(s.getX()-rGoalX)+abs(s.getY()-rGoalY);
+                if(goals[0][0] == -1) continue;
+                sum+=abs(s.getX()-goals[0][0])+abs(s.getY()-goals[0][1]);
             }
             if(s.getC() == 'g'){
-                if(gGoalX == -1) continue;
-                sum+=abs(s.getX()-gGoalX)+abs(s.getY()-gGoalY);
+                if(goals[1][0] == -1) continue;
+                sum+=abs(s.getX()-goals[1][0])+abs(s.getY()-goals[1][1]);
             }
             if(s.getC() == 'b'){
-                if(bGoalX == -1) continue;
-                sum += abs(s.getX()-bGoalX)+abs(s.getY()-bGoalY);
+                if(goals[2][0] == -1) continue;
+                sum += abs(s.getX()-goals[2][0])+abs(s.getY()-goals[2][1]);
             }
             if(s.getC() == 'p'){
-                if(pGoalX == -1) continue;
-                sum+=abs(s.getX()-pGoalX)+abs(s.getY()-pGoalY);
+                if(goals[3][0] == -1) continue;
+                sum+=abs(s.getX()-goals[3][0])+abs(s.getY()-goals[3][1]);
             }
             if(s.getC() == 'y'){
-                if(yGoalX == -1) continue;
-                sum += abs(s.getX()-yGoalX)+abs(s.getY()-yGoalY);
+                if(goals[4][0] == -1) continue;
+                sum += abs(s.getX()-goals[4][0])+abs(s.getY()-goals[4][1]);
             }
         }
 

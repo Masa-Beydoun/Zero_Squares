@@ -147,7 +147,7 @@ public class Algorithms {
         return null;
     }
 
-    public ArrayList<State> StepsHillClimbing(State root) {
+    public ArrayList<State> steepestHillClimbing(State root) {
         System.out.println("steps hill climbing");
         ArrayList<State> visitedStates = new ArrayList<>();
         PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.heuristic));
@@ -224,15 +224,13 @@ public class Algorithms {
 
     private boolean existInVisited(State nextState, ArrayList<State> visitedStates) {
         boolean flag = false;
-        System.out.println("checking next state");
         for(State visitedState : visitedStates){
             if(visitedState.equals(nextState)) {
                 flag= true;
                 break;
             }
         }
-        if(flag) return true;
-        return false;
+        return flag;
     }
 
     public ArrayList<State> AStarSearch(State root) {
@@ -244,6 +242,7 @@ public class Algorithms {
         queue.add(root);
 
         while (!queue.isEmpty()) {
+            System.out.println("visited states " + visitedStates.size());
             State currentState = queue.remove();
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {

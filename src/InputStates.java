@@ -31,7 +31,7 @@ public class InputStates {
                 String[] cells = line.split(" ");
                 for (int j = 0; j < state.board[0].length; j++) {
                     char cell = cells[j].charAt(0);
-                    if(cell != '#' && cell != '_' && cell != 'O' && cell != 'B' && cell != 'Y'&& cell != 'G'&& cell != 'R'&& cell != 'P')
+                    if(cell =='r' || cell == 'b' || cell == 'g' || cell == 'y' || cell == 'p')
                         state.stones.add(new Stone(cell, i, j, false));
 
                 }

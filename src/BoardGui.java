@@ -105,7 +105,7 @@ public class BoardGui  extends JFrame implements KeyListener{
                 updateFrame(secondButton, nextStates.get(0));
 
             if(nextStates.get(1)!= null)
-                updateFrame(thirdButton, nextStates.get(2));
+                updateFrame(thirdButton, nextStates.get(1));
 
             if(nextStates.get(2)!= null)
                 updateFrame(fourthButton, nextStates.get(2));
