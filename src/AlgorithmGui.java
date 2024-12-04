@@ -42,35 +42,35 @@ public class AlgorithmGui extends JFrame {
         this.setFocusable(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        SwingUtilities.invokeLater(() -> updateFullFrame(alg));
+        SwingUtilities.invokeLater(() -> updateFullFrame(alg,index));
     }
 
-    public void updateFullFrame(String alg) {
+    public void updateFullFrame(String alg,int index) {
         ArrayList<State> path = new ArrayList<>();
         Algorithms algorithms = new Algorithms();
 
         if (alg.equals("BFS")) {
             System.out.println("in bfs");
-            path = algorithms.BFS(state);
+            path = algorithms.BFS(state,index);
         }
         if (alg.equals("DFS")) {
-            path = algorithms.DFS(state);
+            path = algorithms.DFS(state,index);
         }
         if(alg.equals("UCS")) {
-            path = algorithms.UCS(state);
+            path = algorithms.UCS(state,index);
         }
         if (alg.equals("DFS_RECURSIVE")) {
-             algorithms.initiate_DfS(state);
+             algorithms.initiate_DfS(state,index);
              path=algorithms.globalPath;
         }
         if (alg.equals("AStar")) {
-            path=algorithms.AStarSearch(state);
+            path=algorithms.AStarSearch(state,index);
         }
         if (alg.equals("simpleHillClimbing")) {
-            path=algorithms.simpleHillClimbing(state);
+            path=algorithms.simpleHillClimbing(state,index);
         }
         if (alg.equals("steepestHillClimbing")) {
-            path=algorithms.steepestHillClimbing(state);
+            path=algorithms.steepestHillClimbing(state,index);
         }
         if (path != null && path.isEmpty()) {
             System.out.println("No path found.");
@@ -98,12 +98,12 @@ public class AlgorithmGui extends JFrame {
                     System.out.println();
 
                     dispose();
-                    if (index == 30) {
+                    if (AlgorithmGui.this.index == 30) {
                         System.out.println("All levels cleared");
                         return;
                     }
-                    index++;
-                    new MainFrame(index);
+                    AlgorithmGui.this.index++;
+                    new MainFrame(AlgorithmGui.this.index);
                 }
             }
         });

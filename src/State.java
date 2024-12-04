@@ -9,7 +9,7 @@ public class State{
      char [][] board;
      State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
-     int cost=0;
+     int cost=0,heuristic=0;
 
 
      boolean finished = false;

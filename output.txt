@@ -1,0 +1,552 @@
+level  1
+algorithm  BFS
+number of visited states : 2
+number of states in the path: 1
+time : 0
+memory0
+level  1
+algorithm  DFS
+number of visited states : 2
+number of states in the path: 1
+time : 0
+memory0
+level  1
+algorithm  DFS RECURSIVE
+number of visited states : 1
+number of states in the path: 2
+time : 0
+memory0
+level  1
+algorithm  UCS
+number of visited states : 2
+number of states in the path: 1
+time : 0
+memory0
+level  1
+algorithm  Simple Hill Climbing
+number of visited states : 2
+number of states in the path: 1
+time : 0
+memory0
+level  1
+algorithm  Steepest Hill Climbing
+number of visited states : 2
+number of states in the path: 1
+time : 0
+memory0
+level  1
+algorithm  A* search
+number of visited states : 2
+number of states in the path: 1
+time : 0
+memory0
+level  2
+algorithm  BFS
+number of visited states : 10
+number of states in the path: 1
+time : 0
+memory0
+level  2
+algorithm  DFS
+number of visited states : 10
+number of states in the path: 1
+time : 0
+memory0
+level  2
+algorithm  DFS RECURSIVE
+number of visited states : 6
+number of states in the path: 7
+time : 0
+memory0
+level  2
+algorithm  UCS
+number of visited states : 10
+number of states in the path: 1
+time : 0
+memory0
+level  2
+algorithm  A* search
+number of visited states : 9
+number of states in the path: 1
+time : 0
+memory0
+level  3
+algorithm  BFS
+number of visited states : 9
+number of states in the path: 1
+time : 0
+memory0
+level  3
+algorithm  DFS
+number of visited states : 10
+number of states in the path: 1
+time : 0
+memory0
+level  3
+algorithm  DFS RECURSIVE
+number of visited states : 4
+number of states in the path: 5
+time : 0
+memory0
+level  3
+algorithm  UCS
+number of visited states : 9
+number of states in the path: 1
+time : 0
+memory0
+level  3
+algorithm  A* search
+number of visited states : 7
+number of states in the path: 1
+time : 0
+memory0
+level  4
+algorithm  BFS
+number of visited states : 13
+number of states in the path: 1
+time : 0
+memory0
+level  4
+algorithm  DFS
+number of visited states : 14
+number of states in the path: 1
+time : 0
+memory0
+level  4
+algorithm  DFS RECURSIVE
+number of visited states : 12
+number of states in the path: 9
+time : 0
+memory0
+level  4
+algorithm  UCS
+number of visited states : 13
+number of states in the path: 1
+time : 0
+memory0
+level  4
+algorithm  A* search
+number of visited states : 15
+number of states in the path: 1
+time : 0
+memory0
+level  5
+algorithm  BFS
+number of visited states : 17
+number of states in the path: 1
+time : 0
+memory0
+level  5
+algorithm  DFS
+number of visited states : 16
+number of states in the path: 1
+time : 0
+memory0
+level  5
+algorithm  DFS RECURSIVE
+number of visited states : 12
+number of states in the path: 11
+time : 0
+memory0
+level  5
+algorithm  UCS
+number of visited states : 18
+number of states in the path: 1
+time : 0
+memory0
+level  5
+algorithm  A* search
+number of visited states : 17
+number of states in the path: 1
+time : 0
+memory0
+level  6
+algorithm  BFS
+number of visited states : 22
+number of states in the path: 1
+time : 0
+memory0
+level  6
+algorithm  DFS
+number of visited states : 10
+number of states in the path: 1
+time : 0
+memory0
+level  6
+algorithm  DFS RECURSIVE
+number of visited states : 16
+number of states in the path: 16
+time : 0
+memory0
+level  6
+algorithm  UCS
+number of visited states : 23
+number of states in the path: 1
+time : 0
+memory0
+level  6
+algorithm  A* search
+number of visited states : 13
+number of states in the path: 1
+time : 0
+memory0
+level  7
+algorithm  BFS
+number of visited states : 19
+number of states in the path: 1
+time : 0
+memory0
+level  7
+algorithm  DFS
+number of visited states : 61
+number of states in the path: 1
+time : 0
+memory0
+level  7
+algorithm  DFS RECURSIVE
+number of visited states : 81
+number of states in the path: 26
+time : 0
+memory0
+level  7
+algorithm  UCS
+number of visited states : 19
+number of states in the path: 1
+time : 0
+memory0
+level  7
+algorithm  Steepest Hill Climbing
+number of visited states : 5
+number of states in the path: 1
+time : 0
+memory0
+level  7
+algorithm  A* search
+number of visited states : 5
+number of states in the path: 1
+time : 0
+memory0
+level  8
+algorithm  BFS
+number of visited states : 34
+number of states in the path: 1
+time : 0
+memory0
+level  8
+algorithm  DFS
+number of visited states : 83
+number of states in the path: 1
+time : 0
+memory0
+level  8
+algorithm  DFS RECURSIVE
+number of visited states : 87
+number of states in the path: 47
+time : 0
+memory0
+level  8
+algorithm  UCS
+number of visited states : 34
+number of states in the path: 1
+time : 0
+memory0
+level  8
+algorithm  Steepest Hill Climbing
+number of visited states : 6
+number of states in the path: 1
+time : 0
+memory0
+level  8
+algorithm  A* search
+number of visited states : 6
+number of states in the path: 1
+time : 0
+memory0
+level  9
+algorithm  BFS
+number of visited states : 92
+number of states in the path: 1
+time : 0
+memory0
+level  9
+algorithm  DFS
+number of visited states : 70
+number of states in the path: 1
+time : 0
+memory0
+level  9
+algorithm  DFS RECURSIVE
+number of visited states : 113
+number of states in the path: 45
+time : 0
+memory0
+level  9
+algorithm  UCS
+number of visited states : 89
+number of states in the path: 1
+time : 0
+memory0
+level  9
+algorithm  A* search
+number of visited states : 114
+number of states in the path: 1
+time : 0
+memory0
+level  10
+algorithm  BFS
+number of visited states : 316
+number of states in the path: 1
+time : 0
+memory0
+level  10
+algorithm  DFS
+number of visited states : 247
+number of states in the path: 1
+time : 0
+memory0
+level  10
+algorithm  DFS RECURSIVE
+number of visited states : 242
+number of states in the path: 121
+time : 0
+memory0
+level  10
+algorithm  UCS
+number of visited states : 316
+number of states in the path: 1
+time : 0
+memory0
+level  10
+algorithm  A* search
+number of visited states : 552
+number of states in the path: 1
+time : 0
+memory0
+level  11
+algorithm  BFS
+number of visited states : 132
+number of states in the path: 1
+time : 0
+memory0
+level  11
+algorithm  DFS
+number of visited states : 42
+number of states in the path: 1
+time : 0
+memory0
+level  11
+algorithm  DFS RECURSIVE
+number of visited states : 27
+number of states in the path: 22
+time : 0
+memory0
+level  11
+algorithm  UCS
+number of visited states : 143
+number of states in the path: 1
+time : 0
+memory0
+level  11
+algorithm  A* search
+number of visited states : 105
+number of states in the path: 1
+time : 0
+memory0
+level  12
+algorithm  BFS
+number of visited states : 473
+number of states in the path: 1
+time : 0
+memory0
+level  12
+algorithm  DFS
+number of visited states : 53
+number of states in the path: 1
+time : 0
+memory0
+level  12
+algorithm  DFS RECURSIVE
+number of visited states : 108
+number of states in the path: 50
+time : 0
+memory0
+level  12
+algorithm  UCS
+number of visited states : 448
+number of states in the path: 1
+time : 0
+memory0
+level  12
+algorithm  A* search
+number of visited states : 266
+number of states in the path: 1
+time : 0
+memory0
+level  13
+algorithm  BFS
+number of visited states : 286
+number of states in the path: 1
+time : 0
+memory0
+level  13
+algorithm  DFS
+number of visited states : 193
+number of states in the path: 1
+time : 0
+memory0
+level  13
+algorithm  DFS RECURSIVE
+number of visited states : 138
+number of states in the path: 43
+time : 0
+memory0
+level  13
+algorithm  UCS
+number of visited states : 268
+number of states in the path: 1
+time : 0
+memory0
+level  13
+algorithm  A* search
+number of visited states : 144
+number of states in the path: 1
+time : 0
+memory0
+level  14
+algorithm  BFS
+number of visited states : 582
+number of states in the path: 1
+time : 0
+memory0
+level  14
+algorithm  DFS
+number of visited states : 86
+number of states in the path: 1
+time : 0
+memory0
+level  14
+algorithm  DFS RECURSIVE
+number of visited states : 36
+number of states in the path: 28
+time : 0
+memory0
+level  14
+algorithm  UCS
+number of visited states : 633
+number of states in the path: 1
+time : 0
+memory0
+level  14
+algorithm  A* search
+number of visited states : 142
+number of states in the path: 1
+time : 0
+memory0
+level  15
+algorithm  BFS
+number of visited states : 1937
+number of states in the path: 1
+time : 0
+memory0
+level  15
+algorithm  DFS
+number of visited states : 447
+number of states in the path: 1
+time : 0
+memory0
+level  15
+algorithm  DFS RECURSIVE
+number of visited states : 816
+number of states in the path: 302
+time : 0
+memory0
+level  15
+algorithm  UCS
+number of visited states : 1932
+number of states in the path: 1
+time : 0
+memory0
+level  15
+algorithm  A* search
+number of visited states : 2042
+number of states in the path: 1
+time : 0
+memory0
+level  16
+algorithm  BFS
+number of visited states : 38
+number of states in the path: 1
+time : 0
+memory0
+level  16
+algorithm  DFS
+number of visited states : 6223
+number of states in the path: 1
+time : 0
+memory0
+level  16
+algorithm  DFS RECURSIVE
+number of visited states : 2926
+number of states in the path: 7
+time : 0
+memory0
+level  16
+algorithm  UCS
+number of visited states : 33
+number of states in the path: 1
+time : 0
+memory0
+level  16
+algorithm  A* search
+number of visited states : 8
+number of states in the path: 1
+time : 0
+memory0
+level  17
+algorithm  BFS
+number of visited states : 1137
+number of states in the path: 1
+time : 0
+memory0
+level  17
+algorithm  DFS
+number of visited states : 194
+number of states in the path: 1
+time : 0
+memory0
+level  17
+algorithm  DFS RECURSIVE
+number of visited states : 211
+number of states in the path: 57
+time : 0
+memory0
+level  17
+algorithm  UCS
+number of visited states : 763
+number of states in the path: 1
+time : 0
+memory0
+level  17
+algorithm  A* search
+number of visited states : 217
+number of states in the path: 1
+time : 0
+memory0
+level  18
+algorithm  BFS
+number of visited states : 20077
+number of states in the path: 1
+time : 0
+memory0
+level  18
+algorithm  DFS
+number of visited states : 1429
+number of states in the path: 1
+time : 0
+memory0
+level  18
+algorithm  DFS RECURSIVE
+number of visited states : 394
+number of states in the path: 206
+time : 0
+memory0

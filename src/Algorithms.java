@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 import static java.util.Collections.reverse;
@@ -16,7 +17,7 @@ public class Algorithms {
 
 
 
-    public ArrayList<State> DFS(State root){
+    public ArrayList<State> DFS(State root,int index){
         ArrayList<State> visitedStates = new ArrayList<>();
         Stack<State> stack = new Stack<>();
         root.parent = null;
@@ -35,6 +36,7 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("DFS");
+                writeLogToFile(index,"DFS",visitedStates,getPath(root,visitedStates),0,0);
                 return getPath(currentState,visitedStates);
             }
             ArrayList<State>nextStates =  currentState.possibleBoards();
@@ -46,16 +48,17 @@ public class Algorithms {
         return null;
     }
 
-    public void initiate_DfS(State root){
+    public void initiate_DfS(State root,int index){
         ArrayList<State> visitedStates = new ArrayList<>();
-        DFS_Recursive(root,visitedStates);
+        DFS_Recursive(root,visitedStates,index);
     }
 
     ArrayList<State> globalPath = new ArrayList<>();
-    public boolean DFS_Recursive(State root,ArrayList<State> visitedStates){
+    public boolean DFS_Recursive(State root,ArrayList<State> visitedStates,int index){
         if(checkGoal(root)) {
             System.out.println("DFS Recursive");
             globalPath = getPath(root,visitedStates);
+            writeLogToFile(index,"DFS RECURSIVE",visitedStates,getPath(root,visitedStates),0,0);
             return true;
         }
         boolean flag = false;
@@ -71,7 +74,7 @@ public class Algorithms {
         ArrayList<State> nextStates =  root.possibleBoards();
         for(State nextState : nextStates){
             nextState.parent = root;
-            flag = DFS_Recursive(nextState,visitedStates);
+            flag = DFS_Recursive(nextState,visitedStates,index);
             if(flag) return true;
 
         }
@@ -80,7 +83,7 @@ public class Algorithms {
     }
 
 
-    public ArrayList<State> UCS(State root) {
+    public ArrayList<State> UCS(State root,int index) {
         ArrayList<State> visitedStates = new ArrayList<>();
         PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s->s.cost));
         root.parent = null;
@@ -88,8 +91,6 @@ public class Algorithms {
         queue.add(root);
         while (!queue.isEmpty()) {
             State currentState = queue.poll();
-//            System.out.println("number of visited states: " + visitedStates.size() +"  "+ currentState.cost);
-//            System.out.println(currentState);
             boolean flag = false;
             for(State visitedState : visitedStates){
                 if(visitedState.equals(currentState)) {
@@ -101,6 +102,7 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("UCS");
+                writeLogToFile(index,"UCS",visitedStates,getPath(root,visitedStates),0,0);
                 return getPath(currentState,visitedStates);
             }
             currentState.possibleBoards();
@@ -115,7 +117,7 @@ public class Algorithms {
         return null;
     }
 
-    public ArrayList<State> BFS(State root){
+    public ArrayList<State> BFS(State root,int index){
         ArrayList<State> visitedStates = new ArrayList<>();
         Queue<State> queue = new ArrayDeque<>();
         root.parent = null;
@@ -130,11 +132,12 @@ public class Algorithms {
                     break;
                 }
             }
-            System.out.println("state is not visited");
             if(flag) continue;
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("BFS");
+                writeLogToFile(index,"BFS",visitedStates,getPath(root,visitedStates),0,0);
+
                 return getPath(currentState,visitedStates);
             }
             currentState.possibleBoards();
@@ -147,7 +150,7 @@ public class Algorithms {
         return null;
     }
 
-    public ArrayList<State> steepestHillClimbing(State root) {
+    public ArrayList<State> steepestHillClimbing(State root,int index) {
         System.out.println("steps hill climbing");
         ArrayList<State> visitedStates = new ArrayList<>();
         PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.heuristic()));
@@ -164,6 +167,7 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("step Search");
+                writeLogToFile(index,"Steepest Hill Climbing",visitedStates,getPath(root,visitedStates),0,0);
                 return getPath(currentState, visitedStates);
             }
             ArrayList<State> nextStates = currentState.possibleBoards();
@@ -180,7 +184,7 @@ public class Algorithms {
         return null;
     }
 
-    public ArrayList<State> simpleHillClimbing(State root){
+    public ArrayList<State> simpleHillClimbing(State root,int index){
         System.out.println("simple starting");
         ArrayList<State> visitedStates = new ArrayList<>();
         Queue<State> queue = new ArrayDeque<>();
@@ -199,6 +203,7 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("simple hill climbing Search");
+                writeLogToFile(index,"Simple Hill Climbing",visitedStates,getPath(root,visitedStates),0,0);
                 return getPath(currentState, visitedStates);
             }
             ArrayList<State> nextStates = currentState.possibleBoards();
@@ -229,12 +234,11 @@ public class Algorithms {
         return flag;
     }
 
-    public ArrayList<State> AStarSearch(State root) {
+    public ArrayList<State> AStarSearch(State root,int index) {
         ArrayList<State> visitedStates = new ArrayList<>();
-        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.heuristic()));
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost+s.heuristic()));
 
         root.parent = null;
-        root.cost = 0;
         queue.add(root);
 
         while (!queue.isEmpty()) {
@@ -243,12 +247,14 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("A* Search");
+                writeLogToFile(index,"A* search",visitedStates,getPath(root,visitedStates),0,0);
                 return getPath(currentState, visitedStates);
             }
             ArrayList<State> nextStates = currentState.possibleBoards();
             for (State nextState : nextStates) {
                 if (existInVisited(nextState, visitedStates)) continue;
                 nextState.parent = currentState;
+                nextState.cost = currentState.cost+1;
                 queue.add(nextState);
             }
         }
@@ -274,7 +280,48 @@ public class Algorithms {
         return true;
     }
 
+    public void writeLogToFile(int level,
+                               String algo,
+                               ArrayList<State> visitedStates,
+                               ArrayList<State> path,
+                               int time,
+                               int memory){
+
+        String textToAdd = "level  " + level+'\n' + "algorithm  " + algo+'\n'+
+                "number of visited states : " + visitedStates.size()+'\n' +
+                "number of states in the path: " + path.size()+'\n'+
+                "time : " + time + '\n' +
+                "memory" + memory + '\n';
+        String fileName = "output.txt";
+        if(!new File(fileName).exists()){
+            File file = new File(fileName);
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            StringBuilder content = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+
+            }
+
+            content.append(textToAdd);
+
+
+            try (FileWriter writer = new FileWriter(fileName)) {
+                writer.write(content.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<State> printPath(ArrayList<State> visitedStates, ArrayList<State> path) {
+
         System.out.println(Algorithms.PURPLE + "number of visited states: " + visitedStates.size() + Algorithms.RESET);
         System.out.println(Algorithms.PURPLE + "number of states in the path: " + path  .size() + Algorithms.RESET);
         System.out.println(Algorithms.CYAN + "Path :" +Algorithms.RESET);
