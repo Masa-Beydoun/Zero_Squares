@@ -1,0 +1,42 @@
+level: 1
+algorithm: DFS_RECURSIVE
+number of visited states: 1
+number of states in the path: 2
+time: 0 ms
+memory: 0 bytes
+
+level: 2
+algorithm: DFS_RECURSIVE
+number of visited states: 6
+number of states in the path: 7
+time: 0 ms
+memory: 0 bytes
+
+level: 3
+algorithm: DFS_RECURSIVE
+number of visited states: 4
+number of states in the path: 5
+time: 0 ms
+memory: 0 bytes
+
+level: 4
+algorithm: DFS_RECURSIVE
+number of visited states: 12
+number of states in the path: 9
+time: 0 ms
+memory: 0 bytes
+
+level: 5
+algorithm: DFS_RECURSIVE
+number of visited states: 12
+number of states in the path: 11
+time: 0 ms
+memory: 0 bytes
+
+level: 6
+algorithm: DFS_RECURSIVE
+number of visited states: 16
+number of states in the path: 16
+time: 0 ms
+memory: 0 bytes
+

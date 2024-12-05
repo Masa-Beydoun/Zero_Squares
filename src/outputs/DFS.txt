@@ -1,0 +1,42 @@
+level: 1
+algorithm: DFS
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 2
+algorithm: DFS
+number of visited states: 10
+number of states in the path: 1
+time: 1 ms
+memory: 0 bytes
+
+level: 3
+algorithm: DFS
+number of visited states: 10
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 4
+algorithm: DFS
+number of visited states: 14
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 5
+algorithm: DFS
+number of visited states: 16
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 6
+algorithm: DFS
+number of visited states: 10
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+

@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+
 
 import static java.util.Collections.reverse;
 
@@ -18,6 +20,11 @@ public class Algorithms {
 
 
     public ArrayList<State> DFS(State root,int index){
+        long startTime = System.nanoTime();
+        Runtime runtime = Runtime.getRuntime();
+        long memoryUsedBefore = runtime.totalMemory() - runtime.freeMemory();
+
+
         ArrayList<State> visitedStates = new ArrayList<>();
         Stack<State> stack = new Stack<>();
         root.parent = null;
@@ -36,7 +43,15 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("DFS");
-                writeLogToFile(index,"DFS",visitedStates,getPath(root,visitedStates),0,0);
+                long endTime = System.nanoTime();
+                long durationInNanoseconds = endTime - startTime;
+                long durationInMillis = TimeUnit.NANOSECONDS.toMillis(durationInNanoseconds);
+
+                long memoryUsedAfter = runtime.totalMemory() - runtime.freeMemory();
+                long memoryUsed = memoryUsedAfter - memoryUsedBefore;
+
+
+                writeLogToFile(index,"DFS",visitedStates,getPath(root,visitedStates),durationInMillis,memoryUsed);
                 return getPath(currentState,visitedStates);
             }
             ArrayList<State>nextStates =  currentState.possibleBoards();
@@ -58,7 +73,7 @@ public class Algorithms {
         if(checkGoal(root)) {
             System.out.println("DFS Recursive");
             globalPath = getPath(root,visitedStates);
-            writeLogToFile(index,"DFS RECURSIVE",visitedStates,getPath(root,visitedStates),0,0);
+            writeLogToFile(index,"DFS_RECURSIVE",visitedStates,getPath(root,visitedStates),0,0);
             return true;
         }
         boolean flag = false;
@@ -84,8 +99,13 @@ public class Algorithms {
 
 
     public ArrayList<State> UCS(State root,int index) {
+        long startTime = System.nanoTime();
+        Runtime runtime = Runtime.getRuntime();
+        long memoryUsedBefore = runtime.totalMemory() - runtime.freeMemory();
+
+
         ArrayList<State> visitedStates = new ArrayList<>();
-        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s->s.cost));
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s->s.calculateCost()));
         root.parent = null;
         root.cost = 0;
         queue.add(root);
@@ -102,13 +122,21 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("UCS");
-                writeLogToFile(index,"UCS",visitedStates,getPath(root,visitedStates),0,0);
+                long endTime = System.nanoTime();
+                long durationInNanoseconds = endTime - startTime;
+                long durationInMillis = TimeUnit.NANOSECONDS.toMillis(durationInNanoseconds);
+
+                long memoryUsedAfter = runtime.totalMemory() - runtime.freeMemory();
+                long memoryUsed = memoryUsedAfter - memoryUsedBefore;
+
+
+                writeLogToFile(index,"UCS",visitedStates,getPath(root,visitedStates),durationInMillis,memoryUsed);
                 return getPath(currentState,visitedStates);
             }
             currentState.possibleBoards();
             ArrayList<State> nextStates =  currentState.possibleBoards();
             for (State nextState : nextStates) {
-                nextState.cost = currentState.cost + 1;
+                nextState.cost = currentState.cost+nextState.calculateCost();
                 if (visitedStates.contains(nextState)) continue;
                 nextState.parent = currentState;
                 queue.add(nextState);
@@ -118,6 +146,11 @@ public class Algorithms {
     }
 
     public ArrayList<State> BFS(State root,int index){
+        long startTime = System.nanoTime();
+        Runtime runtime = Runtime.getRuntime();
+        long memoryUsedBefore = runtime.totalMemory() - runtime.freeMemory();
+
+
         ArrayList<State> visitedStates = new ArrayList<>();
         Queue<State> queue = new ArrayDeque<>();
         root.parent = null;
@@ -136,7 +169,15 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("BFS");
-                writeLogToFile(index,"BFS",visitedStates,getPath(root,visitedStates),0,0);
+                long endTime = System.nanoTime();
+                long durationInNanoseconds = endTime - startTime;
+                long durationInMillis = TimeUnit.NANOSECONDS.toMillis(durationInNanoseconds);
+
+                long memoryUsedAfter = runtime.totalMemory() - runtime.freeMemory();
+                long memoryUsed = memoryUsedAfter - memoryUsedBefore;
+
+
+                writeLogToFile(index,"BFS",visitedStates,getPath(root,visitedStates),durationInMillis,memoryUsed);
 
                 return getPath(currentState,visitedStates);
             }
@@ -152,6 +193,11 @@ public class Algorithms {
 
     public ArrayList<State> steepestHillClimbing(State root,int index) {
         System.out.println("steps hill climbing");
+        long startTime = System.nanoTime();
+        Runtime runtime = Runtime.getRuntime();
+        long memoryUsedBefore = runtime.totalMemory() - runtime.freeMemory();
+
+
         ArrayList<State> visitedStates = new ArrayList<>();
         PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.heuristic()));
 
@@ -167,7 +213,15 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("step Search");
-                writeLogToFile(index,"Steepest Hill Climbing",visitedStates,getPath(root,visitedStates),0,0);
+                long endTime = System.nanoTime();
+                long durationInNanoseconds = endTime - startTime;
+                long durationInMillis = TimeUnit.NANOSECONDS.toMillis(durationInNanoseconds);
+
+                long memoryUsedAfter = runtime.totalMemory() - runtime.freeMemory();
+                long memoryUsed = memoryUsedAfter - memoryUsedBefore;
+
+
+                writeLogToFile(index,"SteepestHillClimbing",visitedStates,getPath(root,visitedStates),durationInMillis,memoryUsed);
                 return getPath(currentState, visitedStates);
             }
             ArrayList<State> nextStates = currentState.possibleBoards();
@@ -185,6 +239,11 @@ public class Algorithms {
     }
 
     public ArrayList<State> simpleHillClimbing(State root,int index){
+        long startTime = System.nanoTime();
+        Runtime runtime = Runtime.getRuntime();
+        long memoryUsedBefore = runtime.totalMemory() - runtime.freeMemory();
+
+
         System.out.println("simple starting");
         ArrayList<State> visitedStates = new ArrayList<>();
         Queue<State> queue = new ArrayDeque<>();
@@ -194,16 +253,20 @@ public class Algorithms {
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println("queue size: " + queue.size());
             State currentState = queue.remove();
             System.out.println("current state: " + currentState.heuristic());
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("simple hill climbing Search");
-                writeLogToFile(index,"Simple Hill Climbing",visitedStates,getPath(root,visitedStates),0,0);
+                long endTime = System.nanoTime();
+                long durationInNanoseconds = endTime - startTime;
+                long durationInMillis = TimeUnit.NANOSECONDS.toMillis(durationInNanoseconds);
+
+                long memoryUsedAfter = runtime.totalMemory() - runtime.freeMemory();
+                long memoryUsed = memoryUsedAfter - memoryUsedBefore;
+
+
+                writeLogToFile(index,"SimpleHillClimbing",visitedStates,getPath(root,visitedStates),durationInMillis,memoryUsed);
                 return getPath(currentState, visitedStates);
             }
             ArrayList<State> nextStates = currentState.possibleBoards();
@@ -235,6 +298,11 @@ public class Algorithms {
     }
 
     public ArrayList<State> AStarSearch(State root,int index) {
+        long startTime = System.nanoTime();
+        Runtime runtime = Runtime.getRuntime();
+        long memoryUsedBefore = runtime.totalMemory() - runtime.freeMemory();
+
+
         ArrayList<State> visitedStates = new ArrayList<>();
         PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost+s.heuristic()));
 
@@ -247,14 +315,22 @@ public class Algorithms {
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 System.out.println("A* Search");
-                writeLogToFile(index,"A* search",visitedStates,getPath(root,visitedStates),0,0);
+                long endTime = System.nanoTime();
+                long durationInNanoseconds = endTime - startTime;
+                long durationInMillis = TimeUnit.NANOSECONDS.toMillis(durationInNanoseconds);
+
+                long memoryUsedAfter = runtime.totalMemory() - runtime.freeMemory();
+                long memoryUsed = memoryUsedAfter - memoryUsedBefore;
+
+
+                writeLogToFile(index,"aStarSearch",visitedStates,getPath(root,visitedStates),durationInMillis,memoryUsed);
                 return getPath(currentState, visitedStates);
             }
             ArrayList<State> nextStates = currentState.possibleBoards();
             for (State nextState : nextStates) {
                 if (existInVisited(nextState, visitedStates)) continue;
                 nextState.parent = currentState;
-                nextState.cost = currentState.cost+1;
+                nextState.cost = currentState.cost+nextState.calculateCost();
                 queue.add(nextState);
             }
         }
@@ -284,37 +360,20 @@ public class Algorithms {
                                String algo,
                                ArrayList<State> visitedStates,
                                ArrayList<State> path,
-                               int time,
-                               int memory){
+                               long time,
+                               long memory) {
 
-        String textToAdd = "level  " + level+'\n' + "algorithm  " + algo+'\n'+
-                "number of visited states : " + visitedStates.size()+'\n' +
-                "number of states in the path: " + path.size()+'\n'+
-                "time : " + time + '\n' +
-                "memory" + memory + '\n';
-        String fileName = "output.txt";
-        if(!new File(fileName).exists()){
-            File file = new File(fileName);
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            StringBuilder content = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
+        String textToAdd = "level: " + level + "\n" +
+                "algorithm: " + algo + "\n" +
+                "number of visited states: " + visitedStates.size() + "\n" +
+                "number of states in the path: " + path.size() + "\n" +
+                "time: " + time + " ms\n" +
+                "memory: " + memory + " bytes\n\n";
 
-            }
+        String fileName = "src/outputs/"+algo + ".txt";
 
-            content.append(textToAdd);
-
-
-            try (FileWriter writer = new FileWriter(fileName)) {
-                writer.write(content.toString());
-            }
+        try (FileWriter writer = new FileWriter(fileName, true)) { // Append to the file
+            writer.write(textToAdd);
         } catch (IOException e) {
             e.printStackTrace();
         }

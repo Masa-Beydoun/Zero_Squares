@@ -1,16 +1,27 @@
 import java.io.File;
 
 public class Main {
+
+    public static void deleteFile(String path){
+        File file = new File("src/outputs"+path+".txt");
+        if (file.exists()) {
+            file.delete();
+        }
+    }
+
     public static void main(String[] args) {
 
 //        new MainFrame(1);
 
+        deleteFile("BFS");
+        deleteFile("DFS");
+        deleteFile("DFS_RECURSIVE.txt");
+        deleteFile("aStarSearch.txt");
+        deleteFile("SimpleHillClimbing.txt");
+        deleteFile("SteepestHillClimbing.txt.txt");
+        deleteFile("UCS.txt.txt");
 
 
-        File file = new File("output.txt");
-        if (file.exists()) {
-            file.delete();
-        }
         Algorithms algorithms = new Algorithms();
         for(int i=1;i<=30;i++){
             State state = InputStates.readGrid(i);

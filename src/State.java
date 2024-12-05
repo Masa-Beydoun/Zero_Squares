@@ -140,9 +140,28 @@ public class State{
                 }
             }
         }
+        checkLost();
         return state;
     }
 
+    public void checkLost(){
+        Set<Character> unsolved = new HashSet<>();
+        for(int i=0;i<board.length;i++){
+            for(int j=0;j<board[i].length;j++){
+                if(board[i][j]!='#' && board[i][j]!='_' && board[i][j]!='?' && board[i][j]!='O'){
+                    unsolved.add(board[i][j]);
+                }
+            }
+        }
+        for(Stone s: stones){
+            if(s.isInGoal())
+                continue;
+            unsolved.remove(Character.toUpperCase(s.getC()));
+        }
+        if(!unsolved.isEmpty()){
+            lost=true;
+        }
+    }
     public boolean checkIfYouCanWalk(int i,int j,State state){
         if(board[i][j]=='#'){
             return false;
@@ -230,6 +249,10 @@ public class State{
 
 
     public int heuristic(){
+        return calculateCost();
+    }
+
+    public int calculateCost(){
         if(lost) return Integer.MAX_VALUE;
         int [][] goals = new int[6][2];
         int index=0;

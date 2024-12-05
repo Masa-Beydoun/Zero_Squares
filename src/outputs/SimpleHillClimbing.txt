@@ -1,0 +1,7 @@
+level: 1
+algorithm: SimpleHillClimbing
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+

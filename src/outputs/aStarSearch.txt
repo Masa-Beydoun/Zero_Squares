@@ -1,0 +1,42 @@
+level: 1
+algorithm: aStarSearch
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 2
+algorithm: aStarSearch
+number of visited states: 9
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 3
+algorithm: aStarSearch
+number of visited states: 7
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 4
+algorithm: aStarSearch
+number of visited states: 15
+number of states in the path: 1
+time: 0 ms
+memory: 461400 bytes
+
+level: 5
+algorithm: aStarSearch
+number of visited states: 17
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 6
+algorithm: aStarSearch
+number of visited states: 13
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
