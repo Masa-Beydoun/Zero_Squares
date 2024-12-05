@@ -304,7 +304,47 @@ public class Algorithms {
 
 
         ArrayList<State> visitedStates = new ArrayList<>();
-        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.cost+s.heuristic()));
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.heuristic()));
+
+        root.parent = null;
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            System.out.println("visited states " + visitedStates.size());
+            State currentState = queue.remove();
+            visitedStates.add(currentState);
+            if (checkGoal(currentState)) {
+                System.out.println("A* Search");
+                long endTime = System.nanoTime();
+                long durationInNanoseconds = endTime - startTime;
+                long durationInMillis = TimeUnit.NANOSECONDS.toMillis(durationInNanoseconds);
+
+                long memoryUsedAfter = runtime.totalMemory() - runtime.freeMemory();
+                long memoryUsed = memoryUsedAfter - memoryUsedBefore;
+
+
+                writeLogToFile(index,"aStarSearch",visitedStates,getPath(root,visitedStates),durationInMillis,memoryUsed);
+                return getPath(currentState, visitedStates);
+            }
+            ArrayList<State> nextStates = currentState.possibleBoards();
+            for (State nextState : nextStates) {
+                if (existInVisited(nextState, visitedStates)) continue;
+                nextState.parent = currentState;
+                nextState.cost = currentState.cost+nextState.calculateCost();
+                queue.add(nextState);
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<State> advancedAStarSearch(State root,int index) {
+        long startTime = System.nanoTime();
+        Runtime runtime = Runtime.getRuntime();
+        long memoryUsedBefore = runtime.totalMemory() - runtime.freeMemory();
+
+
+        ArrayList<State> visitedStates = new ArrayList<>();
+        PriorityQueue<State> queue = new PriorityQueue<>(Comparator.comparingInt(s -> s.advancedHeuristic()));
 
         root.parent = null;
         queue.add(root);

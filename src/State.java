@@ -248,6 +248,11 @@ public class State{
     }
 
 
+    public int advancedHeuristic(){
+        return calculateCost() +stones.size();
+    }
+
+
     public int heuristic(){
         return calculateCost();
     }

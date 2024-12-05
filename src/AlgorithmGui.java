@@ -72,6 +72,9 @@ public class AlgorithmGui extends JFrame {
         if (alg.equals("steepestHillClimbing")) {
             path=algorithms.steepestHillClimbing(state,index);
         }
+        if (alg.equals("advancedAStar")) {
+            path=algorithms.advancedAStarSearch(state,index);
+        }
         if (path != null && path.isEmpty()) {
             System.out.println("No path found.");
             return;
