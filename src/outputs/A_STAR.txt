@@ -1,203 +1,203 @@
 level: 1
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 2
 number of states in the path: 1
-time: 2 ms
+time: 0 ms
 memory: 0 bytes
 
 level: 2
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 7
-number of states in the path: 1
-time: 1 ms
-memory: 461400 bytes
-
-level: 3
-algorithm: UCS
-number of visited states: 7
-number of states in the path: 1
-time: 0 ms
-memory: 247488 bytes
-
-level: 4
-algorithm: UCS
-number of visited states: 13
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
+level: 3
+algorithm: A_STAR
+number of visited states: 7
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 4
+algorithm: A_STAR
+number of visited states: 17
+number of states in the path: 1
+time: 0 ms
+memory: 461400 bytes
+
 level: 5
-algorithm: UCS
-number of visited states: 12
+algorithm: A_STAR
+number of visited states: 19
 number of states in the path: 1
 time: 1 ms
 memory: 0 bytes
 
 level: 6
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 9
 number of states in the path: 1
 time: 0 ms
-memory: 249456 bytes
+memory: 0 bytes
 
 level: 7
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 1
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
 level: 8
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 1
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
 level: 9
-algorithm: UCS
-number of visited states: 56
+algorithm: A_STAR
+number of visited states: 88
 number of states in the path: 1
-time: 3 ms
-memory: 1174336 bytes
+time: 4 ms
+memory: 922784 bytes
 
 level: 10
-algorithm: UCS
-number of visited states: 299
+algorithm: A_STAR
+number of visited states: 695
 number of states in the path: 1
-time: 22 ms
-memory: 3732872 bytes
+time: 72 ms
+memory: -15839872 bytes
 
 level: 11
-algorithm: UCS
-number of visited states: 45
+algorithm: A_STAR
+number of visited states: 76
 number of states in the path: 1
 time: 1 ms
-memory: 798296 bytes
+memory: 796248 bytes
 
 level: 12
-algorithm: UCS
-number of visited states: 179
+algorithm: A_STAR
+number of visited states: 233
 number of states in the path: 1
 time: 6 ms
-memory: 2097128 bytes
+memory: 1594600 bytes
 
 level: 13
-algorithm: UCS
-number of visited states: 118
+algorithm: A_STAR
+number of visited states: 153
 number of states in the path: 1
 time: 7 ms
-memory: 1594560 bytes
+memory: 1300904 bytes
 
 level: 14
-algorithm: UCS
-number of visited states: 118
+algorithm: A_STAR
+number of visited states: 178
 number of states in the path: 1
 time: 7 ms
-memory: 1300896 bytes
+memory: 1298824 bytes
 
 level: 15
-algorithm: UCS
-number of visited states: 1079
+algorithm: A_STAR
+number of visited states: 1888
 number of states in the path: 1
-time: 146 ms
-memory: 15730688 bytes
+time: 316 ms
+memory: 19920896 bytes
 
 level: 16
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 8
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
 level: 17
-algorithm: UCS
-number of visited states: 221
+algorithm: A_STAR
+number of visited states: 327
 number of states in the path: 1
-time: 16 ms
-memory: 3143680 bytes
+time: 23 ms
+memory: 3147776 bytes
 
 level: 18
-algorithm: UCS
-number of visited states: 1169
+algorithm: A_STAR
+number of visited states: 1771
 number of states in the path: 1
-time: 146 ms
-memory: 17823744 bytes
+time: 252 ms
+memory: 19924992 bytes
 
 level: 19
-algorithm: UCS
-number of visited states: 2844
+algorithm: A_STAR
+number of visited states: 4449
 number of states in the path: 1
-time: 1250 ms
-memory: 50331648 bytes
+time: 2611 ms
+memory: -93816312 bytes
 
 level: 20
-algorithm: UCS
-number of visited states: 424
+algorithm: A_STAR
+number of visited states: 818
 number of states in the path: 1
-time: 32 ms
-memory: 6291456 bytes
+time: 59 ms
+memory: 9435136 bytes
 
 level: 21
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 3
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
 level: 22
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 21
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
 level: 23
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 5
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
 level: 24
-algorithm: UCS
-number of visited states: 68
+algorithm: A_STAR
+number of visited states: 103
 number of states in the path: 1
-time: 1 ms
-memory: 1050624 bytes
+time: 2 ms
+memory: 0 bytes
 
 level: 25
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 18
 number of states in the path: 1
 time: 0 ms
-memory: 0 bytes
+memory: 1046528 bytes
 
 level: 26
-algorithm: UCS
-number of visited states: 483
+algorithm: A_STAR
+number of visited states: 668
 number of states in the path: 1
-time: 32 ms
+time: 39 ms
 memory: 6291456 bytes
 
 level: 27
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 15
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
 level: 28
-algorithm: UCS
+algorithm: A_STAR
 number of visited states: 16
 number of states in the path: 1
 time: 0 ms
 memory: 0 bytes
 
 level: 29
-algorithm: UCS
-number of visited states: 2585
+algorithm: A_STAR
+number of visited states: 4166
 number of states in the path: 1
-time: 1057 ms
-memory: 46137344 bytes
+time: 2393 ms
+memory: 47187968 bytes
 

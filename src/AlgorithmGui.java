@@ -51,29 +51,29 @@ public class AlgorithmGui extends JFrame {
 
         if (alg.equals("BFS")) {
             System.out.println("in bfs");
-            path = algorithms.BFS(state,index);
+            path = algorithms.startAlgorithm(AlgorithmName.BFS,state,index);
         }
         if (alg.equals("DFS")) {
-            path = algorithms.DFS(state,index);
+            path = algorithms.startAlgorithm(AlgorithmName.DFS,state,index);
         }
         if(alg.equals("UCS")) {
-            path = algorithms.UCS(state,index);
+            path = algorithms.startAlgorithm(AlgorithmName.UCS,state,index);
         }
         if (alg.equals("DFS_RECURSIVE")) {
              algorithms.initiate_DfS(state,index);
              path=algorithms.globalPath;
         }
         if (alg.equals("AStar")) {
-            path=algorithms.AStarSearch(state,index);
+            path = algorithms.startAlgorithm(AlgorithmName.A_STAR,state,index);
         }
         if (alg.equals("simpleHillClimbing")) {
-            path=algorithms.simpleHillClimbing(state,index);
+            path = algorithms.startAlgorithm(AlgorithmName.SIMPLE_HILL_CLIMBING,state,index);
         }
         if (alg.equals("steepestHillClimbing")) {
-            path=algorithms.steepestHillClimbing(state,index);
+            path = algorithms.startAlgorithm(AlgorithmName.STEEPEST_HILL_CLIMBING,state,index);
         }
         if (alg.equals("advancedAStar")) {
-            path=algorithms.advancedAStarSearch(state,index);
+            path = algorithms.startAlgorithm(AlgorithmName.A_STAR_ADVANCED,state,index);
         }
         if (path != null && path.isEmpty()) {
             System.out.println("No path found.");

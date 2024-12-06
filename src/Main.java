@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        new MainFrame(1);
+//        new MainFrame(30);
 
         deleteFile("BFS");
         deleteFile("DFS");
@@ -21,22 +21,18 @@ public class Main {
         deleteFile("SteepestHillClimbing.txt.txt");
         deleteFile("UCS.txt.txt");
 
-
+//
         Algorithms algorithms = new Algorithms();
         for(int i=1;i<=30;i++){
             State state = InputStates.readGrid(i);
-            algorithms.BFS(state,i);
-            System.out.println("BFS done");
-            algorithms.DFS(state,i);
-            System.out.println("DFS done");
-
+            algorithms.startAlgorithm(AlgorithmName.BFS,state,i);
+            algorithms.startAlgorithm(AlgorithmName.DFS,state,i);
+            algorithms.startAlgorithm(AlgorithmName.UCS,state,i);
+            algorithms.startAlgorithm(AlgorithmName.SIMPLE_HILL_CLIMBING,state,i);
+            algorithms.startAlgorithm(AlgorithmName.STEEPEST_HILL_CLIMBING,state,i);
+            algorithms.startAlgorithm(AlgorithmName.A_STAR,state,i);
+            algorithms.startAlgorithm(AlgorithmName.A_STAR_ADVANCED,state,i);
             algorithms.initiate_DfS(state,i);
-            algorithms.UCS(state,i);
-            System.out.println("UCS done");
-
-            algorithms.simpleHillClimbing(state,i);
-            algorithms.steepestHillClimbing(state,i);
-            algorithms.AStarSearch(state,i);
 
         }
     }

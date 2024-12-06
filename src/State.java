@@ -20,13 +20,13 @@ public class State{
     }
     State(char [][] board, ArrayList<Stone> stones)
     {
+
         this.board = board;
         this.stones = stones;
+        checkLost();
     }
 
     public State move(String dir){
-
-
         State state = new State();
 
         char[][] newBoard = new char[this.board.length][this.board[0].length];
@@ -144,11 +144,11 @@ public class State{
         return state;
     }
 
-    public void checkLost(){
-        Set<Character> unsolved = new HashSet<>();
+    public boolean checkLost(){
+        ArrayList<Character> unsolved = new ArrayList<>();
         for(int i=0;i<board.length;i++){
             for(int j=0;j<board[i].length;j++){
-                if(board[i][j]!='#' && board[i][j]!='_' && board[i][j]!='?' && board[i][j]!='O'){
+                if(board[i][j]!='#' && board[i][j]!='_' && board[i][j]!='?' &&board[i][j]!='O'){
                     unsolved.add(board[i][j]);
                 }
             }
@@ -156,11 +156,19 @@ public class State{
         for(Stone s: stones){
             if(s.isInGoal())
                 continue;
-            unsolved.remove(Character.toUpperCase(s.getC()));
+            for(int i=0;i<unsolved.size();i++){
+                if(unsolved.get(i)==Character.toUpperCase(s.getC())){
+                    unsolved.remove(i);
+                    break;
+                }
+            }
+
         }
         if(!unsolved.isEmpty()){
             lost=true;
+            return true;
         }
+        return false;
     }
     public boolean checkIfYouCanWalk(int i,int j,State state){
         if(board[i][j]=='#'){
@@ -230,20 +238,33 @@ public class State{
         ArrayList<State> nextStates= new ArrayList<>();
         State state;
         state = move("UP");
+        state.checkLost();
         if(!state.lost)
             nextStates.add(state);
+        else
+            nextStates.add(null);
 
         state = move("DOWN");
+        state.checkLost();
         if(!state.lost)
             nextStates.add(state);
+        else
+            nextStates.add(null);
 
         state = move("LEFT");
+        state.checkLost();
         if(!state.lost)
             nextStates.add(state);
+        else
+            nextStates.add(null);
 
         state = move("RIGHT");
+        state.checkLost();
         if(!state.lost)
             nextStates.add(state);
+        else
+            nextStates.add(null);
+
         return nextStates;
     }
 

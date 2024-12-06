@@ -30,6 +30,8 @@ public class BoardGui  extends JFrame implements KeyListener{
     BoardGui(int index) {
         this.index = index;
         state = InputStates.readGrid(index);
+        state.checkLost();
+
         this.setLayout(new GridLayout(1, 5));
 
 
@@ -104,13 +106,13 @@ public class BoardGui  extends JFrame implements KeyListener{
             if(nextStates.get(0)!= null)
                 updateFrame(secondButton, nextStates.get(0));
 
-            if(nextStates.get(1)!= null)
+            if( nextStates.size()>1 && nextStates.get(1)!= null)
                 updateFrame(thirdButton, nextStates.get(1));
 
-            if(nextStates.get(2)!= null)
+            if(nextStates.size()>2 && nextStates.get(2)!= null)
                 updateFrame(fourthButton, nextStates.get(2));
 
-            if(nextStates.get(3)!= null)
+            if(nextStates.size()>3 && nextStates.get(3)!= null)
                 updateFrame(fifthButton, nextStates.get(3));
 
 
@@ -119,6 +121,7 @@ public class BoardGui  extends JFrame implements KeyListener{
 
     public void updateFrame(JButton[][] buttons,State state) {
 
+        state.checkLost();
         if(state.lost) return;
         AlgorithmGui.updateFrame(buttons, state);
     }

@@ -1,7 +1,0 @@
-level: 1
-algorithm: SteepestHillClimbing
-number of visited states: 2
-number of states in the path: 1
-time: 1 ms
-memory: 0 bytes
-

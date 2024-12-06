@@ -1,0 +1,203 @@
+level: 1
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 2
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 4
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 3
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 4
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 5
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 3
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 6
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 6
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 7
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 1
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 8
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 1
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 9
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 4
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 10
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 12
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 11
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 12
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 4
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 13
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 1
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 14
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 1
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 15
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 16
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 1
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 17
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 3
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 18
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 7
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 19
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 20
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 3
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 21
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 3
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 22
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 1
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 23
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 2
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 24
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 4
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 25
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 3
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 26
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 3
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 27
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 3
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 28
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 4
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 29
+algorithm: STEEPEST_HILL_CLIMBING
+number of visited states: 4
+number of states in the path: 1
+time: 0 ms
+memory: 1046528 bytes
+

@@ -24,7 +24,7 @@ algorithm: BFS
 number of visited states: 13
 number of states in the path: 1
 time: 0 ms
-memory: 463448 bytes
+memory: 0 bytes
 
 level: 5
 algorithm: BFS
@@ -38,12 +38,166 @@ algorithm: BFS
 number of visited states: 22
 number of states in the path: 1
 time: 0 ms
-memory: 461408 bytes
+memory: 0 bytes
 
 level: 7
 algorithm: BFS
-number of visited states: 226
+number of visited states: 1
 number of states in the path: 1
-time: 8 ms
-memory: 2080752 bytes
+time: 0 ms
+memory: 0 bytes
+
+level: 8
+algorithm: BFS
+number of visited states: 1
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 9
+algorithm: BFS
+number of visited states: 92
+number of states in the path: 1
+time: 2 ms
+memory: 461392 bytes
+
+level: 10
+algorithm: BFS
+number of visited states: 316
+number of states in the path: 1
+time: 20 ms
+memory: 1635720 bytes
+
+level: 11
+algorithm: BFS
+number of visited states: 132
+number of states in the path: 1
+time: 2 ms
+memory: 502576 bytes
+
+level: 12
+algorithm: BFS
+number of visited states: 473
+number of states in the path: 1
+time: 20 ms
+memory: 1594576 bytes
+
+level: 13
+algorithm: BFS
+number of visited states: 286
+number of states in the path: 1
+time: 14 ms
+memory: 1594576 bytes
+
+level: 14
+algorithm: BFS
+number of visited states: 582
+number of states in the path: 1
+time: 39 ms
+memory: 2097168 bytes
+
+level: 15
+algorithm: BFS
+number of visited states: 1937
+number of states in the path: 1
+time: 435 ms
+memory: 8852384 bytes
+
+level: 16
+algorithm: BFS
+number of visited states: 38
+number of states in the path: 1
+time: 1 ms
+memory: 1050624 bytes
+
+level: 17
+algorithm: BFS
+number of visited states: 1137
+number of states in the path: 1
+time: 165 ms
+memory: 5240832 bytes
+
+level: 18
+algorithm: BFS
+number of visited states: 20077
+number of states in the path: 1
+time: 148109 ms
+memory: -69499360 bytes
+
+level: 19
+algorithm: BFS
+number of visited states: 18365
+number of states in the path: 1
+time: 120451 ms
+memory: -65343080 bytes
+
+level: 20
+algorithm: BFS
+number of visited states: 2591
+number of states in the path: 1
+time: 701 ms
+memory: 9439232 bytes
+
+level: 21
+algorithm: BFS
+number of visited states: 3
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 22
+algorithm: BFS
+number of visited states: 26
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 23
+algorithm: BFS
+number of visited states: 11
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 24
+algorithm: BFS
+number of visited states: 101
+number of states in the path: 1
+time: 1 ms
+memory: 1046528 bytes
+
+level: 25
+algorithm: BFS
+number of visited states: 182
+number of states in the path: 1
+time: 6 ms
+memory: 1050624 bytes
+
+level: 26
+algorithm: BFS
+number of visited states: 1149
+number of states in the path: 1
+time: 124 ms
+memory: 5244928 bytes
+
+level: 27
+algorithm: BFS
+number of visited states: 370
+number of states in the path: 1
+time: 13 ms
+memory: 2097152 bytes
+
+level: 28
+algorithm: BFS
+number of visited states: 32
+number of states in the path: 1
+time: 0 ms
+memory: 0 bytes
+
+level: 29
+algorithm: BFS
+number of visited states: 12058
+number of states in the path: 1
+time: 42567 ms
+memory: -94888672 bytes
 
