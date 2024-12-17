@@ -28,9 +28,10 @@ public class BoardGui  extends JFrame implements KeyListener{
 
 
     BoardGui(int index) {
-        this.index = index;
+        this.index=index;
         state = InputStates.readGrid(index);
         state.checkLost();
+        System.out.println("in board "+state);
 
         this.setLayout(new GridLayout(1, 5));
 
@@ -50,10 +51,10 @@ public class BoardGui  extends JFrame implements KeyListener{
 
 
         firstMainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,8));
-        secondMainPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE,8));
-        thirdMainPanel.setBorder(BorderFactory.createLineBorder(Color.PINK,8));
-        fourthMainPanel.setBorder(BorderFactory.createLineBorder(Color.GREEN,8));
-        fifthMainPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY,8));
+        secondMainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,8));
+        thirdMainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,8));
+        fourthMainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,8));
+        fifthMainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,8));
 
         this.add(firstMainPanel);
         this.add(secondMainPanel);
@@ -61,34 +62,29 @@ public class BoardGui  extends JFrame implements KeyListener{
         this.add(fourthMainPanel);
         this.add(fifthMainPanel);
 
-
-        updateFullFrame();
-
         this.setSize(new Dimension(1600,800));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setFocusable(true);
         this.addKeyListener(this);
 
+        updateFullFrame();
+
+
 
     }
-
 
     public void createOnePanel(JPanel mainPanel,JPanel buttonPanel,JButton[][] buttons,JLabel jLabel,String str){
         mainPanel.setLayout(new BorderLayout());
         buttonPanel.setLayout(new GridLayout(state.board.length,state.board[0].length));
         jLabel.setText(str);
-        jLabel.setHorizontalAlignment(JLabel.CENTER);  // Ensure text is centered
+        jLabel.setHorizontalAlignment(JLabel.CENTER);
         mainPanel.add(jLabel, BorderLayout.NORTH);
         buttonPanel.setLayout(new GridLayout(buttons.length, buttons[0].length));
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
                 buttons[i][j] = new JButton();
                 buttons[i][j].setFocusable(false);
-            }
-        }
-        for (int i = 0; i < buttons.length; i++){
-            for (int j = 0; j < buttons[i].length; j++) {
                 buttonPanel.add(buttons[i][j]);
             }
         }
@@ -97,10 +93,7 @@ public class BoardGui  extends JFrame implements KeyListener{
 
     public void updateFullFrame(){
         updateFrame(firstButton,state);
-
         ArrayList<State> nextStates =  state.possibleBoards();
-
-
         if(!nextStates.isEmpty()) {
 
             if(nextStates.get(0)!= null)
@@ -132,16 +125,16 @@ public class BoardGui  extends JFrame implements KeyListener{
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
                 System.out.println("UP");
-                 state = state.move("UP");
+                 state = state.move(Move.UP);
                 break;
             case KeyEvent.VK_DOWN:
-                state = state.move("DOWN");
+                state = state.move(Move.DOWN);
                 break;
             case KeyEvent.VK_LEFT:
-                state = state.move("LEFT");
+                state = state.move(Move.LEFT);
                 break;
             case KeyEvent.VK_RIGHT:
-                state = state.move("RIGHT");
+                state = state.move(Move.RIGHT);
                 break;
         }
 
@@ -153,12 +146,6 @@ public class BoardGui  extends JFrame implements KeyListener{
             System.out.println("______________________________________");
             System.out.println("next level");
             this.dispose();
-            if(index==30){
-                System.out.println("all levels cleared");
-                this.dispose();
-                return;
-            }
-            index++;
             new MainFrame(index);
             return;
         }

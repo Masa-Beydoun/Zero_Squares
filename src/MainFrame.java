@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
+    int index;
+    JLabel level;
     JButton user = new JButton("User");
     JButton BFS = new JButton("BFS");
     JButton DFS = new JButton("DFS");
@@ -13,43 +15,60 @@ public class MainFrame extends JFrame {
     JButton simpleHillClimbing = new JButton("Simple hill climbing");
     JButton steepestHillClimbing = new JButton("steepest hill climbing");
     JButton advancedAStar = new JButton("advancedAStar");
+    JButton nextStep = new JButton("Next Level");
+
+
+    //1
+
+
     public MainFrame(int index) {
+        this.index = index;
         this.setLayout(new GridLayout(1,3));
+        level = new JLabel("Level: " + index);
         user.addActionListener(e -> {
             this.dispose();
             new BoardGui(index);
         });
         BFS.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"BFS");
+            new AlgorithmGui(index,AlgorithmName.BFS);
         });
         DFS.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"DFS");
+            new AlgorithmGui(index,AlgorithmName.DFS);
+        });
+        nextStep.addActionListener(e -> {
+            this.dispose();
+            this.index++;
+            if (this.index == 30) {
+                System.out.println("All levels cleared");
+                return;
+            }
+            new MainFrame(this.index);
         });
         UCS.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"UCS");
+            new AlgorithmGui(index,AlgorithmName.UCS);
         });
         DFS_RESURSIVE.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"DFS_RECURSIVE");
+            new AlgorithmGui(index,AlgorithmName.DFS_RECURSIVE);
         });
         AStar.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"AStar");
+            new AlgorithmGui(index,AlgorithmName.A_STAR);
         });
         simpleHillClimbing.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"simpleHillClimbing");
+            new AlgorithmGui(index,AlgorithmName.SIMPLE_HILL_CLIMBING);
         });
         steepestHillClimbing.addActionListener(e -> {
             this.dispose();
-            new AlgorithmGui(index,"steepestHillClimbing");
+            new AlgorithmGui(index,AlgorithmName.STEEPEST_HILL_CLIMBING);
         });
         advancedAStar.addActionListener(e -> {
                 this.dispose();
-            new AlgorithmGui(index,"advancedAStar");
+            new AlgorithmGui(index,AlgorithmName.A_STAR_ADVANCED);
         });
 
         user.setFocusable(false);
@@ -60,6 +79,8 @@ public class MainFrame extends JFrame {
         advancedAStar.setFocusable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setBackground(Color.GRAY);
+//        this.setLayout(null);
+        this.add(level);
         this.add(user);
         this.add(BFS);
         this.add(DFS);
@@ -70,7 +91,8 @@ public class MainFrame extends JFrame {
         this.add(steepestHillClimbing);
         this.add(AStar);
         this.add(advancedAStar);
-        this.setSize(new Dimension(700,300));
+        this.add(nextStep);
+        this.setSize(new Dimension(1300,300));
         this.setVisible(true);
     }
 

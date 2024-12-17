@@ -10,23 +10,15 @@ public class State{
      State parent = null;
      ArrayList<Stone> stones = new ArrayList<>();
      int cost=0,heuristic=0;
+     Move comeFrom=null;
 
 
      boolean finished = false;
      boolean lost = false;
 
     State(){
-
     }
-    State(char [][] board, ArrayList<Stone> stones)
-    {
-
-        this.board = board;
-        this.stones = stones;
-        checkLost();
-    }
-
-    public State move(String dir){
+    public State move(Move dir){
         State state = new State();
 
         char[][] newBoard = new char[this.board.length][this.board[0].length];
@@ -58,7 +50,8 @@ public class State{
             char c = s.getC();
 
             //check movement
-            if (dir.equals("UP")) {
+            if (dir == Move.UP) {
+                state.comeFrom=Move.UP;
 //                System.out.println("UP");
                 int temp = s.getX() - 1;
                 while(temp>=0 && checkIfYouCanWalk(temp,s.getY(),state)){
@@ -73,7 +66,8 @@ public class State{
                 }
                 canMove[i][0] = temp+1;
                 canMove[i][1] = s.getY();
-            } else if (dir.equals("DOWN")) {
+            } else if (dir == Move.DOWN) {
+                state.comeFrom=Move.DOWN;
 //                System.out.println("DOWN");
                 int temp = s.getX() + 1;
                 while(temp< this.board.length && checkIfYouCanWalk(temp,s.getY(),state)){
@@ -89,7 +83,8 @@ public class State{
                 }
                 canMove[i][0] = temp-1;
                 canMove[i][1] = s.getY();
-            } else if (dir.equals("LEFT")) {
+            } else if (dir == Move.LEFT) {
+                state.comeFrom=Move.LEFT;
 //                System.out.println("LEFT");
                 int temp = s.getY() - 1;
                 while(temp>=0 && checkIfYouCanWalk(s.getX(),temp,state)){
@@ -105,6 +100,7 @@ public class State{
                 canMove[i][0] = s.getX();
                 canMove[i][1] = temp+1;
             } else {
+                state.comeFrom=Move.RIGHT;
 //                System.out.println("RIGHT");
                 int temp = s.getY() + 1;
                 while(temp<this.board[0].length && checkIfYouCanWalk(s.getX(),temp,state)){
@@ -190,12 +186,12 @@ public class State{
     public String
     toString() {
         StringBuilder b= new StringBuilder();
-//        for(int i=0;i<this.board.length;i++){
-//            for(int j=0;j<this.board[0].length;j++){
-//                b.append(board[i][j]);
-//            }
-//            b.append("\n");
-//        }
+        for(int i=0;i<this.board.length;i++){
+            for(int j=0;j<this.board[0].length;j++){
+                b.append(board[i][j]);
+            }
+            b.append("\n");
+        }
         for(Stone s : stones){
             b.append(s);
             b.append("\n");
@@ -205,21 +201,8 @@ public class State{
                 "finished= " + finished + '\n'+
                 "lost= " + lost + '\n'+
                 "expectedMoves= " + heuristic() + '\n'+
+                "come From= "+comeFrom+'\n'+
                 b + '}';
-    }
-
-    public void printGrid(){
-
-        for(int i=0;i<board.length;i++){
-            for(int j=0;j<board[i].length;j++){
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
-        for(Stone s : stones){
-            System.out.println(s.toString());
-        }
-        System.out.println();
     }
 
     public boolean checkGameOver(){
@@ -237,40 +220,124 @@ public class State{
 
         ArrayList<State> nextStates= new ArrayList<>();
         State state;
-        state = move("UP");
+        state = move(Move.UP);
         state.checkLost();
         if(!state.lost)
             nextStates.add(state);
         else
             nextStates.add(null);
 
-        state = move("DOWN");
+        state = move(Move.DOWN);
         state.checkLost();
         if(!state.lost)
             nextStates.add(state);
         else
             nextStates.add(null);
 
-        state = move("LEFT");
+        state = move(Move.LEFT);
         state.checkLost();
         if(!state.lost)
             nextStates.add(state);
         else
             nextStates.add(null);
 
-        state = move("RIGHT");
+        state = move(Move.RIGHT);
         state.checkLost();
         if(!state.lost)
             nextStates.add(state);
         else
             nextStates.add(null);
 
+//        System.out.println(nextStates);
         return nextStates;
     }
 
-
     public int advancedHeuristic(){
-        return calculateCost() +stones.size();
+        if(lost) return Integer.MAX_VALUE;
+        int [][] goals = new int[5][2];
+        for(int i=0;i<5;i++){
+            goals[i][0]=-1;
+            goals[i][1]=-1;
+        }
+        int index=0;
+        for(int i=0;i<board.length;i++){
+            for(int j=0;j<board[0].length;j++){
+                if(board[i][j]=='R'){
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
+                }
+                if(board[i][j]=='G'){
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
+                }
+                if(board[i][j]=='B'){
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
+                }
+                if(board[i][j]=='P'){
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
+                }
+                if(board[i][j]=='Y'){
+                    goals[index][0]=i;
+                    goals[index][1]=j;
+                    index++;
+                }
+            }
+
+        }
+        int sum=0;
+        for(Stone s : stones){
+            if(s.isInGoal())continue;
+            if(s.getC()=='r' && goals[0][0]!=-1)
+                sum+=oneHeu(s,goals[0][0],goals[0][1]);
+            else if(s.getC()=='b' && goals[2][0]!=-1)
+                sum+=oneHeu(s,goals[2][0],goals[2][1]);
+            else if(s.getC()=='g'&& goals[1][0]!=-1)
+                sum+=oneHeu(s,goals[1][0],goals[1][1]);
+            else if(s.getC()=='y'&& goals[4][0]!=-1)
+                sum+=oneHeu(s,goals[4][0],goals[4][1]);
+            else if(s.getC()=='p'&& goals[3][0]!=-1)
+                sum+=oneHeu(s,goals[3][0],goals[3][1]);
+        }
+        return 0;
+    }
+    public int oneHeu(Stone s,int i,int j){
+        int sum=1;
+        int tmpI=i,tmpJ=j;
+        if(s.getX()>tmpI){
+            while(s.getX()>tmpI){
+                if(board[tmpI][j]=='#')
+                    sum+=2;
+                tmpI++;
+            }
+        }
+        else{
+            while(s.getX()<tmpI){
+                if(board[tmpI][j]=='#')
+                    sum+=2;
+                tmpI--;
+            }
+        }
+        if(s.getY()>tmpJ){
+            while(s.getY()>tmpJ){
+                if(board[i][tmpJ]=='#')
+                    sum+=2;
+                tmpJ++;
+            }
+        }
+        else {
+            while(s.getY()<tmpJ){
+                if (board[i][tmpJ]=='#')
+                    sum+=2;
+                tmpJ--;
+            }
+        }
+        return sum;
     }
 
 

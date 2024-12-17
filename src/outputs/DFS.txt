@@ -1,203 +1,81 @@
-level: 1
-algorithm: DFS
-number of visited states: 2
-number of states in the path: 1
-time: 0 ms
-memory: 0 bytes
-
-level: 2
-algorithm: DFS
-number of visited states: 10
-number of states in the path: 1
-time: 1 ms
-memory: 0 bytes
-
-level: 3
-algorithm: DFS
-number of visited states: 10
-number of states in the path: 1
-time: 0 ms
-memory: 0 bytes
-
-level: 4
-algorithm: DFS
-number of visited states: 14
-number of states in the path: 1
-time: 0 ms
-memory: 0 bytes
-
-level: 5
-algorithm: DFS
-number of visited states: 16
-number of states in the path: 1
-time: 0 ms
-memory: 461400 bytes
-
-level: 6
-algorithm: DFS
-number of visited states: 10
-number of states in the path: 1
-time: 0 ms
-memory: 0 bytes
-
-level: 7
-algorithm: DFS
-number of visited states: 1
-number of states in the path: 1
-time: 0 ms
-memory: 0 bytes
-
-level: 8
-algorithm: DFS
-number of visited states: 1
-number of states in the path: 1
-time: 0 ms
-memory: 0 bytes
-
-level: 9
-algorithm: DFS
-number of visited states: 70
-number of states in the path: 1
-time: 2 ms
-memory: 0 bytes
-
-level: 10
-algorithm: DFS
-number of visited states: 247
-number of states in the path: 1
-time: 14 ms
-memory: 922816 bytes
-
-level: 11
-algorithm: DFS
-number of visited states: 42
-number of states in the path: 1
-time: 1 ms
-memory: 0 bytes
-
-level: 12
-algorithm: DFS
-number of visited states: 53
-number of states in the path: 1
-time: 1 ms
-memory: 0 bytes
-
-level: 13
-algorithm: DFS
-number of visited states: 193
-number of states in the path: 1
-time: 8 ms
-memory: 502576 bytes
-
-level: 14
-algorithm: DFS
-number of visited states: 86
-number of states in the path: 1
-time: 2 ms
-memory: 796256 bytes
-
-level: 15
-algorithm: DFS
-number of visited states: 447
-number of states in the path: 1
-time: 25 ms
-memory: -39298736 bytes
-
-level: 16
-algorithm: DFS
-number of visited states: 6223
-number of states in the path: 1
-time: 8127 ms
-memory: 23068672 bytes
-
-level: 17
-algorithm: DFS
-number of visited states: 194
-number of states in the path: 1
-time: 5 ms
-memory: 1050624 bytes
-
-level: 18
-algorithm: DFS
-number of visited states: 1429
-number of states in the path: 1
-time: 229 ms
-memory: 6291456 bytes
-
-level: 19
-algorithm: DFS
-number of visited states: 1389
-number of states in the path: 1
-time: 286 ms
-memory: 6291456 bytes
-
-level: 20
-algorithm: DFS
-number of visited states: 335
-number of states in the path: 1
-time: 10 ms
-memory: 2097152 bytes
-
 level: 21
 algorithm: DFS
+found solution: true
 number of visited states: 3
-number of states in the path: 1
+number of states in the path: 3
+path : [null, DOWN, RIGHT]
 time: 0 ms
 memory: 0 bytes
 
 level: 22
 algorithm: DFS
+found solution: true
 number of visited states: 24
-number of states in the path: 1
+number of states in the path: 17
+path : [null, RIGHT, RIGHT, DOWN, UP, LEFT, LEFT, DOWN, LEFT, UP, RIGHT, DOWN, UP, LEFT, DOWN, RIGHT, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 23
 algorithm: DFS
+found solution: true
 number of visited states: 8
-number of states in the path: 1
+number of states in the path: 7
+path : [null, RIGHT, DOWN, RIGHT, LEFT, UP, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 24
 algorithm: DFS
+found solution: true
 number of visited states: 38
-number of states in the path: 1
+number of states in the path: 33
+path : [null, RIGHT, RIGHT, DOWN, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, UP, RIGHT, DOWN, RIGHT, LEFT, DOWN, LEFT, UP, RIGHT, LEFT, DOWN, RIGHT, DOWN, RIGHT, LEFT, LEFT, UP, RIGHT]
 time: 0 ms
 memory: 0 bytes
 
 level: 25
 algorithm: DFS
+found solution: true
 number of visited states: 33
-number of states in the path: 1
+number of states in the path: 25
+path : [null, RIGHT, DOWN, RIGHT, DOWN, UP, RIGHT, UP, LEFT, UP, RIGHT, LEFT, LEFT, DOWN, RIGHT, LEFT, UP, RIGHT, LEFT, DOWN, RIGHT, UP, DOWN, LEFT, UP]
 time: 0 ms
 memory: 0 bytes
 
 level: 26
 algorithm: DFS
+found solution: true
 number of visited states: 172
-number of states in the path: 1
-time: 6 ms
-memory: 1046528 bytes
+number of states in the path: 110
+path : [null, RIGHT, RIGHT, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, RIGHT, UP, RIGHT, RIGHT, LEFT, DOWN, RIGHT, LEFT, LEFT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, RIGHT, UP, RIGHT, RIGHT, LEFT, DOWN, RIGHT, LEFT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, LEFT, RIGHT, UP, RIGHT, LEFT, DOWN, RIGHT, RIGHT, RIGHT, LEFT, LEFT, LEFT, UP, RIGHT, RIGHT, LEFT, DOWN, RIGHT, UP]
+time: 4 ms
+memory: 712872 bytes
 
 level: 27
 algorithm: DFS
+found solution: true
 number of visited states: 44
-number of states in the path: 1
+number of states in the path: 35
+path : [null, RIGHT, RIGHT, DOWN, RIGHT, LEFT, UP, RIGHT, RIGHT, LEFT, RIGHT, DOWN, RIGHT, LEFT, DOWN, RIGHT, DOWN, RIGHT, UP, RIGHT, LEFT, DOWN, RIGHT, DOWN, RIGHT, LEFT, LEFT, UP, RIGHT, LEFT, RIGHT, UP, LEFT, DOWN, UP]
 time: 0 ms
 memory: 0 bytes
 
 level: 28
 algorithm: DFS
+found solution: true
 number of visited states: 23
-number of states in the path: 1
+number of states in the path: 14
+path : [null, RIGHT, RIGHT, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, UP, RIGHT, LEFT, RIGHT, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 29
 algorithm: DFS
+found solution: true
 number of visited states: 3408
-number of states in the path: 1
-time: 1866 ms
-memory: 14680064 bytes
+number of states in the path: 92
+path : [null, LEFT, UP, RIGHT, DOWN, LEFT, UP, RIGHT, RIGHT, LEFT, LEFT, RIGHT, DOWN, LEFT, RIGHT, UP, RIGHT, LEFT, DOWN, DOWN, LEFT, DOWN, RIGHT, UP, RIGHT, RIGHT, LEFT, DOWN, UP, RIGHT, DOWN, RIGHT, LEFT, LEFT, RIGHT, DOWN, LEFT, UP, RIGHT, RIGHT, LEFT, LEFT, RIGHT, DOWN, LEFT, UP, UP, RIGHT, RIGHT, LEFT, DOWN, DOWN, UP, LEFT, UP, RIGHT, DOWN, RIGHT, LEFT, DOWN, LEFT, DOWN, UP, LEFT, DOWN, RIGHT, UP, RIGHT, RIGHT, LEFT, DOWN, LEFT, UP, LEFT, UP, RIGHT, DOWN, RIGHT, LEFT, DOWN, UP, RIGHT, UP, LEFT, DOWN, UP, RIGHT, DOWN, RIGHT, LEFT, DOWN, RIGHT]
+time: 2536 ms
+memory: 13633536 bytes
 

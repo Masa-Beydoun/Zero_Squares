@@ -1,203 +1,261 @@
 level: 1
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: true
 number of visited states: 2
-number of states in the path: 1
+number of states in the path: 2
+path : [null, RIGHT]
 time: 0 ms
 memory: 0 bytes
 
 level: 2
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 4
-number of states in the path: 1
+number of states in the path: 3
+path : [null, DOWN, RIGHT]
 time: 0 ms
 memory: 0 bytes
 
 level: 3
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 2
-number of states in the path: 1
+number of states in the path: 2
+path : [null, DOWN]
 time: 0 ms
 memory: 0 bytes
 
 level: 4
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 2
-number of states in the path: 1
+number of states in the path: 2
+path : [null, UP]
 time: 0 ms
 memory: 0 bytes
 
 level: 5
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 3
-number of states in the path: 1
+number of states in the path: 3
+path : [null, UP, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 6
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 6
-number of states in the path: 1
+number of states in the path: 4
+path : [null, LEFT, LEFT, UP]
 time: 0 ms
 memory: 0 bytes
 
 level: 7
 algorithm: SIMPLE_HILL_CLIMBING
-number of visited states: 1
-number of states in the path: 1
+found solution: false
+number of visited states: 12
+number of states in the path: 4
+path : [null, RIGHT, UP, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 8
 algorithm: SIMPLE_HILL_CLIMBING
-number of visited states: 1
-number of states in the path: 1
+found solution: false
+number of visited states: 10
+number of states in the path: 4
+path : [null, LEFT, UP, RIGHT]
 time: 0 ms
-memory: 0 bytes
+memory: 461392 bytes
 
 level: 9
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 4
-number of states in the path: 1
+number of states in the path: 3
+path : [null, UP, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 10
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 12
-number of states in the path: 1
+number of states in the path: 5
+path : [null, UP, RIGHT, UP, RIGHT]
 time: 0 ms
 memory: 0 bytes
 
 level: 11
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 2
-number of states in the path: 1
+number of states in the path: 2
+path : [null, UP]
 time: 0 ms
 memory: 0 bytes
 
 level: 12
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 4
-number of states in the path: 1
+number of states in the path: 3
+path : [null, UP, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 13
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 1
 number of states in the path: 1
+path : [null]
 time: 0 ms
 memory: 0 bytes
 
 level: 14
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 1
 number of states in the path: 1
+path : [null]
 time: 0 ms
 memory: 0 bytes
 
 level: 15
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 2
-number of states in the path: 1
+number of states in the path: 2
+path : [null, UP]
 time: 0 ms
 memory: 0 bytes
 
 level: 16
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 1
 number of states in the path: 1
+path : [null]
 time: 0 ms
 memory: 0 bytes
 
 level: 17
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 3
-number of states in the path: 1
+number of states in the path: 2
+path : [null, DOWN]
 time: 0 ms
 memory: 0 bytes
 
 level: 18
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 7
-number of states in the path: 1
+number of states in the path: 5
+path : [null, LEFT, UP, LEFT, UP]
 time: 0 ms
 memory: 0 bytes
 
 level: 19
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 2
-number of states in the path: 1
+number of states in the path: 2
+path : [null, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 20
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 3
-number of states in the path: 1
+number of states in the path: 3
+path : [null, LEFT, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 21
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: true
 number of visited states: 3
-number of states in the path: 1
+number of states in the path: 3
+path : [null, DOWN, RIGHT]
 time: 0 ms
 memory: 0 bytes
 
 level: 22
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 1
 number of states in the path: 1
+path : [null]
 time: 0 ms
 memory: 0 bytes
 
 level: 23
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 2
-number of states in the path: 1
+number of states in the path: 2
+path : [null, UP]
 time: 0 ms
-memory: 0 bytes
+memory: 249904 bytes
 
 level: 24
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 4
-number of states in the path: 1
+number of states in the path: 4
+path : [null, UP, LEFT, LEFT]
 time: 0 ms
 memory: 0 bytes
 
 level: 25
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 3
-number of states in the path: 1
+number of states in the path: 2
+path : [null, DOWN]
 time: 0 ms
 memory: 0 bytes
 
 level: 26
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 3
-number of states in the path: 1
+number of states in the path: 3
+path : [null, RIGHT, UP]
 time: 0 ms
 memory: 0 bytes
 
 level: 27
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 3
-number of states in the path: 1
+number of states in the path: 3
+path : [null, UP, LEFT]
 time: 0 ms
-memory: 0 bytes
+memory: 469328 bytes
 
 level: 28
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 4
-number of states in the path: 1
+number of states in the path: 4
+path : [null, RIGHT, RIGHT, RIGHT]
 time: 0 ms
 memory: 0 bytes
 
 level: 29
 algorithm: SIMPLE_HILL_CLIMBING
+found solution: false
 number of visited states: 4
-number of states in the path: 1
+number of states in the path: 2
+path : [null, LEFT]
 time: 0 ms
 memory: 0 bytes
 

@@ -6,14 +6,12 @@ import java.util.ArrayList;
 
 public class AlgorithmGui extends JFrame {
 
-    int index;
     State state;
     JPanel mainPanel = new JPanel();
     JPanel panel = new JPanel();
     JButton[][] buttons;
 
-    AlgorithmGui(int index, String alg) {
-        this.index = index;
+    AlgorithmGui(int index, AlgorithmName alg) {
         state = InputStates.readGrid(index);
 
         this.setLayout(new BorderLayout());
@@ -45,34 +43,33 @@ public class AlgorithmGui extends JFrame {
         SwingUtilities.invokeLater(() -> updateFullFrame(alg,index));
     }
 
-    public void updateFullFrame(String alg,int index) {
+    public void updateFullFrame(AlgorithmName alg,int index) {
         ArrayList<State> path = new ArrayList<>();
         Algorithms algorithms = new Algorithms();
 
-        if (alg.equals("BFS")) {
-            System.out.println("in bfs");
+        if (alg == AlgorithmName.BFS) {
             path = algorithms.startAlgorithm(AlgorithmName.BFS,state,index);
         }
-        if (alg.equals("DFS")) {
+        if (alg == AlgorithmName.DFS) {
             path = algorithms.startAlgorithm(AlgorithmName.DFS,state,index);
         }
-        if(alg.equals("UCS")) {
+        if(alg == AlgorithmName.UCS) {
             path = algorithms.startAlgorithm(AlgorithmName.UCS,state,index);
         }
-        if (alg.equals("DFS_RECURSIVE")) {
+        if (alg == AlgorithmName.DFS_RECURSIVE) {
              algorithms.initiate_DfS(state,index);
              path=algorithms.globalPath;
         }
-        if (alg.equals("AStar")) {
+        if (alg == AlgorithmName.A_STAR) {
             path = algorithms.startAlgorithm(AlgorithmName.A_STAR,state,index);
         }
-        if (alg.equals("simpleHillClimbing")) {
+        if (alg == AlgorithmName.SIMPLE_HILL_CLIMBING) {
             path = algorithms.startAlgorithm(AlgorithmName.SIMPLE_HILL_CLIMBING,state,index);
         }
-        if (alg.equals("steepestHillClimbing")) {
+        if (alg == AlgorithmName.STEEPEST_HILL_CLIMBING) {
             path = algorithms.startAlgorithm(AlgorithmName.STEEPEST_HILL_CLIMBING,state,index);
         }
-        if (alg.equals("advancedAStar")) {
+        if (alg == AlgorithmName.A_STAR_ADVANCED) {
             path = algorithms.startAlgorithm(AlgorithmName.A_STAR_ADVANCED,state,index);
         }
         if (path != null && path.isEmpty()) {
@@ -101,12 +98,8 @@ public class AlgorithmGui extends JFrame {
                     System.out.println();
 
                     dispose();
-                    if (AlgorithmGui.this.index == 30) {
-                        System.out.println("All levels cleared");
-                        return;
-                    }
-                    AlgorithmGui.this.index++;
-                    new MainFrame(AlgorithmGui.this.index);
+
+                    new MainFrame(index);
                 }
             }
         });

@@ -1,29 +1,35 @@
 import java.io.File;
+import java.io.IOException;
 
 public class Main {
 
     public static void deleteFile(String path){
-        File file = new File("src/outputs"+path+".txt");
+        File file = new File("src\\outputs\\"+path+".txt");
         if (file.exists()) {
             file.delete();
         }
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
-
+    //1 2 3 4 5 6 7 8
     public static void main(String[] args) {
 
-//        new MainFrame(30);
+//        new MainFrame(7);
 
         deleteFile("BFS");
         deleteFile("DFS");
-        deleteFile("DFS_RECURSIVE.txt");
-        deleteFile("aStarSearch.txt");
-        deleteFile("SimpleHillClimbing.txt");
-        deleteFile("SteepestHillClimbing.txt.txt");
-        deleteFile("UCS.txt.txt");
+        deleteFile("DFS_RECURSIVE");
+        deleteFile("aStarSearch");
+        deleteFile("SimpleHillClimbing");
+        deleteFile("SteepestHillClimbing");
+        deleteFile("UCS");
 
-//
+
         Algorithms algorithms = new Algorithms();
-        for(int i=1;i<=30;i++){
+        for(int i=21;i<=30;i++){
             State state = InputStates.readGrid(i);
             algorithms.startAlgorithm(AlgorithmName.BFS,state,i);
             algorithms.startAlgorithm(AlgorithmName.DFS,state,i);
