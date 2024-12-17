@@ -1,3 +1,183 @@
+level: 1
+algorithm: BFS
+found solution: true
+number of visited states: 2
+number of states in the path: 2
+path : [null, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 2
+algorithm: BFS
+found solution: true
+number of visited states: 10
+number of states in the path: 5
+path : [null, RIGHT, UP, LEFT, DOWN]
+time: 1 ms
+memory: 0 bytes
+
+level: 3
+algorithm: BFS
+found solution: true
+number of visited states: 9
+number of states in the path: 5
+path : [null, DOWN, LEFT, UP, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 4
+algorithm: BFS
+found solution: true
+number of visited states: 13
+number of states in the path: 8
+path : [null, RIGHT, UP, RIGHT, DOWN, LEFT, UP, LEFT]
+time: 0 ms
+memory: 0 bytes
+
+level: 5
+algorithm: BFS
+found solution: true
+number of visited states: 17
+number of states in the path: 8
+path : [null, UP, LEFT, DOWN, RIGHT, UP, LEFT, UP]
+time: 0 ms
+memory: 0 bytes
+
+level: 6
+algorithm: BFS
+found solution: true
+number of visited states: 22
+number of states in the path: 8
+path : [null, LEFT, UP, LEFT, DOWN, RIGHT, LEFT, UP]
+time: 0 ms
+memory: 461408 bytes
+
+level: 7
+algorithm: BFS
+found solution: true
+number of visited states: 19
+number of states in the path: 5
+path : [null, LEFT, UP, RIGHT, UP]
+time: 0 ms
+memory: 0 bytes
+
+level: 8
+algorithm: BFS
+found solution: true
+number of visited states: 34
+number of states in the path: 6
+path : [null, UP, RIGHT, DOWN, RIGHT, DOWN]
+time: 1 ms
+memory: 0 bytes
+
+level: 9
+algorithm: BFS
+found solution: true
+number of visited states: 92
+number of states in the path: 10
+path : [null, DOWN, RIGHT, UP, RIGHT, DOWN, RIGHT, UP, LEFT, RIGHT]
+time: 1 ms
+memory: 0 bytes
+
+level: 10
+algorithm: BFS
+found solution: true
+number of visited states: 316
+number of states in the path: 47
+path : [null, UP, LEFT, UP, LEFT, UP, LEFT, DOWN, LEFT, DOWN, LEFT, UP, UP, RIGHT, DOWN, LEFT, LEFT, UP, RIGHT, UP, RIGHT, UP, RIGHT, DOWN, RIGHT, DOWN, RIGHT, DOWN, RIGHT, DOWN, LEFT, DOWN, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, UP, LEFT, DOWN, LEFT, DOWN, RIGHT, UP, RIGHT]
+time: 16 ms
+memory: 922800 bytes
+
+level: 11
+algorithm: BFS
+found solution: true
+number of visited states: 132
+number of states in the path: 12
+path : [null, UP, RIGHT, RIGHT, DOWN, LEFT, LEFT, UP, RIGHT, DOWN, LEFT, DOWN]
+time: 2 ms
+memory: 469088 bytes
+
+level: 12
+algorithm: BFS
+found solution: true
+number of visited states: 473
+number of states in the path: 15
+path : [null, UP, LEFT, UP, RIGHT, DOWN, LEFT, RIGHT, UP, LEFT, DOWN, RIGHT, UP, LEFT, RIGHT]
+time: 22 ms
+memory: 1628032 bytes
+
+level: 13
+algorithm: BFS
+found solution: true
+number of visited states: 286
+number of states in the path: 10
+path : [null, DOWN, RIGHT, DOWN, LEFT, UP, RIGHT, UP, RIGHT, DOWN]
+time: 14 ms
+memory: 1282112 bytes
+
+level: 14
+algorithm: BFS
+found solution: true
+number of visited states: 582
+number of states in the path: 13
+path : [null, DOWN, LEFT, RIGHT, UP, UP, LEFT, DOWN, LEFT, LEFT, UP, RIGHT, UP]
+time: 44 ms
+memory: 2097112 bytes
+
+level: 15
+algorithm: BFS
+found solution: true
+number of visited states: 1937
+number of states in the path: 18
+path : [null, UP, LEFT, LEFT, RIGHT, DOWN, LEFT, DOWN, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, DOWN, RIGHT, DOWN]
+time: 454 ms
+memory: 9203648 bytes
+
+level: 16
+algorithm: BFS
+found solution: true
+number of visited states: 38
+number of states in the path: 6
+path : [null, DOWN, RIGHT, RIGHT, RIGHT, UP]
+time: 1 ms
+memory: 0 bytes
+
+level: 17
+algorithm: BFS
+found solution: true
+number of visited states: 1137
+number of states in the path: 10
+path : [null, RIGHT, DOWN, RIGHT, RIGHT, UP, LEFT, DOWN, RIGHT, UP]
+time: 149 ms
+memory: 5226480 bytes
+
+level: 18
+algorithm: BFS
+found solution: true
+number of visited states: 20077
+number of states in the path: 24
+path : [null, LEFT, UP, LEFT, UP, LEFT, LEFT, RIGHT, UP, LEFT, UP, LEFT, RIGHT, DOWN, UP, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, LEFT, DOWN]
+time: 134674 ms
+memory: -68564008 bytes
+
+level: 19
+algorithm: BFS
+found solution: true
+number of visited states: 18365
+number of states in the path: 18
+path : [null, RIGHT, UP, LEFT, UP, LEFT, UP, RIGHT, RIGHT, DOWN, DOWN, RIGHT, DOWN, LEFT, DOWN, RIGHT, UP, LEFT]
+time: 129783 ms
+memory: -68236832 bytes
+
+level: 20
+algorithm: BFS
+found solution: true
+number of visited states: 2591
+number of states in the path: 12
+path : [null, UP, RIGHT, RIGHT, DOWN, LEFT, UP, LEFT, DOWN, UP, RIGHT, DOWN]
+time: 499 ms
+memory: 9435136 bytes
+
 level: 21
 algorithm: BFS
 found solution: true
@@ -32,7 +212,7 @@ number of visited states: 101
 number of states in the path: 12
 path : [null, RIGHT, DOWN, RIGHT, DOWN, LEFT, LEFT, UP, RIGHT, DOWN, LEFT, UP]
 time: 2 ms
-memory: 924848 bytes
+memory: 0 bytes
 
 level: 25
 algorithm: BFS
@@ -41,7 +221,7 @@ number of visited states: 182
 number of states in the path: 14
 path : [null, UP, LEFT, UP, RIGHT, DOWN, UP, LEFT, DOWN, RIGHT, UP, DOWN, LEFT, UP]
 time: 6 ms
-memory: 710608 bytes
+memory: 1050624 bytes
 
 level: 26
 algorithm: BFS
@@ -49,8 +229,8 @@ found solution: true
 number of visited states: 1149
 number of states in the path: 18
 path : [null, RIGHT, UP, RIGHT, RIGHT, RIGHT, UP, LEFT, DOWN, DOWN, RIGHT, UP, LEFT, UP, DOWN, LEFT, LEFT, UP]
-time: 110 ms
-memory: 4177696 bytes
+time: 156 ms
+memory: 5244928 bytes
 
 level: 27
 algorithm: BFS
@@ -58,8 +238,8 @@ found solution: true
 number of visited states: 370
 number of states in the path: 9
 path : [null, RIGHT, UP, LEFT, DOWN, LEFT, UP, DOWN, UP]
-time: 14 ms
-memory: 1627824 bytes
+time: 15 ms
+memory: 1050624 bytes
 
 level: 28
 algorithm: BFS
@@ -76,6 +256,6 @@ found solution: true
 number of visited states: 12058
 number of states in the path: 16
 path : [null, DOWN, LEFT, UP, LEFT, DOWN, RIGHT, DOWN, UP, RIGHT, UP, RIGHT, DOWN, LEFT, DOWN, RIGHT]
-time: 166758706 ms
-memory: 17452016 bytes
+time: 51063 ms
+memory: 51378176 bytes
 

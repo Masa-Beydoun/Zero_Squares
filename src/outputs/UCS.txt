@@ -1,10 +1,190 @@
+level: 1
+algorithm: UCS
+found solution: true
+number of visited states: 2
+number of states in the path: 2
+path : [null, RIGHT]
+time: 3 ms
+memory: 0 bytes
+
+level: 2
+algorithm: UCS
+found solution: true
+number of visited states: 7
+number of states in the path: 6
+path : [null, DOWN, RIGHT, UP, LEFT, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 3
+algorithm: UCS
+found solution: true
+number of visited states: 7
+number of states in the path: 5
+path : [null, DOWN, LEFT, UP, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 4
+algorithm: UCS
+found solution: true
+number of visited states: 13
+number of states in the path: 8
+path : [null, RIGHT, UP, RIGHT, DOWN, LEFT, UP, LEFT]
+time: 0 ms
+memory: 0 bytes
+
+level: 5
+algorithm: UCS
+found solution: true
+number of visited states: 12
+number of states in the path: 8
+path : [null, UP, LEFT, DOWN, RIGHT, UP, LEFT, UP]
+time: 0 ms
+memory: 0 bytes
+
+level: 6
+algorithm: UCS
+found solution: true
+number of visited states: 9
+number of states in the path: 9
+path : [null, LEFT, LEFT, UP, RIGHT, RIGHT, DOWN, LEFT, UP]
+time: 0 ms
+memory: 0 bytes
+
+level: 7
+algorithm: UCS
+found solution: true
+number of visited states: 5
+number of states in the path: 5
+path : [null, LEFT, UP, RIGHT, UP]
+time: 0 ms
+memory: 463440 bytes
+
+level: 8
+algorithm: UCS
+found solution: true
+number of visited states: 6
+number of states in the path: 6
+path : [null, UP, RIGHT, DOWN, RIGHT, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 9
+algorithm: UCS
+found solution: true
+number of visited states: 56
+number of states in the path: 14
+path : [null, RIGHT, UP, LEFT, DOWN, RIGHT, UP, RIGHT, DOWN, LEFT, RIGHT, UP, LEFT, RIGHT]
+time: 3 ms
+memory: 461424 bytes
+
+level: 10
+algorithm: UCS
+found solution: true
+number of visited states: 299
+number of states in the path: 57
+path : [null, UP, LEFT, UP, LEFT, UP, RIGHT, UP, LEFT, DOWN, LEFT, UP, DOWN, LEFT, UP, UP, RIGHT, DOWN, LEFT, LEFT, UP, RIGHT, UP, RIGHT, DOWN, LEFT, DOWN, LEFT, RIGHT, UP, DOWN, RIGHT, UP, LEFT, RIGHT, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, UP, LEFT, DOWN, LEFT, DOWN, RIGHT, UP, RIGHT]
+time: 20 ms
+memory: 3732832 bytes
+
+level: 11
+algorithm: UCS
+found solution: true
+number of visited states: 45
+number of states in the path: 14
+path : [null, DOWN, RIGHT, UP, LEFT, LEFT, DOWN, UP, RIGHT, DOWN, LEFT, LEFT, UP, DOWN]
+time: 1 ms
+memory: 815040 bytes
+
+level: 12
+algorithm: UCS
+found solution: true
+number of visited states: 179
+number of states in the path: 24
+path : [null, UP, LEFT, UP, LEFT, DOWN, LEFT, UP, RIGHT, UP, LEFT, DOWN, RIGHT, UP, UP, LEFT, DOWN, RIGHT, UP, LEFT, DOWN, LEFT, UP, RIGHT]
+time: 12 ms
+memory: 2097152 bytes
+
+level: 13
+algorithm: UCS
+found solution: true
+number of visited states: 118
+number of states in the path: 25
+path : [null, DOWN, LEFT, UP, UP, RIGHT, DOWN, RIGHT, LEFT, DOWN, UP, LEFT, RIGHT, RIGHT, DOWN, LEFT, LEFT, UP, RIGHT, RIGHT, DOWN, RIGHT, UP, RIGHT, UP]
+time: 7 ms
+memory: 1282120 bytes
+
+level: 14
+algorithm: UCS
+found solution: true
+number of visited states: 118
+number of states in the path: 29
+path : [null, DOWN, LEFT, UP, RIGHT, RIGHT, LEFT, DOWN, DOWN, UP, RIGHT, DOWN, LEFT, UP, UP, LEFT, DOWN, DOWN, RIGHT, UP, UP, DOWN, LEFT, UP, DOWN, LEFT, UP, RIGHT, UP]
+time: 7 ms
+memory: 1628024 bytes
+
+level: 15
+algorithm: UCS
+found solution: true
+number of visited states: 1079
+number of states in the path: 28
+path : [null, UP, LEFT, DOWN, LEFT, RIGHT, DOWN, LEFT, DOWN, RIGHT, DOWN, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, DOWN, RIGHT, UP, LEFT, LEFT, DOWN, RIGHT, DOWN]
+time: 142 ms
+memory: 15726592 bytes
+
+level: 16
+algorithm: UCS
+found solution: true
+number of visited states: 8
+number of states in the path: 7
+path : [null, DOWN, RIGHT, RIGHT, UP, DOWN, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 17
+algorithm: UCS
+found solution: true
+number of visited states: 221
+number of states in the path: 29
+path : [null, UP, DOWN, LEFT, UP, DOWN, RIGHT, RIGHT, LEFT, LEFT, UP, RIGHT, DOWN, RIGHT, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, RIGHT, DOWN, LEFT, UP, RIGHT, UP, RIGHT, UP]
+time: 13 ms
+memory: 3143680 bytes
+
+level: 18
+algorithm: UCS
+found solution: true
+number of visited states: 1169
+number of states in the path: 25
+path : [null, LEFT, LEFT, UP, LEFT, LEFT, RIGHT, UP, LEFT, UP, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, LEFT, DOWN, UP, RIGHT, DOWN, UP, LEFT, DOWN]
+time: 149 ms
+memory: 18874368 bytes
+
+level: 19
+algorithm: UCS
+found solution: true
+number of visited states: 2844
+number of states in the path: 55
+path : [null, LEFT, UP, RIGHT, UP, LEFT, DOWN, RIGHT, UP, DOWN, LEFT, UP, RIGHT, DOWN, UP, RIGHT, DOWN, DOWN, LEFT, UP, RIGHT, RIGHT, LEFT, DOWN, UP, LEFT, DOWN, LEFT, UP, RIGHT, UP, RIGHT, DOWN, LEFT, DOWN, UP, RIGHT, DOWN, UP, LEFT, DOWN, RIGHT, UP, RIGHT, UP, DOWN, RIGHT, LEFT, DOWN, RIGHT, UP, RIGHT, DOWN, UP, LEFT]
+time: 1460 ms
+memory: 50331648 bytes
+
+level: 20
+algorithm: UCS
+found solution: true
+number of visited states: 424
+number of states in the path: 33
+path : [null, LEFT, RIGHT, RIGHT, UP, LEFT, LEFT, LEFT, UP, RIGHT, RIGHT, DOWN, DOWN, UP, LEFT, UP, DOWN, RIGHT, UP, RIGHT, RIGHT, DOWN, LEFT, UP, LEFT, DOWN, UP, RIGHT, UP, LEFT, RIGHT, DOWN, LEFT]
+time: 36 ms
+memory: 7337984 bytes
+
 level: 21
 algorithm: UCS
 found solution: true
 number of visited states: 3
 number of states in the path: 3
 path : [null, DOWN, RIGHT]
-time: 3 ms
+time: 0 ms
 memory: 0 bytes
 
 level: 22
@@ -13,8 +193,8 @@ found solution: true
 number of visited states: 21
 number of states in the path: 16
 path : [null, RIGHT, RIGHT, UP, LEFT, LEFT, DOWN, LEFT, UP, LEFT, RIGHT, DOWN, UP, LEFT, DOWN, LEFT]
-time: 2 ms
-memory: 461392 bytes
+time: 0 ms
+memory: 0 bytes
 
 level: 23
 algorithm: UCS
@@ -31,8 +211,8 @@ found solution: true
 number of visited states: 68
 number of states in the path: 16
 path : [null, RIGHT, DOWN, RIGHT, UP, RIGHT, DOWN, DOWN, LEFT, DOWN, LEFT, UP, RIGHT, DOWN, LEFT, UP]
-time: 4 ms
-memory: 922816 bytes
+time: 2 ms
+memory: 1050624 bytes
 
 level: 25
 algorithm: UCS
@@ -40,7 +220,7 @@ found solution: true
 number of visited states: 18
 number of states in the path: 14
 path : [null, UP, LEFT, UP, RIGHT, DOWN, UP, LEFT, DOWN, RIGHT, UP, DOWN, LEFT, UP]
-time: 1 ms
+time: 0 ms
 memory: 0 bytes
 
 level: 26
@@ -49,8 +229,8 @@ found solution: true
 number of visited states: 483
 number of states in the path: 28
 path : [null, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, DOWN, RIGHT, UP, LEFT, RIGHT, DOWN, RIGHT, LEFT, DOWN, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, LEFT, UP, DOWN, LEFT, UP, RIGHT]
-time: 44 ms
-memory: -14626120 bytes
+time: 40 ms
+memory: 6291456 bytes
 
 level: 27
 algorithm: UCS
@@ -59,7 +239,7 @@ number of visited states: 15
 number of states in the path: 12
 path : [null, UP, LEFT, DOWN, LEFT, LEFT, UP, DOWN, LEFT, UP, DOWN, UP]
 time: 0 ms
-memory: 0 bytes
+memory: 1046528 bytes
 
 level: 28
 algorithm: UCS
@@ -68,7 +248,7 @@ number of visited states: 16
 number of states in the path: 13
 path : [null, RIGHT, RIGHT, RIGHT, DOWN, LEFT, LEFT, DOWN, RIGHT, UP, LEFT, DOWN, UP]
 time: 0 ms
-memory: 0 bytes
+memory: 1050624 bytes
 
 level: 29
 algorithm: UCS
@@ -76,6 +256,15 @@ found solution: true
 number of visited states: 2585
 number of states in the path: 35
 path : [null, DOWN, LEFT, UP, LEFT, DOWN, RIGHT, DOWN, UP, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, UP, LEFT, DOWN, LEFT, UP, RIGHT, UP, LEFT, DOWN, RIGHT, DOWN, UP, RIGHT, UP, LEFT, DOWN, LEFT, DOWN, RIGHT]
-time: 1277 ms
-memory: 49281024 bytes
+time: 1047 ms
+memory: 46137344 bytes
+
+level: 30
+algorithm: UCS
+found solution: true
+number of visited states: 75
+number of states in the path: 36
+path : [null, DOWN, RIGHT, RIGHT, UP, LEFT, UP, RIGHT, UP, DOWN, UP, DOWN, UP, RIGHT, UP, RIGHT, DOWN, RIGHT, UP, DOWN, LEFT, DOWN, UP, RIGHT, UP, RIGHT, DOWN, LEFT, UP, RIGHT, UP, RIGHT, DOWN, LEFT, RIGHT, UP]
+time: 13 ms
+memory: 1256152 bytes
 

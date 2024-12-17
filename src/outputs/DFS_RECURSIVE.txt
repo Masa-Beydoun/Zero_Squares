@@ -1,3 +1,183 @@
+level: 1
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 1
+number of states in the path: 2
+path : [null, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 2
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 6
+number of states in the path: 7
+path : [null, UP, DOWN, RIGHT, UP, LEFT, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 3
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 4
+number of states in the path: 5
+path : [null, DOWN, LEFT, UP, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 4
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 12
+number of states in the path: 9
+path : [null, RIGHT, UP, LEFT, RIGHT, DOWN, LEFT, UP, LEFT]
+time: 0 ms
+memory: 0 bytes
+
+level: 5
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 12
+number of states in the path: 11
+path : [null, UP, DOWN, LEFT, UP, DOWN, LEFT, RIGHT, UP, LEFT, UP]
+time: 0 ms
+memory: 0 bytes
+
+level: 6
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 16
+number of states in the path: 16
+path : [null, LEFT, UP, LEFT, UP, RIGHT, DOWN, LEFT, LEFT, UP, RIGHT, DOWN, RIGHT, UP, LEFT, UP]
+time: 0 ms
+memory: 0 bytes
+
+level: 7
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 81
+number of states in the path: 26
+path : [null, UP, LEFT, UP, DOWN, DOWN, RIGHT, UP, UP, LEFT, UP, RIGHT, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, UP, LEFT, DOWN, RIGHT, UP, LEFT, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 8
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 87
+number of states in the path: 47
+path : [null, UP, DOWN, LEFT, UP, UP, DOWN, DOWN, RIGHT, DOWN, LEFT, UP, DOWN, RIGHT, UP, DOWN, LEFT, UP, LEFT, UP, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, LEFT, UP, DOWN, DOWN, RIGHT, UP, RIGHT, DOWN, LEFT, UP, LEFT, DOWN, LEFT, RIGHT, UP, DOWN, UP, LEFT, UP, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 9
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 113
+number of states in the path: 45
+path : [null, UP, LEFT, DOWN, RIGHT, UP, RIGHT, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, RIGHT, DOWN, LEFT, RIGHT, UP, UP, DOWN, DOWN, LEFT, RIGHT, UP, LEFT, UP, DOWN, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, RIGHT, DOWN, RIGHT, UP, LEFT]
+time: 0 ms
+memory: 0 bytes
+
+level: 10
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 242
+number of states in the path: 121
+path : [null, UP, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, LEFT, UP, LEFT, DOWN, LEFT, UP, DOWN, LEFT, UP, UP, DOWN, DOWN, RIGHT, UP, DOWN, LEFT, UP, RIGHT, UP, DOWN, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, DOWN, LEFT, UP, DOWN, LEFT, UP, LEFT, RIGHT, UP, DOWN, LEFT, UP, RIGHT, UP, RIGHT, UP, RIGHT, UP, DOWN, LEFT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, DOWN, LEFT, UP, LEFT, RIGHT, UP, DOWN, LEFT, RIGHT, UP, DOWN, LEFT, UP, RIGHT, UP, LEFT, RIGHT, UP, LEFT, UP, LEFT, RIGHT, DOWN, RIGHT, DOWN, LEFT, RIGHT, DOWN, LEFT, UP, DOWN, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, UP, LEFT, DOWN, LEFT, DOWN, LEFT, UP, DOWN, RIGHT, UP, RIGHT, UP, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 11
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 27
+number of states in the path: 22
+path : [null, UP, DOWN, LEFT, UP, LEFT, UP, RIGHT, UP, DOWN, LEFT, DOWN, RIGHT, UP, LEFT, UP, RIGHT, DOWN, LEFT, LEFT, UP, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 12
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 108
+number of states in the path: 50
+path : [null, UP, UP, LEFT, UP, DOWN, RIGHT, UP, UP, DOWN, DOWN, UP, LEFT, UP, DOWN, DOWN, LEFT, UP, DOWN, RIGHT, UP, UP, UP, LEFT, DOWN, DOWN, UP, RIGHT, UP, DOWN, DOWN, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, UP, DOWN, DOWN, LEFT, UP, RIGHT, DOWN, LEFT, UP, LEFT]
+time: 0 ms
+memory: 0 bytes
+
+level: 13
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 138
+number of states in the path: 43
+path : [null, DOWN, LEFT, UP, UP, DOWN, DOWN, UP, RIGHT, UP, DOWN, RIGHT, UP, DOWN, LEFT, UP, LEFT, UP, DOWN, RIGHT, UP, LEFT, LEFT, RIGHT, RIGHT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, LEFT, RIGHT, RIGHT, UP, DOWN, LEFT, UP, RIGHT, RIGHT, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 14
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 36
+number of states in the path: 28
+path : [null, DOWN, LEFT, UP, LEFT, UP, DOWN, DOWN, UP, RIGHT, UP, DOWN, LEFT, UP, LEFT, DOWN, DOWN, RIGHT, UP, UP, DOWN, LEFT, UP, DOWN, LEFT, UP, LEFT, UP]
+time: 0 ms
+memory: 0 bytes
+
+level: 15
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 816
+number of states in the path: 302
+path : [null, UP, LEFT, DOWN, LEFT, UP, LEFT, UP, DOWN, DOWN, UP, RIGHT, DOWN, DOWN, UP, UP, LEFT, UP, DOWN, LEFT, UP, LEFT, UP, RIGHT, UP, UP, DOWN, DOWN, UP, LEFT, UP, DOWN, DOWN, LEFT, DOWN, RIGHT, UP, UP, DOWN, DOWN, UP, LEFT, UP, DOWN, DOWN, LEFT, UP, UP, RIGHT, DOWN, LEFT, UP, RIGHT, UP, UP, DOWN, DOWN, UP, RIGHT, UP, UP, DOWN, LEFT, UP, LEFT, DOWN, LEFT, UP, DOWN, DOWN, UP, RIGHT, UP, UP, DOWN, DOWN, DOWN, LEFT, UP, UP, DOWN, LEFT, UP, DOWN, LEFT, UP, LEFT, UP, RIGHT, UP, UP, LEFT, DOWN, DOWN, UP, RIGHT, UP, UP, DOWN, DOWN, DOWN, LEFT, UP, UP, DOWN, LEFT, UP, DOWN, LEFT, UP, LEFT, UP, RIGHT, UP, UP, RIGHT, DOWN, UP, LEFT, UP, DOWN, DOWN, LEFT, RIGHT, UP, UP, DOWN, DOWN, UP, LEFT, UP, RIGHT, RIGHT, UP, DOWN, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, RIGHT, UP, LEFT, UP, DOWN, LEFT, RIGHT, UP, LEFT, UP, UP, LEFT, UP, DOWN, RIGHT, UP, UP, DOWN, LEFT, UP, DOWN, DOWN, LEFT, RIGHT, UP, DOWN, LEFT, UP, LEFT, RIGHT, RIGHT, UP, RIGHT, DOWN, LEFT, RIGHT, DOWN, LEFT, UP, DOWN, RIGHT, UP, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, RIGHT, UP, LEFT, UP, UP, DOWN, DOWN, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, DOWN, UP, RIGHT, UP, UP, DOWN, LEFT, UP, LEFT, DOWN, LEFT, RIGHT, UP, UP, DOWN, LEFT, UP, DOWN, DOWN, LEFT, RIGHT, UP, UP, LEFT, UP, LEFT, DOWN, LEFT, RIGHT, UP, LEFT, DOWN, RIGHT, UP, LEFT, UP, LEFT, LEFT, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, UP, DOWN, DOWN, LEFT, RIGHT, UP, DOWN, LEFT, UP, LEFT, RIGHT, UP, DOWN, DOWN, RIGHT, UP, DOWN, LEFT, LEFT, UP, LEFT, UP, DOWN, RIGHT, UP, UP, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, UP, DOWN, LEFT, DOWN, RIGHT, UP, DOWN, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, DOWN, UP, RIGHT, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 16
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 2926
+number of states in the path: 7
+path : [null, DOWN, RIGHT, RIGHT, UP, DOWN, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 17
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 211
+number of states in the path: 57
+path : [null, UP, DOWN, DOWN, LEFT, UP, UP, DOWN, DOWN, LEFT, UP, UP, DOWN, RIGHT, UP, LEFT, RIGHT, UP, LEFT, RIGHT, UP, DOWN, DOWN, LEFT, DOWN, LEFT, RIGHT, UP, UP, RIGHT, UP, DOWN, DOWN, UP, RIGHT, DOWN, LEFT, UP, LEFT, DOWN, LEFT, UP, RIGHT, RIGHT, UP, RIGHT, DOWN, UP, LEFT, UP, DOWN, LEFT, RIGHT, UP, UP, LEFT, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 18
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 394
+number of states in the path: 206
+path : [null, LEFT, UP, DOWN, LEFT, UP, LEFT, UP, DOWN, LEFT, UP, LEFT, UP, LEFT, DOWN, RIGHT, UP, DOWN, LEFT, UP, LEFT, UP, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, LEFT, RIGHT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, LEFT, RIGHT, UP, DOWN, RIGHT, UP, LEFT, UP, LEFT, UP, DOWN, LEFT, RIGHT, UP, RIGHT, DOWN, LEFT, UP, DOWN, LEFT, UP, LEFT, DOWN, LEFT, UP, LEFT, UP, LEFT, RIGHT, UP, LEFT, UP, LEFT, RIGHT, RIGHT, DOWN, LEFT, UP, RIGHT, DOWN, LEFT, UP, DOWN, LEFT, UP, LEFT, DOWN, LEFT, UP, LEFT, UP, DOWN, LEFT, RIGHT, UP, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, RIGHT, UP, LEFT, UP, LEFT, UP, DOWN, LEFT, UP, RIGHT, UP, RIGHT, DOWN, LEFT, UP, LEFT, LEFT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, RIGHT, UP, DOWN, LEFT, UP, RIGHT, UP, DOWN, RIGHT, UP, RIGHT, DOWN, LEFT, UP, LEFT, LEFT, UP, DOWN, LEFT, RIGHT, UP, LEFT, UP, DOWN, LEFT, DOWN, RIGHT, UP, LEFT, UP, DOWN, LEFT, RIGHT, UP, RIGHT, UP, LEFT, UP, LEFT, UP, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, DOWN, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, RIGHT, DOWN, LEFT, UP, DOWN, LEFT, UP, LEFT, RIGHT, UP, LEFT, UP, LEFT, DOWN, UP, RIGHT, DOWN]
+time: 0 ms
+memory: 0 bytes
+
+level: 19
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 569
+number of states in the path: 164
+path : [null, UP, DOWN, LEFT, UP, UP, DOWN, DOWN, RIGHT, UP, DOWN, LEFT, UP, UP, DOWN, DOWN, RIGHT, UP, LEFT, UP, UP, DOWN, DOWN, LEFT, UP, UP, DOWN, UP, LEFT, DOWN, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, DOWN, RIGHT, UP, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, LEFT, UP, LEFT, DOWN, RIGHT, UP, DOWN, RIGHT, UP, RIGHT, UP, DOWN, RIGHT, UP, DOWN, LEFT, UP, LEFT, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, UP, DOWN, LEFT, RIGHT, UP, DOWN, LEFT, UP, UP, DOWN, LEFT, UP, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, LEFT, RIGHT, UP, LEFT, UP, DOWN, LEFT, UP, RIGHT, RIGHT, UP, DOWN, UP, LEFT, UP, RIGHT, UP, DOWN, LEFT, UP, LEFT, RIGHT, DOWN, RIGHT, UP, LEFT]
+time: 0 ms
+memory: 0 bytes
+
+level: 20
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 29
+number of states in the path: 25
+path : [null, UP, DOWN, UP, LEFT, UP, DOWN, LEFT, UP, DOWN, RIGHT, UP, LEFT, DOWN, LEFT, UP, RIGHT, UP, LEFT, DOWN, LEFT, UP, RIGHT, DOWN, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
 level: 21
 algorithm: DFS_RECURSIVE
 found solution: true
@@ -76,6 +256,15 @@ found solution: true
 number of visited states: 116
 number of states in the path: 105
 path : [null, UP, DOWN, DOWN, UP, LEFT, UP, DOWN, DOWN, LEFT, UP, UP, DOWN, DOWN, LEFT, UP, UP, RIGHT, UP, UP, DOWN, DOWN, LEFT, UP, DOWN, RIGHT, UP, UP, DOWN, LEFT, UP, UP, DOWN, DOWN, RIGHT, UP, DOWN, UP, DOWN, LEFT, UP, UP, RIGHT, UP, UP, DOWN, DOWN, LEFT, RIGHT, UP, UP, DOWN, LEFT, UP, UP, DOWN, DOWN, LEFT, UP, UP, DOWN, DOWN, RIGHT, UP, LEFT, RIGHT, UP, DOWN, DOWN, UP, LEFT, DOWN, DOWN, UP, RIGHT, UP, DOWN, DOWN, UP, LEFT, DOWN, DOWN, UP, RIGHT, UP, DOWN, DOWN, UP, RIGHT, UP, UP, LEFT, DOWN, UP, RIGHT, UP, LEFT, DOWN, UP, RIGHT, DOWN, LEFT, UP, DOWN, RIGHT]
+time: 0 ms
+memory: 0 bytes
+
+level: 30
+algorithm: DFS_RECURSIVE
+found solution: true
+number of visited states: 133
+number of states in the path: 111
+path : [null, DOWN, RIGHT, UP, RIGHT, UP, LEFT, UP, RIGHT, DOWN, UP, DOWN, UP, DOWN, LEFT, UP, LEFT, UP, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, UP, RIGHT, RIGHT, UP, DOWN, LEFT, UP, UP, DOWN, RIGHT, UP, DOWN, LEFT, UP, LEFT, UP, DOWN, RIGHT, UP, RIGHT, UP, DOWN, LEFT, UP, LEFT, UP, DOWN, LEFT, UP, RIGHT, UP, DOWN, LEFT, UP, RIGHT, RIGHT, UP, DOWN, LEFT, UP, UP, DOWN, RIGHT, UP, DOWN, LEFT, UP, DOWN, UP, RIGHT, UP, DOWN, LEFT, UP, RIGHT, UP, DOWN, RIGHT, UP, RIGHT, DOWN, LEFT, UP, LEFT, UP, DOWN, LEFT, RIGHT, RIGHT, UP, LEFT, RIGHT, UP, DOWN, LEFT, UP, LEFT, UP, DOWN, LEFT, RIGHT, RIGHT, UP, LEFT, RIGHT, UP]
 time: 0 ms
 memory: 0 bytes
 

@@ -32,7 +32,7 @@ number of visited states: 17
 number of states in the path: 8
 path : [null, RIGHT, UP, RIGHT, DOWN, LEFT, UP, LEFT]
 time: 0 ms
-memory: 216680 bytes
+memory: 233104 bytes
 
 level: 5
 algorithm: A_STAR
@@ -40,8 +40,8 @@ found solution: true
 number of visited states: 19
 number of states in the path: 8
 path : [null, UP, LEFT, DOWN, RIGHT, UP, LEFT, UP]
-time: 1 ms
-memory: 0 bytes
+time: 0 ms
+memory: 461400 bytes
 
 level: 6
 algorithm: A_STAR
@@ -76,8 +76,8 @@ found solution: true
 number of visited states: 88
 number of states in the path: 14
 path : [null, RIGHT, UP, LEFT, DOWN, RIGHT, UP, LEFT, RIGHT, DOWN, RIGHT, UP, LEFT, RIGHT]
-time: 5 ms
-memory: 702696 bytes
+time: 3 ms
+memory: 922784 bytes
 
 level: 10
 algorithm: A_STAR
@@ -85,8 +85,8 @@ found solution: true
 number of visited states: 695
 number of states in the path: 55
 path : [null, UP, LEFT, UP, LEFT, UP, RIGHT, UP, LEFT, DOWN, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, DOWN, LEFT, LEFT, UP, RIGHT, UP, RIGHT, DOWN, LEFT, UP, DOWN, RIGHT, DOWN, RIGHT, UP, LEFT, RIGHT, DOWN, LEFT, UP, RIGHT, DOWN, LEFT, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, UP, LEFT, DOWN, LEFT, DOWN, RIGHT, UP, RIGHT]
-time: 60 ms
-memory: -16070576 bytes
+time: 65 ms
+memory: -15523944 bytes
 
 level: 11
 algorithm: A_STAR
@@ -94,8 +94,8 @@ found solution: true
 number of visited states: 76
 number of states in the path: 15
 path : [null, UP, DOWN, RIGHT, UP, LEFT, LEFT, DOWN, UP, RIGHT, DOWN, LEFT, LEFT, UP, DOWN]
-time: 3 ms
-memory: 924848 bytes
+time: 2 ms
+memory: 813016 bytes
 
 level: 12
 algorithm: A_STAR
@@ -103,8 +103,8 @@ found solution: true
 number of visited states: 233
 number of states in the path: 24
 path : [null, UP, LEFT, UP, LEFT, DOWN, LEFT, UP, RIGHT, UP, LEFT, DOWN, RIGHT, UP, UP, LEFT, DOWN, RIGHT, UP, LEFT, DOWN, LEFT, UP, RIGHT]
-time: 7 ms
-memory: 1847656 bytes
+time: 10 ms
+memory: 1628024 bytes
 
 level: 13
 algorithm: A_STAR
@@ -112,8 +112,8 @@ found solution: true
 number of visited states: 153
 number of states in the path: 25
 path : [null, DOWN, LEFT, UP, UP, RIGHT, DOWN, RIGHT, LEFT, DOWN, UP, LEFT, RIGHT, RIGHT, DOWN, LEFT, LEFT, UP, RIGHT, RIGHT, DOWN, RIGHT, UP, RIGHT, UP]
-time: 4 ms
-memory: 1172024 bytes
+time: 7 ms
+memory: 1628680 bytes
 
 level: 14
 algorithm: A_STAR
@@ -121,8 +121,8 @@ found solution: true
 number of visited states: 178
 number of states in the path: 26
 path : [null, DOWN, LEFT, UP, RIGHT, LEFT, DOWN, DOWN, UP, LEFT, RIGHT, DOWN, LEFT, UP, UP, LEFT, RIGHT, DOWN, RIGHT, UP, LEFT, DOWN, LEFT, UP, RIGHT, UP]
-time: 4 ms
-memory: 1762256 bytes
+time: 7 ms
+memory: 1284160 bytes
 
 level: 15
 algorithm: A_STAR
@@ -130,8 +130,8 @@ found solution: true
 number of visited states: 1888
 number of states in the path: 30
 path : [null, UP, LEFT, DOWN, LEFT, RIGHT, DOWN, LEFT, UP, DOWN, DOWN, RIGHT, DOWN, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, UP, LEFT, DOWN, RIGHT, UP, LEFT, LEFT, DOWN, RIGHT, DOWN]
-time: 327 ms
-memory: -24551912 bytes
+time: 325 ms
+memory: 19924992 bytes
 
 level: 16
 algorithm: A_STAR
@@ -157,7 +157,7 @@ found solution: true
 number of visited states: 1771
 number of states in the path: 26
 path : [null, LEFT, LEFT, UP, LEFT, LEFT, RIGHT, UP, LEFT, UP, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, LEFT, DOWN, UP, RIGHT, UP, DOWN, UP, LEFT, DOWN]
-time: 372 ms
+time: 258 ms
 memory: 18874368 bytes
 
 level: 19
@@ -166,8 +166,8 @@ found solution: true
 number of visited states: 4449
 number of states in the path: 40
 path : [null, LEFT, UP, RIGHT, UP, LEFT, DOWN, RIGHT, UP, DOWN, LEFT, UP, RIGHT, DOWN, UP, RIGHT, UP, RIGHT, LEFT, UP, LEFT, UP, RIGHT, RIGHT, LEFT, DOWN, RIGHT, UP, RIGHT, UP, DOWN, RIGHT, LEFT, DOWN, RIGHT, UP, RIGHT, DOWN, UP, LEFT]
-time: 2960 ms
-memory: 54525952 bytes
+time: 4092 ms
+memory: -93719904 bytes
 
 level: 20
 algorithm: A_STAR
@@ -175,7 +175,7 @@ found solution: true
 number of visited states: 818
 number of states in the path: 20
 path : [null, LEFT, RIGHT, RIGHT, UP, LEFT, LEFT, UP, LEFT, LEFT, DOWN, LEFT, RIGHT, UP, RIGHT, LEFT, UP, RIGHT, DOWN, LEFT]
-time: 59 ms
+time: 63 ms
 memory: 9439232 bytes
 
 level: 21
@@ -185,7 +185,7 @@ number of visited states: 3
 number of states in the path: 3
 path : [null, DOWN, RIGHT]
 time: 0 ms
-memory: 0 bytes
+memory: 1046528 bytes
 
 level: 22
 algorithm: A_STAR
@@ -211,8 +211,8 @@ found solution: true
 number of visited states: 103
 number of states in the path: 19
 path : [null, RIGHT, UP, RIGHT, DOWN, RIGHT, UP, RIGHT, DOWN, DOWN, LEFT, UP, DOWN, LEFT, UP, RIGHT, DOWN, LEFT, UP]
-time: 5 ms
-memory: 1174608 bytes
+time: 2 ms
+memory: 0 bytes
 
 level: 25
 algorithm: A_STAR
@@ -221,7 +221,7 @@ number of visited states: 18
 number of states in the path: 14
 path : [null, UP, LEFT, UP, RIGHT, DOWN, UP, LEFT, DOWN, RIGHT, UP, DOWN, LEFT, UP]
 time: 0 ms
-memory: 461392 bytes
+memory: 0 bytes
 
 level: 26
 algorithm: A_STAR
@@ -229,8 +229,8 @@ found solution: true
 number of visited states: 668
 number of states in the path: 34
 path : [null, RIGHT, RIGHT, UP, LEFT, RIGHT, UP, DOWN, LEFT, LEFT, RIGHT, DOWN, LEFT, DOWN, RIGHT, RIGHT, UP, LEFT, RIGHT, RIGHT, UP, LEFT, LEFT, DOWN, DOWN, LEFT, RIGHT, UP, LEFT, UP, DOWN, LEFT, LEFT, UP]
-time: 41 ms
-memory: 5478608 bytes
+time: 48 ms
+memory: 6291456 bytes
 
 level: 27
 algorithm: A_STAR
@@ -256,6 +256,15 @@ found solution: true
 number of visited states: 4166
 number of states in the path: 36
 path : [null, DOWN, LEFT, UP, LEFT, DOWN, RIGHT, DOWN, UP, LEFT, DOWN, LEFT, UP, UP, RIGHT, UP, UP, LEFT, DOWN, LEFT, UP, RIGHT, UP, LEFT, DOWN, RIGHT, DOWN, UP, LEFT, RIGHT, UP, LEFT, DOWN, LEFT, DOWN, RIGHT]
-time: 2947 ms
-memory: 48234496 bytes
+time: 2776 ms
+memory: 47183872 bytes
+
+level: 30
+algorithm: A_STAR
+found solution: true
+number of visited states: 82
+number of states in the path: 35
+path : [null, DOWN, RIGHT, RIGHT, UP, LEFT, UP, RIGHT, UP, DOWN, UP, DOWN, UP, RIGHT, UP, RIGHT, DOWN, RIGHT, DOWN, LEFT, DOWN, UP, RIGHT, UP, RIGHT, DOWN, LEFT, UP, RIGHT, UP, RIGHT, DOWN, LEFT, RIGHT, UP]
+time: 2 ms
+memory: 1046528 bytes
 
