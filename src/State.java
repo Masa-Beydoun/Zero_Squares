@@ -160,6 +160,7 @@ public class State{
             }
 
         }
+        System.out.println(unsolved);
         if(!unsolved.isEmpty()){
             lost=true;
             return true;

@@ -54,7 +54,7 @@ public class Algorithms {
         long memoryUsedAfter = runtime.totalMemory() - runtime.freeMemory();
         long memoryUsed = memoryUsedAfter - memoryUsedBefore;
         printPath(visited,path);
-        writeLogToFile(index,alg,visited,path,durationInMillis,memoryUsed);
+//        writeLogToFile(index,alg,visited,path,durationInMillis,memoryUsed);
         return path;
     }
 
@@ -86,7 +86,7 @@ public class Algorithms {
         if(checkGoal(root)) {
             System.out.println("DFS Recursive");
             globalPath = getPath(root);
-            writeLogToFile(index,AlgorithmName.DFS_RECURSIVE,visitedStates,globalPath,0,0);
+//            writeLogToFile(index,AlgorithmName.DFS_RECURSIVE,visitedStates,globalPath,0,0);
             return true;
         }
         if (existInVisited(root, visitedStates)) return false;
@@ -125,8 +125,9 @@ public class Algorithms {
         Queue<State> queue = new ArrayDeque<>();
         queue.add(root);
         while(!queue.isEmpty()){
+            System.out.println("visited " + visitedStates.size() + " states");
             State currentState = queue.remove();
-            if(existInVisited(currentState,visitedStates)) continue;
+//            if(existInVisited(currentState,visitedStates)) continue;
             visitedStates.add(currentState);
             if (checkGoal(currentState)) {
                 return getPath(currentState);
